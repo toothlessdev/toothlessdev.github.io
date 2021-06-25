@@ -3,7 +3,7 @@ description: Toothless' Personal Blog
 author: ToothLess
 logo: /toothlessdev.github.io/static/img/avatar.jpg
 github: https://github.com/toothlessdev
-about: Freelance developer
+about: Developer
 
 baseurl: "https://toothlessdev.github.io"
 url: "https://toothlessdev.github.io"
