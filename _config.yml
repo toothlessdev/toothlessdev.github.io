@@ -1,17 +1,17 @@
-title: John Smith
-description: My Personal Blog
-author: John Smith
+title: ToothLess Graffiti
+description: Toothless' Personal Blog
+author: toothless
 logo: /hcz-jekyll-blog/static/img/avatar.png
-github: https://github.com/codeasashu
+github: https://github.com/toothlessdev
 about: Freelance developer
 
-baseurl: ""
-url: ""
+baseurl: "https://toothlessdev.github.io"
+url: "https://toothlessdev.github.io"
 
 allowsearch: true
 
-disqus_shortname: aboutashu
-google_analytics: UA-72862926-1
+disqus_shortname: 
+google_analytics: 
 
 share:
   twitter_username: \#
@@ -19,7 +19,7 @@ share:
 
 
 enableTags: true
-tagarray: []
+tagarray: ["Dev", "Algorithm"]
 
 paginate: 20
 per_page: 20
