@@ -6,6 +6,11 @@ const repository = "http://toothlessdev.github.io";
 const nextConfig = {
     output: "export",
     basePath: "",
+
+    images: {
+        unoptimized: true,
+    },
+
     reactStrictMode: true,
 };
 
