@@ -16,10 +16,10 @@ jobs:
 
             - name: Configure Git
               run: |
-                  git config --global user.name "github-actions"
-                  git config --global user.email "toothlessdev@users.noreply.github.com"
+                  git config --global user.name "toothlessdev"
+                  git config --global user.email "toothless042@gmail.com"
 
             - name: Deploy to GitHub Pages
               run: npm run deploy
               env:
-                  GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
