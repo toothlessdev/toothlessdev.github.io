@@ -16,8 +16,8 @@ jobs:
 
             - name: Configure Git
               run: |
-                  git config user.name "toothlessdev"
-                  git config user.email "toothless042@gmail.com"
+                  git config --global user.name "toothlessdev"
+                  git config --global user.email "toothless042@gmail.com"
 
             - name: Build Gatsby application
               run: npm run build
