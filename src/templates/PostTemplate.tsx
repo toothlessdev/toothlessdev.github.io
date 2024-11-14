@@ -22,7 +22,7 @@ export default function PageTemplate({ data, children }: PageTemplateProps) {
     return (
         <RootLayout>
             <div className="border-b-[1px] border-[#3c444d] py-4">
-                <h1 className="text-white text-xl font-bold line-clamp-1">{data.mdx.frontmatter.title}</h1>
+                <h1 className="line-clamp-1 text-xl font-bold text-white">{data.mdx.frontmatter.title}</h1>
                 <p className="text-[#8f97a0]">{dayjs(data.mdx.frontmatter.date).format("YYYY-MM-DD")}</p>
             </div>
             <div className="markdown" style={{ width: "100%", maxWidth: "auto" }}>

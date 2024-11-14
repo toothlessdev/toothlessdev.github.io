@@ -20,7 +20,7 @@ export default function PostPage({ data }: PageProps<Data>) {
             <CategoryMenu></CategoryMenu>
 
             <section className="w-[70%]">
-                <div className="flex text-white py-2">
+                <div className="flex py-2 text-white">
                     <p className="font-bold">Posts</p>
                 </div>
 
@@ -32,7 +32,8 @@ export default function PostPage({ data }: PageProps<Data>) {
                             title={post.node.frontmatter.title}
                             content={post.node.body}
                             category={post.node.frontmatter.category}
-                            date={post.node.frontmatter.date}></PostCard>
+                            date={post.node.frontmatter.date}
+                        ></PostCard>
                     ))}
                 </div>
             </section>

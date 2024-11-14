@@ -14,7 +14,8 @@
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "typecheck": "tsc --noEmit",
-        "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+        "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+        "prettier": "prettier --write ."
     },
     "dependencies": {
         "@mdx-js/react": "^2.3.0",
@@ -55,6 +56,7 @@
         "@types/react": "^18.2.55",
         "@types/react-dom": "^18.2.19",
         "gatsby-plugin-alias-imports": "^1.0.5",
+        "prettier-plugin-tailwindcss": "^0.6.8",
         "typescript": "^5.3.3"
     }
 }

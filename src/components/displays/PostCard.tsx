@@ -17,22 +17,23 @@ export interface PostCardProps {
 export const PostCard = ({ slug, title, category, content, date }: PostCardProps) => {
     return (
         <Link to={`/posts${slug}`} className="hover:cursor-pointer">
-            <Card className="px-6 bg-[#0e1117] border-[#3d444d] text-white rounded-[8px] hover:cursor-pointer">
-                <CardHeader className="px-0 py-2 flex flex-row items-center">
-                    <div className="flex justify-end h-fit mt-[6px]">
+            <Card className="rounded-[8px] border-[#3d444d] bg-[#0e1117] px-6 text-white hover:cursor-pointer">
+                <CardHeader className="flex flex-row items-center px-0 py-2">
+                    <div className="mt-[6px] flex h-fit justify-end">
                         <NotebookPen size={16} className="mr-1 flex items-center" />
                     </div>
-                    <p className="font-bold text-md line-clamp-1">{title}</p>
+                    <p className="text-md line-clamp-1 font-bold">{title}</p>
                 </CardHeader>
                 <CardContent className="p-0">
-                    <p className="text-sm line-clamp-2 text-[#9198a1]">{toPlainText(content)}</p>
+                    <p className="line-clamp-2 text-sm text-[#9198a1]">{toPlainText(content)}</p>
                 </CardContent>
-                <CardFooter className="mb-[6px] px-0 py-2 text-[#9198a1] flex">
+                <CardFooter className="mb-[6px] flex px-0 py-2 text-[#9198a1]">
                     <div
-                        className={`w-[12px] h-[12px] mr-1 aspect-square rounded-full`}
+                        className={`mr-1 aspect-square h-[12px] w-[12px] rounded-full`}
                         style={{
                             backgroundColor: categoryColor[category],
-                        }}></div>
+                        }}
+                    ></div>
                     <p className="text-sm">{category}</p>
                 </CardFooter>
             </Card>
@@ -45,5 +46,5 @@ export interface PostCardContainerProps {
 }
 
 export const PostCardContainer = ({ children }: PostCardContainerProps) => {
-    return <ul className="grid gap-2 grid-cols-1 md:grid-cols-2">{children}</ul>;
+    return <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">{children}</ul>;
 };

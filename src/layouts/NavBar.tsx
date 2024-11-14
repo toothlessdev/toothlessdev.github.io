@@ -4,8 +4,8 @@ import React from "react";
 
 export const NavBar = () => {
     return (
-        <nav className="w-full max-w-[1000px] mx-auto px-[10px] bg-[#02040a]">
-            <ul className="flex gap-4 h-[40px]">
+        <nav className="mx-auto w-full max-w-[1000px] bg-[#02040a] px-[10px]">
+            <ul className="flex h-[40px] gap-4">
                 {nav.map((item) => {
                     return <NavItem {...item} />;
                 })}
@@ -24,10 +24,11 @@ export const NavItem = ({ to, children }: NavItemProps) => {
         <li className="h-full">
             <Link
                 to={to}
-                className="flex items-center h-full text-white text-sm border-b-[2px] border-[#0e1117]"
+                className="flex h-full items-center border-b-[2px] border-[#0e1117] text-sm text-white"
                 activeStyle={{
                     borderBottom: "2px solid #f78166",
-                }}>
+                }}
+            >
                 {children}
             </Link>
         </li>

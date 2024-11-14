@@ -25,7 +25,7 @@ export default function HomePage({ data }: PageProps<Data>) {
             <Hero></Hero>
 
             <section>
-                <div className="flex text-white py-2">
+                <div className="flex py-2 text-white">
                     <p>Pinned</p>
                 </div>
 
@@ -40,13 +40,14 @@ export default function HomePage({ data }: PageProps<Data>) {
                                 recusandae, eligendi amet alias veritatis dolorum animi atque?
                             `}
                             category={post.node.frontmatter.category}
-                            date={post.node.frontmatter.date}></PostCard>
+                            date={post.node.frontmatter.date}
+                        ></PostCard>
                     ))}
                 </PostCardContainer>
             </section>
 
             <section>
-                <div className="flex text-white py-2">
+                <div className="flex py-2 text-white">
                     <p>Recent Posts</p>
                 </div>
 
@@ -58,7 +59,8 @@ export default function HomePage({ data }: PageProps<Data>) {
                             title={post.node.frontmatter.title}
                             content={post.node.body}
                             category={post.node.frontmatter.category}
-                            date={post.node.frontmatter.date}></PostCard>
+                            date={post.node.frontmatter.date}
+                        ></PostCard>
                     ))}
                 </PostCardContainer>
             </section>
@@ -68,7 +70,11 @@ export default function HomePage({ data }: PageProps<Data>) {
 
 export const query = graphql`
     query {
-        pinned: allMdx(filter: { frontmatter: { pinned: { eq: true } } }, sort: { frontmatter: { date: DESC } }, limit: 4) {
+        pinned: allMdx(
+            filter: { frontmatter: { pinned: { eq: true } } }
+            sort: { frontmatter: { date: DESC } }
+            limit: 4
+        ) {
             edges {
                 node {
                     id

@@ -51,7 +51,7 @@ export const CategoryMenu = () => {
     });
 
     return (
-        <aside className="text-white w-[30%] p-2">
+        <aside className="w-[30%] p-2 text-white">
             <h2 className="font-bold">Categories</h2>
             <nav className="py-2">
                 {categories.map((category) => {
@@ -74,9 +74,12 @@ export const CategoryMenuItem = ({ category, contents }: CategoryMenuItemProps) 
     return (
         <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-none">
-                <AccordionTrigger className="h-[22px] px-2 rounded-[4px] border-none hover:bg-[#161a21]">
-                    <div className="flex justify-start items-center hover:no-underline">
-                        <div className="w-[12px] h-[12px] mr-1 rounded-full" style={{ backgroundColor: categoryColor[category] }} />
+                <AccordionTrigger className="h-[22px] rounded-[4px] border-none px-2 hover:bg-[#161a21]">
+                    <div className="flex items-center justify-start hover:no-underline">
+                        <div
+                            className="mr-1 h-[12px] w-[12px] rounded-full"
+                            style={{ backgroundColor: categoryColor[category] }}
+                        />
                         <p className="hover:no-underline">{category}</p>
                     </div>
                 </AccordionTrigger>
@@ -84,7 +87,7 @@ export const CategoryMenuItem = ({ category, contents }: CategoryMenuItemProps) 
                     {contents.map((content) => {
                         return (
                             <Link to={`/posts${content.slug}`}>
-                                <p className="pl-8 py-1.5">{content.title}</p>
+                                <p className="py-1.5 pl-8">{content.title}</p>
                             </Link>
                         );
                     })}
