@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+
 import { NotebookPen } from "lucide-react";
 import { Link } from "gatsby";
 import { categoryColor, CategoryKey } from "@/constants/categories";
 import { toPlainText } from "@/lib/toPlainText";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 export interface PostCardProps {
     slug: string;
@@ -39,12 +40,4 @@ export const PostCard = ({ slug, title, category, content, date }: PostCardProps
             </Card>
         </Link>
     );
-};
-
-export interface PostCardContainerProps {
-    children: React.ReactNode;
-}
-
-export const PostCardContainer = ({ children }: PostCardContainerProps) => {
-    return <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">{children}</ul>;
 };

@@ -12,7 +12,7 @@ export const RootLayout = ({ children, className }: RootLayoutProps) => {
     return (
         <>
             <Header />
-            <main className={cn("mx-auto w-full max-w-[1000px] p-[10px]", className)}>{children}</main>
+            <main className={cn("mx-auto w-full max-w-[1000px] p-[12px] md:px-[18px]", className)}>{children}</main>
         </>
     );
 };

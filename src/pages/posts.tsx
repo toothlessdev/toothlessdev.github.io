@@ -5,6 +5,7 @@ import { graphql, PageProps } from "gatsby";
 import { PostCard } from "@/components/displays/PostCard";
 import { CategoryKey } from "@/constants/categories";
 import { CategoryMenu } from "@/components/navigations/CategoryMenu";
+import { PostListItem } from "@/components/displays/PostList/PostListItem";
 
 interface Data {
     allMdx: {
@@ -17,23 +18,23 @@ export default function PostPage({ data }: PageProps<Data>) {
 
     return (
         <RootLayout className="flex">
-            <CategoryMenu></CategoryMenu>
+            <CategoryMenu />
 
-            <section className="w-[70%]">
-                <div className="flex py-2 text-white">
+            <section className="w-[70%] p-2">
+                <div className="flex text-white">
                     <p className="font-bold">Posts</p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2">
                     {posts.map((post) => (
-                        <PostCard
+                        <PostListItem
                             key={post.node.id}
                             slug={post.node.frontmatter.slug}
                             title={post.node.frontmatter.title}
                             content={post.node.body}
                             category={post.node.frontmatter.category}
                             date={post.node.frontmatter.date}
-                        ></PostCard>
+                        ></PostListItem>
                     ))}
                 </div>
             </section>

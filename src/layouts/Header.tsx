@@ -1,9 +1,8 @@
 import React from "react";
 
-import { NavBar } from "./NavBar";
+import { NavTop } from "@/components/navigations/NavTop";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Instagram, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export const Header = () => {
     return (
@@ -14,7 +13,6 @@ export const Header = () => {
                         <AvatarImage src="https://avatars.githubusercontent.com/u/52105661?v=4" />
                         <AvatarFallback>TL</AvatarFallback>
                     </Avatar>
-
                     <h1 className="text-lg font-bold text-white">toothlessdev</h1>
                 </div>
 
@@ -41,7 +39,7 @@ export const Header = () => {
                     </button>
                 </div>
             </div>
-            <NavBar />
+            <NavTop />
         </header>
     );
 };

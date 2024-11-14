@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    .container-width {
+        @apply mx-auto w-full max-w-[1024px];
+    }
+
     :root {
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;
@@ -61,6 +65,7 @@
 
 body {
     background-color: #0e1117;
+    color: #fff;
 }
 
 .markdown * {
