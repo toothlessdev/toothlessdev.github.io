@@ -2,6 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 import path from "path";
 
 const config: GatsbyConfig = {
+    pathPrefix: "/toothlessdev.github.io",
     siteMetadata: {
         title: `toothlessdev`,
         siteUrl: `https://toothlessdev.github.io`,
