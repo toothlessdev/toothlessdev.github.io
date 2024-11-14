@@ -24,6 +24,14 @@ jobs:
             - name: Build project
               run: npm run build
 
+            - name: Checkout gh-pages branch
+              run: |
+                  git fetch origin gh-pages
+                  git checkout gh-pages || git checkout -b gh-pages
+
+            - name: Copy build files
+              run: cp -r build/* .
+
             - name: Deploy to GitHub Pages
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
