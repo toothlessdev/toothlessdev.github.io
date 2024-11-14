@@ -14,11 +14,6 @@ jobs:
             - name: Install dependencies
               run: npm install
 
-            - name: Configure Git
-              run: |
-                  git config --global user.name "toothlessdev"
-                  git config --global user.email "toothless042@gmail.com"
-
             - name: Build Gatsby application
               run: npm run build
 
