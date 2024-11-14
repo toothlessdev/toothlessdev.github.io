@@ -1,0 +1,26 @@
+name: Deploy Gatsby to GitHub Pages
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "22"
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build Gatsby site
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              publish_dir: ./public
