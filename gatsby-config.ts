@@ -10,17 +10,6 @@ const config: GatsbyConfig = {
     graphqlTypegen: true,
     plugins: [
         "gatsby-plugin-postcss",
-        "gatsby-plugin-image",
-        "gatsby-plugin-sharp",
-        "gatsby-transformer-sharp",
-        {
-            resolve: "gatsby-source-filesystem",
-            options: {
-                name: "images",
-                path: "./src/images/",
-            },
-            __key: "images",
-        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
@@ -28,20 +17,6 @@ const config: GatsbyConfig = {
                 path: "./src/pages/",
             },
             __key: "pages",
-        },
-        {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                extensions: [`mdx`, `md`],
-                gatsbyRemarkPlugins: [
-                    {
-                        resolve: `gatsby-remark-images`,
-                        options: {
-                            maxWidth: 590,
-                        },
-                    },
-                ],
-            },
         },
         {
             resolve: `gatsby-source-filesystem`,
@@ -60,6 +35,29 @@ const config: GatsbyConfig = {
                 extensions: [],
             },
         },
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: [`mdx`, `md`],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: "gatsby-remark-mdx-relative-images",
+                        options: {
+                            staticFolderName: path.join(__dirname, "static"),
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 590,
+                        },
+                    },
+                ],
+            },
+        },
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+        "gatsby-transformer-sharp",
     ],
 };
 
