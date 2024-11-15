@@ -55,7 +55,7 @@ export const CategoryMenu = () => {
 
     return (
         <aside className="w-[30%] p-2 text-white">
-            <h2 className="font-bold">Categories</h2>
+            <h2 className="flex h-[36px] items-center font-bold">Categories</h2>
             <nav className="py-2">
                 {categories.map((category) => {
                     return <CategoryMenuItem category={category.category} contents={category.content} />;

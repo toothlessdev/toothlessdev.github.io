@@ -6,7 +6,7 @@ import { Github, Instagram, Linkedin } from "lucide-react";
 
 export const Header = () => {
     return (
-        <header className="sticky top-0 w-full border-b-[1px] border-b-[#3d444d] bg-[#02040a]">
+        <header className="sticky top-0 z-30 w-full border-b-[1px] border-b-[#3d444d] bg-[#02040a] px-6">
             <div className="mx-auto flex w-full max-w-[1000px] justify-between px-[10px] py-4">
                 <div className="flex items-center gap-4">
                     <Avatar className="h-10 w-10">

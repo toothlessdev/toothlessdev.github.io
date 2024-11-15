@@ -2,10 +2,10 @@ import React from "react";
 
 import { RootLayout } from "@/layouts/RootLayout";
 import { graphql, PageProps } from "gatsby";
-import { PostCard } from "@/components/displays/PostCard";
 import { CategoryKey } from "@/constants/categories";
 import { CategoryMenu } from "@/components/navigations/CategoryMenu";
 import { PostListItem } from "@/components/displays/PostList/PostListItem";
+import { Filter } from "@/components/forms/Filter/Filter";
 
 interface Data {
     allMdx: {
@@ -21,8 +21,9 @@ export default function PostPage({ data }: PageProps<Data>) {
             <CategoryMenu />
 
             <section className="w-[70%] p-2">
-                <div className="flex text-white">
+                <div className="flex items-center justify-between text-white">
                     <p className="font-bold">Posts</p>
+                    <Filter></Filter>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2">
@@ -37,6 +38,8 @@ export default function PostPage({ data }: PageProps<Data>) {
                         ></PostListItem>
                     ))}
                 </div>
+
+                {/* <PageNavigation></PageNavigation> */}
             </section>
         </RootLayout>
     );
@@ -44,7 +47,7 @@ export default function PostPage({ data }: PageProps<Data>) {
 
 export const query = graphql`
     query {
-        allMdx(filter: { frontmatter: { pinned: { eq: true } } }, sort: { frontmatter: { date: DESC } }, limit: 4) {
+        allMdx(filter: { frontmatter: { pinned: { eq: true } } }, sort: { frontmatter: { date: DESC } }, limit: 10) {
             edges {
                 node {
                     id

@@ -31,10 +31,8 @@ export const PostCard = ({ slug, title, category, content, date }: PostCardProps
                 <CardFooter className="mb-[6px] flex px-0 py-2 text-[#9198a1]">
                     <div
                         className={`mr-1 aspect-square h-[12px] w-[12px] rounded-full`}
-                        style={{
-                            backgroundColor: categoryColor[category],
-                        }}
-                    ></div>
+                        style={{ backgroundColor: categoryColor[category] }}
+                    />
                     <p className="text-sm">{category}</p>
                 </CardFooter>
             </Card>

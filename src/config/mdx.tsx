@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const mdxComponents = {
     Link: Link,
@@ -17,7 +18,7 @@ export const mdxComponents = {
     blockquote: (props: any) => <blockquote className="border-l-4 border-blue-500 pl-2" {...props} />,
     pre: (props: any) => <pre className="rounded-[8px] bg-gray-800 p-4" {...props} />,
     code: (props: any) => <code className="rounded-[6px] bg-gray-800 p-1 text-sm" {...props} />,
-    img: (props: any) => <img className="rounded-md" {...props} />,
+    img: (props: any) => <img {...props} />,
     table: (props: any) => <table className="table-auto" {...props} />,
     th: (props: any) => <th className="border px-4 py-2" {...props} />,
     td: (props: any) => <td className="border px-4 py-2" {...props} />,
@@ -25,4 +26,5 @@ export const mdxComponents = {
     wrapper: ({ children }: { children: any }) => {
         return <div style={{ width: "100%" }}>{children}</div>;
     },
+    StaticImage,
 };
