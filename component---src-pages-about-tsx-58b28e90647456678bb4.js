@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[970],{4748:function(e,n,u){u.r(n),u.d(n,{default:function(){return r}});var t=u(6540),l=u(4489);function r(){return t.createElement(l.H,null,"about")}}}]);
+//# sourceMappingURL=component---src-pages-about-tsx-58b28e90647456678bb4.js.map
