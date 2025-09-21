@@ -1,0 +1,6 @@
+{
+    "Create Post": {
+        "prefix": ["!meta"],
+        "body": ["---", "title: $1", "createdAt: $2", "category: $3", "description: $6", "---"],
+    },
+}
