@@ -123,7 +123,7 @@ function sortPostsByDate(posts) {
  * @returns {Promise<Object[]>} - 정렬된 포스트 배열
  */
 async function generatePostsData() {
-    const postsDir = join(process.cwd(), "pages", "posts");
+    const postsDir = join(process.cwd(), "contents", "posts");
     const posts = await scanDirectory(postsDir, "/posts");
     return sortPostsByDate(posts);
 }

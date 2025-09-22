@@ -52,10 +52,10 @@ export default defineConfig({
     },
 
     rewrites: {
-        "pages/posts/index.md": "posts/index.md",
-        "pages/posts/:slug*": "posts/:slug*",
-        "pages/projects/index.md": "projects/index.md",
-        "pages/projects/:slug*": "projects/:slug*",
+        "contents/posts/index.md": "posts/index.md",
+        "contents/posts/:slug*": "posts/:slug*",
+        "contents/projects/index.md": "projects/index.md",
+        "contents/projects/:slug*": "projects/:slug*",
     },
 
     vite: {

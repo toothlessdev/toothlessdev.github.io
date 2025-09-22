@@ -19,7 +19,7 @@ export function generateSidebar(
     folderPath: string = "posts",
     urlPath?: string,
 ): DefaultTheme.SidebarItem[] {
-    const targetDir = join(process.cwd(), "pages", folderPath);
+    const targetDir = join(process.cwd(), "contents", folderPath);
     const finalUrlPath = urlPath || `/${folderPath}`;
 
     try {

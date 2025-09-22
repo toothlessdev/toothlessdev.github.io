@@ -15,7 +15,7 @@ async function executePostGeneration() {
  * 파일이 pages 디렉토리의 마크다운 파일인지 확인합니다
  */
 function isPagesMarkdownFile(filePath: string): boolean {
-    return filePath.includes("/pages/") && filePath.endsWith(".md");
+    return filePath.includes("/contents/") && filePath.endsWith(".md");
 }
 
 /**
