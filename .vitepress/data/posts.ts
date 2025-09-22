@@ -68,6 +68,33 @@ export const posts: Post[] = [
     }
   },
   {
+    "url": "/posts/Aws/lambda-image-optimization",
+    "frontmatter": {
+      "title": "AWS Lambda & S3 트리거로 이미지 최적화 자동화하기",
+      "createdAt": "2025-01-15T00:00:00.000Z",
+      "category": "Aws",
+      "description": "AWS Lambda와 S3 트리거를 활용하여 이미지 업로드 시 자동으로 최적화하는 방법에 대해 알아봅니다. Sharp 라이브러리를 사용하여 JPEG, PNG, WebP 등 다양한 포맷의 이미지를 효율적으로 변환하고 저장하는 과정을 다룹니다."
+    }
+  },
+  {
+    "url": "/posts/Web/image-optimization",
+    "frontmatter": {
+      "title": "응~ 이미지 키워봐~ 최적화 하면 그만이야 (pt2. 다양한 최적화 기법)",
+      "createdAt": "2024-12-19T00:00:00.000Z",
+      "category": "Web",
+      "description": "2024 경북대학교 디자인학과 졸업전시 웹사이트 개발 경험을 바탕으로, React 환경에서 이미지 최적화 기법을 적용하는 방법에 대해 알아봅니다. 지연 로딩, 크기 조정, CDN 활용 등 다양한 전략을 통해 웹 성능을 향상시키는 방법을 다룹니다."
+    }
+  },
+  {
+    "url": "/posts/Web/image-format",
+    "frontmatter": {
+      "title": "응~ 이미지 키워봐~ 최적화 하면 그만이야 (pt1. 이미지 포맷)",
+      "createdAt": "2024-12-03T00:00:00.000Z",
+      "category": "Web",
+      "description": "almanac.httparchive.org 의 2022년 보고서에 따르면, 이미지가 하나 이상 포함된 페이지는 99.9%에 달하며, LCP 에 가장 큰 영향을 미치는 요소이기도 합니다. 2024 경북대학교 디자인학과 졸업전시 사이트를 개발하며 경험한 이미지 포맷의 종류와 최적화 방법에 대해 알아보겠습니다"
+    }
+  },
+  {
     "url": "/posts/React/inf-scroll",
     "frontmatter": {
       "title": "React로 무한 스크롤 구현하기 (Intersection Observer 활용)",
