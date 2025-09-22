@@ -19,7 +19,7 @@ export default defineConfig({
                 items: [
                     { text: "전체", link: "/posts/" },
                     { text: "Web", link: "/posts/Web/" },
-                    { text: "JavaScript", link: "/posts/javascript/" },
+                    { text: "JavaScript", link: "/posts/JavaScript/" },
                     { text: "React", link: "/posts/React/" },
                 ],
             },
