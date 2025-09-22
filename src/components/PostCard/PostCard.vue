@@ -29,17 +29,8 @@
 
 <script setup lang="ts">
 import { getCategoryColor } from "@/constants/colors";
+import type { Post } from "@/models/PostModel";
 import "./PostCard.css";
-
-interface Post {
-    url: string;
-    frontmatter: {
-        title: string;
-        createdAt: string;
-        category: string;
-        description: string;
-    };
-}
 
 interface Props {
     post: Post;

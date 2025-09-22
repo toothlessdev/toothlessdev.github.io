@@ -7,9 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import { posts } from "../../../.vitepress/data/posts";
+import postsData from "../../../data/posts.json";
 import { computed } from "vue";
 import PostCard from "../PostCard/PostCard.vue";
+import type { Post } from "@/models/PostModel";
 import "./PostCardList.css";
 
 interface Props {
@@ -19,6 +20,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     category: undefined,
 });
+
+const posts = postsData as Post[];
 
 const sortedPosts = computed(() => {
     if (props.category) {
