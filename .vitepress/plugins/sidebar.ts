@@ -26,7 +26,7 @@ export function generateSidebar(): DefaultTheme.SidebarItem[] {
         return [];
     }
 
-    const sidebarItems = generateSidebarItems(postsDir, "/pages/posts");
+    const sidebarItems = generateSidebarItems(postsDir, "/posts");
     return sidebarItems;
 }
 
@@ -85,7 +85,7 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
         if (indexFile) {
             items.unshift({
                 text: "개요",
-                link: basePath === "/pages" ? "/pages/" : basePath,
+                link: basePath === "/posts" ? "/posts/" : basePath,
             });
         }
     } catch (error) {
@@ -136,5 +136,5 @@ export function generateSidebarForPath(path: string): DefaultTheme.SidebarItem[]
         return [];
     }
 
-    return generateSidebarItems(targetDir, `/pages/${path}`);
+    return generateSidebarItems(targetDir, `/posts/${path}`);
 }

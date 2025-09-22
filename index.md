@@ -8,7 +8,7 @@ hero:
     actions:
         - theme: brand
           text: 블로그 보기
-          link: /pages/posts/
+          link: /posts/
         - theme: alt
           text: GitHub
           link: https://github.com/toothlessdev

@@ -124,7 +124,7 @@ function sortPostsByDate(posts) {
  */
 async function generatePostsData() {
     const postsDir = join(process.cwd(), "pages", "posts");
-    const posts = await scanDirectory(postsDir, "/pages/posts");
+    const posts = await scanDirectory(postsDir, "/posts");
     return sortPostsByDate(posts);
 }
 

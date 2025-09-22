@@ -14,18 +14,18 @@ export default defineConfig({
             {
                 text: "Blog",
                 items: [
-                    { text: "전체", link: "/pages/posts/" },
-                    { text: "JavaScript", link: "/pages/posts/javascript/" },
-                    { text: "React", link: "/pages/posts/react/" },
-                    { text: "Vue.js", link: "/pages/posts/vue/" },
-                    { text: "백엔드", link: "/pages/posts/backend/" },
-                    { text: "WEB", link: "/pages/posts/web/" },
+                    { text: "전체", link: "/posts/" },
+                    { text: "JavaScript", link: "/posts/javascript/" },
+                    { text: "React", link: "/posts/react/" },
+                    { text: "Vue.js", link: "/posts/vue/" },
+                    { text: "백엔드", link: "/posts/backend/" },
+                    { text: "WEB", link: "/posts/web/" },
                 ],
             },
         ],
 
         sidebar: {
-            "/pages/posts/": generateSidebar(),
+            "/posts/": generateSidebar(),
 
             "/": [
                 {
@@ -43,6 +43,12 @@ export default defineConfig({
 
     sitemap: {
         hostname: "https://toothlessdev.github.io/",
+    },
+
+    // URL 리라이트 설정 - /posts/* -> /pages/posts/*
+    rewrites: {
+        "pages/posts/index.md": "posts/index.md",
+        "pages/posts/:slug*": "posts/:slug*",
     },
 
     vite: {
