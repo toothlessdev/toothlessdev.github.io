@@ -3,6 +3,8 @@ import { generateSidebar } from "./plugins/sidebar";
 
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
 const NAVER_SITE_VERIFICATION_CODE = "596cb41268d676e378deaba826716cd18229d0b1";
 
@@ -65,18 +67,22 @@ export default defineConfig({
             "script",
             {
                 async: "",
-                src: `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`,
+                src: isProduction
+                    ? `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`
+                    : "",
             },
         ],
         [
             "script",
             {},
-            `
+            isProduction
+                ? `
                 window.dataLayer = window.dataLayer || [];
                 function gtag() { dataLayer.push(arguments); }
                 gtag('js', new Date());
                 gtag('config', '${GOOGLE_ANALYTICS_ID}');
-            `,
+            `
+                : "",
         ],
         [
             "meta",
