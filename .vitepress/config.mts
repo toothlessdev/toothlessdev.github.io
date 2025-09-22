@@ -22,10 +22,12 @@ export default defineConfig({
                     { text: "WEB", link: "/posts/web/" },
                 ],
             },
+            { text: "Projects", link: "/projects/" },
         ],
 
         sidebar: {
-            "/posts/": generateSidebar(),
+            "/posts/": generateSidebar("posts", "/posts"),
+            "/projects/": generateSidebar("projects", "/projects"),
 
             "/": [
                 {
@@ -49,6 +51,8 @@ export default defineConfig({
     rewrites: {
         "pages/posts/index.md": "posts/index.md",
         "pages/posts/:slug*": "posts/:slug*",
+        "pages/projects/index.md": "projects/index.md",
+        "pages/projects/:slug*": "projects/:slug*",
     },
 
     vite: {

@@ -11,22 +11,28 @@ interface SidebarItem {
 }
 
 /**
- * pages/posts 폴더 구조를 기반으로 자동으로 사이드바를 생성하는 함수
+ * 폴더 구조를 기반으로 자동으로 사이드바를 생성하는 함수
+ * @param folderPath - pages 폴더 내의 상대 경로 (예: 'posts', 'projects')
+ * @param urlPath - URL 경로 (예: '/posts', '/projects')
  */
-export function generateSidebar(): DefaultTheme.SidebarItem[] {
-    const postsDir = join(process.cwd(), "pages", "posts");
+export function generateSidebar(
+    folderPath: string = "posts",
+    urlPath?: string,
+): DefaultTheme.SidebarItem[] {
+    const targetDir = join(process.cwd(), "pages", folderPath);
+    const finalUrlPath = urlPath || `/${folderPath}`;
 
     try {
-        // posts 폴더가 존재하지 않으면 빈 사이드바 반환
-        if (!statSync(postsDir).isDirectory()) {
+        // 폴더가 존재하지 않으면 빈 사이드바 반환
+        if (!statSync(targetDir).isDirectory()) {
             return [];
         }
     } catch (error) {
-        // posts 폴더가 없으면 빈 사이드바 반환
+        // 폴더가 없으면 빈 사이드바 반환
         return [];
     }
 
-    const sidebarItems = generateSidebarItems(postsDir, "/posts");
+    const sidebarItems = generateSidebarItems(targetDir, finalUrlPath);
     return sidebarItems;
 }
 
@@ -85,7 +91,7 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
         if (indexFile) {
             items.unshift({
                 text: "개요",
-                link: basePath === "/posts" ? "/posts/" : basePath,
+                link: `${basePath}/`,
             });
         }
     } catch (error) {
@@ -123,10 +129,16 @@ function formatTitle(name: string): string {
 
 /**
  * 특정 경로에 대한 사이드바만 생성 (다중 사이드바 사용 시)
+ * @param folderPath - pages 폴더 내의 상대 경로
+ * @param urlPath - URL 경로
  */
-export function generateSidebarForPath(path: string): DefaultTheme.SidebarItem[] {
+export function generateSidebarForPath(
+    folderPath: string,
+    urlPath?: string,
+): DefaultTheme.SidebarItem[] {
     const pagesDir = join(process.cwd(), "pages");
-    const targetDir = join(pagesDir, path);
+    const targetDir = join(pagesDir, folderPath);
+    const finalUrlPath = urlPath || `/${folderPath}`;
 
     try {
         if (!statSync(targetDir).isDirectory()) {
@@ -136,5 +148,5 @@ export function generateSidebarForPath(path: string): DefaultTheme.SidebarItem[]
         return [];
     }
 
-    return generateSidebarItems(targetDir, `/posts/${path}`);
+    return generateSidebarItems(targetDir, finalUrlPath);
 }
