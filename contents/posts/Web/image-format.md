@@ -7,10 +7,6 @@ description: almanac.httparchive.org 의 2022년 보고서에 따르면, 이미�
 
 # 🤡 응~ 이미지 키워봐~ 최적화 하면 그만이야 (pt1. 이미지 포맷)
 
-:::warning
-아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
-:::
-
 <br/>
 
 ## 들어가며
@@ -39,6 +35,13 @@ description: almanac.httparchive.org 의 2022년 보고서에 따르면, 이미�
 
 ## 최신 이미지 포맷
 
+<center>
+    <figure>
+        <img src="./img/image-format/image-3.png" alt="https://almanac.httparchive.org/en/2022/page-weight" width="600px"/>
+        <figcaption>출처 : <a href="https://almanac.httparchive.org/en/2022/page-weight">https://almanac.httparchive.org/en/2022/page-weight</a></figcaption>
+    </figure>
+</center>
+
 웹 성능을 결정짓는 최대 빌런 중 하나는 이미지입니다. <br/>
 [almanac.httparchive.org 의 2022년 보고서](https://almanac.httparchive.org/en/2022/page-weight)에 따르면, 이미지가 하나 이상 포함된 페이지는 99.9%에 달하며, LCP 에 가장 큰 영향을 미치는 요소이기도 합니다.
 
@@ -65,7 +68,7 @@ JPEG는 웹에서 수십년간 사골처럼 우려먹은 이미지 포맷입니�
 
 <center>
     <figure>
-        <img src="./img/image-format/image-3.png" alt="https://web.dev/learn/images/jpeg?hl=ko" width="600px"/>
+        <img src="./img/image-format/image-4.gif" alt="https://web.dev/learn/images/jpeg?hl=ko" width="600px"/>
         <figcaption>출처 : <a href="https://web.dev/learn/images/jpeg?hl=ko">https://web.dev/learn/images/jpeg?hl=ko</a></figcaption>
     </figure>
 </center>
