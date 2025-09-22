@@ -14,6 +14,15 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    "url": "/posts/React/react-toastify",
+    "frontmatter": {
+      "title": "react-toastify 는 어떻게 리액트 렌더링사이클 밖에서도 토스트를 띄울수 있을까?",
+      "createdAt": "2025-09-21T00:00:00.000Z",
+      "category": "React",
+      "description": "리액트에서 상태 관리와 렌더링은 보통 컴포넌트 내부의 state, props를 통해 이루어진다. 그런데 진짜 실무에서는 \"리액트 컴포넌트 바깥\"에서, 즉 비동기 로직이나 이벤트 핸들러, API 응답 등 어디서든 토스트(알림)를 띄우고 싶을 때가 많다. 어떻게 그게 가능할까?"
+    }
+  },
+  {
     "url": "/posts/JavaScript/js-execution-context-part2",
     "frontmatter": {
       "title": "JavaScript Execution Context 실행 컨텍스트 - 예제편 (feat. 호이스팅, 스코프 체인, 클로저)",
@@ -74,42 +83,6 @@ export const posts: Post[] = [
       "createdAt": "2024-10-25T00:00:00.000Z",
       "category": "Web",
       "description": "REST API 는 REpresentational State Transfer API 로, 웹 서비스에서 통신하는데 사용되는 소프트웨어 인터페이스입니다."
-    }
-  },
-  {
-    "url": "/posts/React/hooks-basics",
-    "frontmatter": {
-      "title": "React Hooks 기초",
-      "createdAt": "2024-04-05T00:00:00.000Z",
-      "category": "React",
-      "description": "React Hooks를 사용한 함수형 컴포넌트 개발을 알아보겠습니다. useState, useEffect 등 기본 Hooks의 사용법과 패턴을 다룹니다."
-    }
-  },
-  {
-    "url": "/posts/JavaScript/async-programming",
-    "frontmatter": {
-      "title": "JavaScript 비동기 프로그래밍",
-      "createdAt": "2024-03-20T00:00:00.000Z",
-      "category": "JavaScript",
-      "description": "JavaScript의 비동기 처리 방법들을 알아보겠습니다. Promise, async/await, fetch API 등을 활용한 비동기 프로그래밍 패턴을 다룹니다."
-    }
-  },
-  {
-    "url": "/posts/JavaScript/es6-basics",
-    "frontmatter": {
-      "title": "ES6 기본 문법",
-      "createdAt": "2024-03-15T00:00:00.000Z",
-      "category": "JavaScript",
-      "description": "ES6에서 새로 추가된 기본 문법들을 알아보겠습니다. let, const, 화살표 함수, 템플릿 리터럴 등 모던 JavaScript의 핵심 기능들을 다룹니다."
-    }
-  },
-  {
-    "url": "/posts/JavaScript/test-automation",
-    "frontmatter": {
-      "title": "자동화 테스트 포스트",
-      "createdAt": "2024-01-20",
-      "category": "JavaScript",
-      "description": "사이드바와 포스트 목록이 자동으로 업데이트되는지 테스트하는 포스트입니다."
     }
   }
 ]
