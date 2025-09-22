@@ -13,7 +13,7 @@ description: JavaScript 실행 컨텍스트란 무엇인가요? 실행 컨텍스
 스코프 (Scope), 클로저 (Closure), this 바인딩까지 모두 실행 컨텍스트와 연관되어 있습니다.
 
 <center>
-    <img src="./img/js-execution-context-0.png" width={800} />
+    <img src="./img/execution-context/js-execution-context-0.png" width={800} />
 </center>
 
 실제 면접에서도 "자바스크립트의 실행 컨텍스트에 대해 설명해보세요"는 단골 질문입니다. <br />
@@ -26,7 +26,7 @@ description: JavaScript 실행 컨텍스트란 무엇인가요? 실행 컨텍스
 ## 🤔 실행 컨텍스트란 무엇인가?
 
 <center>
-    <img src="./img/js-execution-context-1.png" width={800} />
+    <img src="./img/execution-context/js-execution-context-1.png" width={800} />
 </center>
 
 우리가 JavaScript 코드를 작성하고 실행될 때, `import` `export` 를 통해 모듈 코드를 실행할때, 함수 호출을 할 때, <br />
@@ -36,7 +36,7 @@ description: JavaScript 실행 컨텍스트란 무엇인가요? 실행 컨텍스
 ## 🏗️ 실행 컨텍스트의 구성 요소
 
 <center>
-    <img src="./img/js-execution-context-2.png" width={800} />
+    <img src="./img/execution-context/js-execution-context-2.png" width={800} />
 </center>
 
 실행 컨텍스트는 크게 다음과 같은 요소로 구성되어 있습니다.
@@ -57,7 +57,7 @@ Realm 은 JavaScript 코드가 실행되는 독립된 (Isolated) 환경을 의�
 Realm 은 다음과 같은 요소로 구성되어 있습니다.
 
 <center>
-    <img src="./img/js-execution-context-realm.png" width={400} />
+    <img src="./img/execution-context/js-execution-context-realm.png" width={400} />
 </center>
 
 #### 1.1. Intrinsics (내장객체)
@@ -102,7 +102,7 @@ Environment Record 는 **식별자 바인딩**을 저장하는 객체입니다. 
 또한, 공통적으로 **상위 Environment Record 에 대한 참조를 저장**하는 `[[Outer Env Reference]]` 슬롯을 가집니다. <br />
 
 <center>
-    <img src="./img/js-execution-context-overview.png" width={800} />
+    <img src="./img/execution-context/js-execution-context-overview.png" width={800} />
 </center>
 
 `Environment Record` 는 식별자를 어떻게 선언하느냐에 따라 `Lexical Environment` 와 `Variable Environment` 로 나뉩니다. <br />
@@ -122,7 +122,7 @@ Variable Environment 는 <br />
 ### ⭐️ 실행컨텍스트의 구성요소 정리
 
 <center>
-    <img src="./img/js-execution-context-summary.png" width={400} />
+    <img src="./img/execution-context/js-execution-context-summary.png" width={400} />
 </center>
 
 정리하자면, 실행컨텍스트는

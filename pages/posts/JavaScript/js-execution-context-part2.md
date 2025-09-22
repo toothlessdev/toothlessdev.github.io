@@ -14,7 +14,7 @@ description: 간단한 예제를 통해 실행컨텍스트가 어떻게 동작�
 다시 한번 정리하자면,
 
 <center>
-    <img src="./img/js-execution-context-summary.png" width={400} />
+    <img src="./img/execution-context/js-execution-context-summary.png" width={400} />
 </center>
 
 실행 컨텍스트는
@@ -68,7 +68,7 @@ console.log(sayHello()); // "안녕하세요! 대건 김"
 ### 1. Script Loaded
 
 <center>
-    <img src="./img/js-ec-example-1.png" width={800} />
+    <img src="./img/execution-context/js-ec-example-1.png" width={800} />
 </center>
 
 가장 먼저 스크립트가 로드되면, **Realm** 이 생성됩니다. <br />
@@ -86,7 +86,7 @@ console.log(sayHello()); // "안녕하세요! 대건 김"
 Realm 이 생성되면, **Global Execution Context** 가 생성(Creation Phase)됩니다. <br />
 
 <center>
-    <img src="./img/js-ec-example-2.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-2.gif" width={800} />
 </center>
 
 Global Execution Context 의 `Lexical Environment` 는 Realm 의 `Global Environment Record` 의 `[[Declarative Record]]` 슬롯을 참조합니다. <br />
@@ -99,7 +99,7 @@ Global Execution Context 의 `Lexical Environment` 는 Realm 의 `Global Environ
 Creation Phase 에서는 식별자들을 스캔하여 메모리 공간을 예약합니다.
 
 <center>
-    <img src="./img/js-ec-example-3.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-3.gif" width={800} />
 </center>
 
 > 1. `message` : `var` 키워드로 선언되었으므로, `Variable Environment Record` 에 등록되고 `undefined` 로 초기화됩니다. <br />
@@ -112,14 +112,14 @@ Creation Phase 에서는 식별자들을 스캔하여 메모리 공간을 예약
 ### 3. Global Execution Context - Execution Phase
 
 <center>
-    <img src="./img/js-ec-example-4.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-4.gif" width={800} />
 </center>
 
 Creation Phase 가 끝나면, 실제 코드가 실행되는 **Execution Phase** 가 실행됩니다 <br />
 생성된 Global Execution Context 는 콜스택에 쌓이고, 실행됩니다.
 
 <center>
-    <img src="./img/js-ec-example-5.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-5.gif" width={800} />
 </center>
 
 > 1. `message` : "안녕하세요! " 문자열이 Heap 영역에 생성되고, `message` 변수는 해당 값을 가리킵니다. <br />
@@ -137,7 +137,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 ### 4. greet Function Execution Context - Creation Phase
 
 <center>
-    <img src="./img/js-ec-example-6.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-6.gif" width={800} />
 </center>
 
 `greet` 함수가 호출되기위해 **greet Function Execution Context** 의 Creation Phase 가 시작됩니다. <br />
@@ -152,7 +152,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 `greet` 함수의 Execution Context Creation Phase 가 끝났으므로, 콜스택에 쌓이고, Execution Phase 가 시작됩니다. <br />
 
 <center>
-    <img src="./img/js-ec-example-7.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-7.gif" width={800} />
 </center>
 
 > 1. `person` : `new Person(firstName, lastName)` 를 통해 `Person` 클래스의 인스턴스가 생성되고, `person` 변수는 해당 인스턴스를 가리킵니다. <br />
@@ -164,7 +164,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 ### 6. Global Execution Context - Execution Phase (계속)
 
 <center>
-    <img src="./img/js-ec-example-8.png" width={800} />
+    <img src="./img/execution-context/js-ec-example-8.png" width={800} />
 </center>
 
 `greet` 함수의 Execution Phase 가 끝나고, `sayHello` 변수에 `createGreetingMessage` 함수 객체가 바인딩됩니다. <br />
@@ -173,7 +173,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 ### 7. createGreetingMessage Function Execution Context - Creation Phase
 
 <center>
-    <img src="./img/js-ec-example-9.png" width={800} />
+    <img src="./img/execution-context/js-ec-example-9.png" width={800} />
 </center>
 
 `createGreetingMessage` 함수가 호출되기위해 **createGreetingMessage Function Execution Context** 의 Creation Phase 가 시작됩니다. <br />
@@ -186,7 +186,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 `createGreetingMessage` 함수의 Execution Context Creation Phase 가 끝났으므로, 콜스택에 쌓이고, Execution Phase 가 시작됩니다. <br />
 
 <center>
-    <img src="./img/js-ec-example-10.gif" width={800} />
+    <img src="./img/execution-context/js-ec-example-10.gif" width={800} />
 </center>
 
 > 1. `baseGreetMessage` : (‼️ 4-3 에서 생성된 Closure 를 통해) `greet` 함수의 `Lexical Environment` 에 접근하여, `baseGreetMessage` 는 "안녕하세요! " 가 됩니다 <br/>
@@ -198,7 +198,7 @@ Function Execution Context 또한 Creation Phase 와 Execution Phase 를 거칩�
 ### 9. Global Execution Context - Execution Phase (계속)
 
 <center>
-    <img src="./img/js-ec-example-11.png" width={800} />
+    <img src="./img/execution-context/js-ec-example-11.png" width={800} />
 </center>
 
 > 1. `console` : `console` 식별자를 찾기위해 Global Execution Context 의 `Lexical Environment` 를 참조하고, 이는 Global Object 를 참조합니다. <br />
