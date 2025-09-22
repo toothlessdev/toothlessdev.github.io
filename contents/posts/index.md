@@ -4,4 +4,4 @@
 
 ### 최신 포스트
 
-<BlogList :posts="posts" />
+<PostCardList :posts="posts" />

@@ -15,8 +15,14 @@
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noFallthroughCasesInSwitch": true,
-        "types": ["node"]
+        "types": ["node"],
+
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@vitepress": [".vitepress"]
+        }
     },
-    "include": [".vitepress/**/*", "pages/**/*", ".vitepress/theme/vue-shims.d.ts"],
+    "include": [".vitepress/**/*", "contents/**/*", ".vitepress/theme/vue-shims.d.ts", "./src"],
     "exclude": ["node_modules", "dist"]
 }

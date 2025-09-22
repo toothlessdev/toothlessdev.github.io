@@ -59,6 +59,9 @@ export default defineConfig({
     },
 
     vite: {
+        resolve: {
+            alias: [{ find: "@", replacement: "/src" }],
+        },
         plugins: [createAutoGeneratePostsPlugin()],
     },
 

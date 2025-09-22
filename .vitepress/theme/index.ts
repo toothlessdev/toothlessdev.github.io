@@ -2,7 +2,7 @@
 import { h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import BlogList from "./components/BlogList.vue";
+import PostCardList from "@/components/PostCardList/PostCardList.vue";
 import "./style.css";
 
 export default {
@@ -13,6 +13,6 @@ export default {
         });
     },
     enhanceApp({ app, router, siteData }) {
-        app.component("BlogList", BlogList);
+        app.component("PostCardList", PostCardList);
     },
 } satisfies Theme;
