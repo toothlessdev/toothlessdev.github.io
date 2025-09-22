@@ -128,3 +128,7 @@
 .DocSearch {
     --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+figcaption {
+    font-size: 0.75rem;
+}
