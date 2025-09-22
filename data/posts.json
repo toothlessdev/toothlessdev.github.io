@@ -1,18 +1,4 @@
-
-// 자동 생성된 파일 - 수정하지 마세요
-// yarn generate-posts 명령어로 업데이트하세요
-
-export interface Post {
-  url: string
-  frontmatter: {
-    title: string
-    createdAt: string
-    category: string
-    description: string
-  }
-}
-
-export const posts: Post[] = [
+[
   {
     "url": "/posts/React/react-toastify",
     "frontmatter": {

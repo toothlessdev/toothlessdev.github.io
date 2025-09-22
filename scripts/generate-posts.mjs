@@ -129,27 +129,12 @@ async function generatePostsData() {
 }
 
 /**
- * 포스트 데이터를 TypeScript 파일 내용으로 변환합니다
+ * 포스트 데이터를 JSON 파일 내용으로 변환합니다
  * @param {Object[]} posts - 포스트 배열
- * @returns {string} - TypeScript 파일 내용
+ * @returns {string} - JSON 파일 내용
  */
-function generateTypeScriptContent(posts) {
-    return `
-// 자동 생성된 파일 - 수정하지 마세요
-// yarn generate-posts 명령어로 업데이트하세요
-
-export interface Post {
-  url: string
-  frontmatter: {
-    title: string
-    createdAt: string
-    category: string
-    description: string
-  }
-}
-
-export const posts: Post[] = ${JSON.stringify(posts, null, 2)}
-`;
+function generateJsonContent(posts) {
+    return JSON.stringify(posts, null, 2);
 }
 
 /**
@@ -191,8 +176,8 @@ function handleError(error) {
 async function createPostsFile() {
     try {
         const posts = await generatePostsData();
-        const content = generateTypeScriptContent(posts);
-        const outputPath = join(process.cwd(), ".vitepress/data/posts.ts");
+        const content = generateJsonContent(posts);
+        const outputPath = join(process.cwd(), "data/posts.json");
 
         await writePostsFile(content, outputPath);
         logSuccess(posts.length, outputPath);
