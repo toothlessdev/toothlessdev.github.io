@@ -18,11 +18,9 @@ export default defineConfig({
                 text: "Blog",
                 items: [
                     { text: "전체", link: "/posts/" },
+                    { text: "Web", link: "/posts/Web/" },
                     { text: "JavaScript", link: "/posts/javascript/" },
-                    { text: "React", link: "/posts/react/" },
-                    { text: "Vue.js", link: "/posts/vue/" },
-                    { text: "백엔드", link: "/posts/backend/" },
-                    { text: "WEB", link: "/posts/web/" },
+                    { text: "React", link: "/posts/React/" },
                 ],
             },
             { text: "Projects", link: "/projects/" },
