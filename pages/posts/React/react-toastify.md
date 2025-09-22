@@ -68,8 +68,8 @@ setTimeout(() => toast("잠깐 후에 다시 알려줌!"), 5000);
 export default function App() {
     return (
         <Fragment>
+            {/* [!code focus] */}
             <ToastContainer />
-            // ...
         </Fragment>
     );
 }
@@ -79,13 +79,17 @@ export default function App() {
 
 ```tsx
 export function ToastContainer(props: ToastContainerProps) {
-    const { getToastToRender, isToastActive, count } = useToastContainer(containerProps);
+    const { getToastToRender, isToastActive, count } = useToastContainer(containerProps); // [!code focus]
     // ...
+    // [!code focus]
     return getToastToRender((position, toastList) => {
         return (
             <div>
+                {/* [!code focus] */}
                 {toastList.map(({ content, props: toastProps }) => {
+                    // [!code focus]
                     return <Toast>{content}</Toast>;
+                    // [!code focus]
                 })}
             </div>
         );
@@ -100,6 +104,7 @@ export function registerContainer(props: ToastContainerProps) {
     const id = props.containerId || Default.CONTAINER_ID;
     return {
         subscribe(notify: () => void) {
+            // [!code focus]
             const container = createContainerObserver(id, props, dispatchChanges);
             // ...
         },
@@ -128,30 +133,32 @@ export function createContainerObserver(
     containerProps: ToastContainerProps,
     dispatchChanges: OnChangeCallback,
 ) {
-    let snapshot: Toast[] = [];
-    const toasts = new Map<Id, Toast>();
-    const listeners = new Set<Notify>();
+    let snapshot: Toast[] = []; // [!code focus]
+    const toasts = new Map<Id, Toast>(); // [!code focus]
+    const listeners = new Set<Notify>(); // [!code focus]
 
+    // [!code focus]
     const observe = (notify: Notify) => {
-        listeners.add(notify);
-        return () => listeners.delete(notify);
-    };
+        listeners.add(notify); // [!code focus]
+        return () => listeners.delete(notify); // [!code focus]
+    }; // [!code focus]
 
+    // [!code focus]
     const notify = () => {
-        snapshot = Array.from(toasts.values());
-        listeners.forEach((cb) => cb());
-    };
+        snapshot = Array.from(toasts.values()); // [!code focus]
+        listeners.forEach((cb) => cb()); // [!code focus]
+    }; // [!code focus]
 
     const addActiveToast = (toast: Toast) => {
         // ...
-        notify();
-        dispatchChanges(toToastItem(toast, isNew ? "added" : "updated"));
+        notify(); // [!code focus]
+        dispatchChanges(toToastItem(toast, isNew ? "added" : "updated")); // [!code focus]
     };
 
     return {
         observe,
         buildToast,
-        getSnapshot: () => snapshot,
+        getSnapshot: () => snapshot, // [!code focus]
     };
 }
 ```
@@ -164,9 +171,9 @@ export function createContainerObserver(
 
 ```tsx
 export function useToastContainer(props: ToastContainerProps) {
-    const { subscribe, getSnapshot, setProps } = useRef(registerContainer(props)).current;
+    const { subscribe, getSnapshot, setProps } = useRef(registerContainer(props)).current; // [!code focus]
     setProps(props);
-    const snapshot = useSyncExternalStore(subscribe, getSnapshot, getSnapshot)?.slice();
+    const snapshot = useSyncExternalStore(subscribe, getSnapshot, getSnapshot)?.slice(); // [!code focus]
     // ...
 }
 ```
@@ -231,7 +238,7 @@ export function pushToast<TData>(content: ToastContent<TData>, options: NotValid
     if (!hasContainers()) renderQueue.push({ content, options });
 
     containers.forEach((c) => {
-        c.buildToast(content, options);
+        c.buildToast(content, options); // [!code focus]
     });
 }
 ```
