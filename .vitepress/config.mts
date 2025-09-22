@@ -4,6 +4,7 @@ import { generateSidebar } from "./plugins/sidebar";
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 
 const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
+const NAVER_SITE_VERIFICATION_CODE = "596cb41268d676e378deaba826716cd18229d0b1";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -77,6 +78,13 @@ export default defineConfig({
                 gtag('js', new Date());
                 gtag('config', '${GOOGLE_ANALYTICS_ID}');
             `,
+        ],
+        [
+            "meta",
+            {
+                name: "naver-site-verification",
+                content: NAVER_SITE_VERIFICATION_CODE,
+            },
         ],
     ],
 });
