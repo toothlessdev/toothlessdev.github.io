@@ -3,6 +3,8 @@ import { generateSidebar } from "./plugins/sidebar";
 
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 
+const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "🦷 ToothlessDev",
@@ -47,7 +49,6 @@ export default defineConfig({
         hostname: "https://toothlessdev.github.io/",
     },
 
-    // URL 리라이트 설정 - /posts/* -> /pages/posts/*
     rewrites: {
         "pages/posts/index.md": "posts/index.md",
         "pages/posts/:slug*": "posts/:slug*",
@@ -58,4 +59,24 @@ export default defineConfig({
     vite: {
         plugins: [createAutoGeneratePostsPlugin()],
     },
+
+    head: [
+        [
+            "script",
+            {
+                async: "",
+                src: `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`,
+            },
+        ],
+        [
+            "script",
+            {},
+            `
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', '${GOOGLE_ANALYTICS_ID}');
+            `,
+        ],
+    ],
 });
