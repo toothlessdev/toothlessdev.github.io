@@ -37,7 +37,7 @@ setTimeout(() => toast("잠깐 후에 다시 알려줌!"), 5000);
 즉, `상태 변화 → 렌더링 → UI 반영` 이라는 단방향 흐름이 기본적으로 리액트가 동작하는 방식이다.
 
 하지만 `toast()` 는 리액트 컴포넌트가 아닌 일반 함수다.  
-이 함수가 상태를 바꾼다고 해서, 리액트가 "알아서" 리렌더링해줄까?
+이 함수가 상태를 바꾼다고 해서, 리액트가 "알아서" 리렌더링해주지는 않는다.
 
 ## ✅ Observer 패턴!
 
@@ -256,9 +256,10 @@ export function pushToast<TData>(content: ToastContent<TData>, options: NotValid
 
 ### 1. 옵저버 패턴
 
-toast() 함수가 호출되면, 리액트 컴포넌트 외부에 있는 **toasts**라는 Map에 새로운 알림이 추가된다. 이 toasts Map이 바로 **원본 '외부 상태'**고, 이 상태가 변경될 때마다 notify() 함수가 실행되어 `<ToastContainer/>`에게 상태가 바뀌었다는 신호를 보낸다
+`toast()` 함수가 호출되면, 리액트 컴포넌트 외부에 있는 `toasts` 라는 Map에 새로운 알림이 추가된다.
+이 `toasts` Map이 바로 외부 상태고, 이 상태가 변경될 때마다 `notify()` 함수가 실행되어 `<ToastContainer/>`에게 상태가 바뀌었다는 신호를 보낸다
 
 ### 2. useSyncExternalStore
 
 `<ToastContainer/>` 는 useSyncExternalStore를 통해 toasts의 변화를 구독한다.
-이 훅은 notify() 신호를 받으면 getSnapshot 함수를 호출하여 toasts의 현재 상태를 복사한 **snapshot**을 가져온다
+이 훅은 `notify()` 신호를 받으면 `getSnapshot` 함수를 호출하여 toasts의 현재 상태를 복사한 snapshot을 가져온다
