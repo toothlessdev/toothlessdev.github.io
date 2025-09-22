@@ -63,7 +63,7 @@ export const posts: Post[] = [
     "frontmatter": {
       "title": "CSS Cascade Algorithm 이란? (Feat. Cascade Layer)",
       "createdAt": "2025-04-13T00:00:00.000Z",
-      "category": "WEB",
+      "category": "Web",
       "description": "CSS Cascade Algorithm 은 브라우저에서 스타일을 적용하는 방법을 정의합니다. CSS Cascade Algorithm 을 이해하면 CSS 스타일 우선순위를 이해할 수 있습니다."
     }
   },
