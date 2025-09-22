@@ -8,6 +8,7 @@ const NAVER_SITE_VERIFICATION_CODE = "596cb41268d676e378deaba826716cd18229d0b1";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+    lang: "ko-KR",
     title: "🦷 ToothlessDev",
     description: "A VitePress Site",
     themeConfig: {
