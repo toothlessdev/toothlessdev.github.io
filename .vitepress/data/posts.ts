@@ -44,7 +44,7 @@ export const posts: Post[] = [
     "url": "/posts/JavaScript/v8-how-the-value-stored",
     "frontmatter": {
       "title": "동적 타이핑 언어 JavaScript 값은 실제로 어떻게 저장될까? (Feat. Tagged Pointer, NaN-Boxing)",
-      "createdAt": "2025-07-02T00:00:00.000Z",
+      "createdAt": "2025-06-08T00:00:00.000Z",
       "category": "JavaScript",
       "description": "JavaScript 에서는 숫자, 문자열, 불리언, 객체 등 다양한 값을 다룰 수 있습니다. 일반적인으로는 원시값은 스택에, 나머지는 힙에 저장된다고 합니다. 하지만 동적 타입 언어인 JavaScript 는 런타임에 타입이 결정되는데, 그렇다면 실제로 값은 어디에 또 어떻게 저장될까요 ?"
     }
