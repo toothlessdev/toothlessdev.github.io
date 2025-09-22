@@ -1,0 +1,14 @@
+{
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": true
+        },
+        "editor.suggest.showSnippets": true,
+        "editor.tabCompletion": "on",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "editor.snippetSuggestions": "top",
+    "github.copilot.enable": {
+        "markdown": true
+    }
+}
