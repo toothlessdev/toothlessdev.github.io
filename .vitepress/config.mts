@@ -6,7 +6,7 @@ import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 const isProduction = process.env.NODE_ENV === "production";
 
 const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
-const NAVER_SITE_VERIFICATION_CODE = "596cb41268d676e378deaba826716cd18229d0b1";
+const NAVER_SITE_VERIFICATION_CODE = "db7f3601aa486190aa58c3e09dcd7f35a784543e";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
