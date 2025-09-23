@@ -3,6 +3,7 @@ title: REST API 의 REST 는 무엇인가?
 createdAt: 2024-10-25
 category: Web
 description: REST API 는 REpresentational State Transfer API 로, 웹 서비스에서 통신하는데 사용되는 소프트웨어 인터페이스입니다.
+comment: true
 ---
 
 # 📖 REST API ?

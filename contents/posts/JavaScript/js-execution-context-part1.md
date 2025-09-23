@@ -3,6 +3,7 @@ title: JavaScript Execution Context 실행 컨텍스트 - 개념편 (feat. 호�
 createdAt: 2025-07-03
 category: JavaScript
 description: JavaScript 실행 컨텍스트란 무엇인가요? 실행 컨텍스트는 JavaScript 코드가 실행되는 환경을 정의하는 객체입니다. 이 글에서는 실행 컨텍스트의 개념과 구성 요소, 그리고 Lexical Environment와 Variable Environment에 대해 설명합니다.
+comment: true
 ---
 
 # JavaScript Execution Context 실행 컨텍스트 - 개념편 (feat. 호이스팅, 스코프 체인, 클로저)

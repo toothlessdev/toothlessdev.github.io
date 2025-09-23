@@ -3,6 +3,7 @@ title: react-toastify 는 어떻게 리액트 렌더링사이클 밖에서도 �
 createdAt: 2025-09-21
 category: React
 description: 리액트에서 상태 관리와 렌더링은 보통 컴포넌트 내부의 state, props를 통해 이루어진다. 그런데 진짜 실무에서는 "리액트 컴포넌트 바깥"에서, 즉 비동기 로직이나 이벤트 핸들러, API 응답 등 어디서든 토스트(알림)를 띄우고 싶을 때가 많다. 어떻게 그게 가능할까?
+comment: true
 ---
 
 # react-toastify 는 어떻게 리액트 렌더링사이클 밖에서도 토스트를 띄울수 있을까?

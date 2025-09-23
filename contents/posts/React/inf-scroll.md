@@ -3,6 +3,7 @@ title: React로 무한 스크롤 구현하기 (Intersection Observer 활용)
 createdAt: 2024-11-15
 category: React
 description: React와 Intersection Observer API를 활용해 성능 최적화된 무한 스크롤을 구현하는 방법을 알아보겠습니다. 페이지네이션의 종류부터 커스텀 훅까지 단계별로 설명합니다.
+comment: true
 ---
 
 # IntersectionObserver 로 무한 스크롤 구현하기 (with. Cursor Based Pagination)

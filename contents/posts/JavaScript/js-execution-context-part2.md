@@ -3,6 +3,7 @@ title: "JavaScript Execution Context 실행 컨텍스트 - 예제편 (feat. 호�
 createdAt: 2025-07-04
 category: JavaScript
 description: 간단한 예제를 통해 실행컨텍스트가 어떻게 동작하는지 알아보고, 호이스팅과 스코프 체인, 클로저는 어떻게 동작하는지 알아봅니다
+comment: true
 ---
 
 # JavaScript Execution Context 실행 컨텍스트 - 예제편 (feat. 호이스팅, 스코프 체인, 클로저)

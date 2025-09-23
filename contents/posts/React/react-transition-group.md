@@ -3,6 +3,7 @@ title: React Transition Group
 createdAt:
 category:
 description:
+comment: true
 ---
 
 :::warning
