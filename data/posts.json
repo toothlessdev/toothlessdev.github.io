@@ -97,5 +97,14 @@
       "category": "Web",
       "description": "REST API 는 REpresentational State Transfer API 로, 웹 서비스에서 통신하는데 사용되는 소프트웨어 인터페이스입니다."
     }
+  },
+  {
+    "url": "/posts/Next/next-rendering-patterns",
+    "frontmatter": {
+      "title": "Next.js Rendering Patterns 완벽 정리 (feat. SSG, SSR, ISR, CSR)",
+      "createdAt": "2024-10--0",
+      "category": "NextJS",
+      "description": "Next.js의 다양한 렌더링 패턴(SSG, SSR, ISR, CSR 등)에 대해 알아보고, 각 렌더링 패턴이 어떻게 동작하고, Core Web Vitals에 어떤 영향을 미치는지 설명합니다."
+    }
   }
 ]
