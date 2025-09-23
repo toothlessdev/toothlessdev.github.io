@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, watch, ref, nextTick, toRef, type Ref } from "vue";
 
+const COMMENT_REPOSITORY = "toothlessdev/toothlessdev.github.io";
+
 const props = defineProps<{
     theme: string;
 }>();
@@ -9,8 +11,8 @@ const containerRef = ref<HTMLDivElement | null>(null);
 
 function mountUtterances(theme: string) {
     const container = containerRef.value;
-    if (!container) return;
 
+    if (!container) return;
     if (container.querySelector("iframe.utterances-frame")) return;
 
     const script = document.createElement("script");
@@ -19,7 +21,7 @@ function mountUtterances(theme: string) {
     script.async = true;
     script.crossOrigin = "anonymous";
 
-    script.setAttribute("repo", "toothlessdev/toothlessdev-comments");
+    script.setAttribute("repo", COMMENT_REPOSITORY);
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("label", "blog-comment");
     script.setAttribute("theme", theme);
@@ -38,12 +40,12 @@ onMounted(async () => {
     mountUtterances(props.theme);
 });
 
-watch(toRef(props, "theme"), (t) => {
+watch(toRef(props, "theme"), (theme) => {
     if (!containerRef.value?.querySelector("iframe.utterances-frame")) {
-        mountUtterances(t);
+        mountUtterances(theme);
         return;
     }
-    setUtterancesTheme(t);
+    setUtterancesTheme(theme);
 });
 
 onBeforeUnmount(() => {
