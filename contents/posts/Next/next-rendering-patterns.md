@@ -207,8 +207,31 @@ SSR with Hydration 과 SSG with Hydration 을 합친 렌더링 패턴이라고 �
 ![](./img/next-rendering-patterns/image-21.png)
 
 캐싱된 페이지에 대해서는 TTFB 가 빠르다는 장점이 있지만,
-데이터가 자주 바뀌는 사이트에서는 적합하지 않습니다
+데이터가 자주 바뀌는 사이트에서는 적합하지 않습니다.
 
 ## ✍️ 마치며
 
 ![alt text](./img/next-rendering-patterns/image-22.png)
+
+그래서 좋은 렌더링 패턴은 뭐고, 뭘 써야한다 라고 묻는다면,
+딱히 정해진 좋은 패턴은 없습니다.
+
+데이터와 애플리케이션의 특징에 맞게 사용해야합니다
+
+예를들어
+
+이력서, 자기소개 페이지와 같이 데이터 변경이 드문 사이트의 경우, 빌드 타임에 정적으로 페이지를 생성하는 SSG 를 사용하고, 자주 변경되지 않는 블로그 글같은 경우 ISR 을, 자주 글이 추가, 삭제 업데이트 되는 게시판 사이트의 경우 SSR 을 사용하면 적합할 것입니다.
+
+소개해드린 렌더링 패턴들 외에도,
+React 18 버전 부터 React Server Components 가 도입되면서
+Streaming SSR, Island Architecture 등 여러 패턴들이 만들어지고 있는데,
+각 렌더링 패턴의 장단점과 특징을 알고 사용하면 사용자 경험을 높일 수 있을 것입니다
+
+발표 들어주셔서 감사합니다
+
+## 참고 자료
+
+- https://www.patterns.dev/
+- https://www.youtube.com/watch?v=Dkx5ydvtpCA&ab_channel=BeyondFireship
+- https://velog.io/@jiseung/rendering-patterns
+- https://nextjs.org/docs/pages/building-your-application/rendering
