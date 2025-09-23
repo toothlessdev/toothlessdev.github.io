@@ -6,6 +6,7 @@ export const categoryColorMap: Record<string, string> = {
     JavaScript: "#f1e05a",
     TypeScript: "#3178c6",
     React: "#61dafb",
+    NextJS: "#000000",
     VueJs: "#4fc08d",
     Web: "#e34c26",
     Backend: "#0078d4",
