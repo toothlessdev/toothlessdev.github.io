@@ -331,3 +331,14 @@ ReactDOM.render(
 4. **UI 업데이트**: `useSelector`가 state 변경을 감지하고 Counter 컴포넌트가 리렌더링되어 화면에 "Count: 1"이 표시됩니다.
 
 이처럼 Redux는 예측 가능한 단방향 데이터 흐름을 통해 애플리케이션의 상태를 체계적으로 관리합니다.
+
+## 참고 자료
+
+- [페이스북의 결정: MVC는 확장에 용이하지 않다. 그렇다면 Flux다](https://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
+- [What, Why and When Should You Use ReactJS: A Complete Guide](https://weblineindia.com/blog/everything-you-should-know-about-reactjs/)
+- [React is MVC or MVVM? - Reddit](https://www.reddit.com/r/reactjs/comments/hbvy47/react_is_mvc_or_mvvm/)
+- [JavaScript Technical Interview Question : is React MVC or MVVM](https://medium.com/developers-tomorrow/javascript-interview-question-is-react-an-mvc-or-mvvm-ac2ea2a5127d)
+- [presentational and container 패턴이란 무엇인가](https://tecoble.techcourse.co.kr/post/2021-04-26-presentational-and-container/)
+- [patterns.dev - Container / Presenter Pattern](https://www.patterns.dev/react/presentational-container-pattern)
+- [Flux Concepts - Facebook Archive](https://github.com/facebookarchive/flux/tree/main/examples/flux-concepts)
+- [Three Principles - Redux](https://redux.js.org/understanding/thinking-in-redux/three-principles)
