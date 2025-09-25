@@ -45,6 +45,10 @@ export default defineConfig({
         },
 
         socialLinks: [{ icon: "github", link: "https://github.com/toothlessdev" }],
+
+        search: {
+            provider: "local",
+        },
     },
 
     sitemap: {
