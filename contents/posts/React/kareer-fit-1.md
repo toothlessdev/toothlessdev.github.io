@@ -19,8 +19,10 @@ React 개발자라면 재렌더링을 위해 `useState`를 사용해 상태를 U
 > 나 역시도 그랬다.. 미친 재렌더링으로 고생하기 전까지는...🥲
 
 최근 PDF 문서 위에 사용자가 드래그로 영역을 선택해 피드백을 남기는 기능을 개발하게 되었다.
-
 당연하게도 `useState` 로 드래그 영역의 좌표를 관리했다. 잘 동작했지만, 결과는 처참했다. <br/>
+
+![니 코드 성능 너무 구려서 컴퓨터 뻗어버림 ㅋㅋ](./img/kareer-fit-1/image.png)
+
 마우스를 조금만 빠르게 움직여도 이벤트가 씹히는 현상이 발생했다. `onMouseMove` 이벤트가 발생할 때마다 `setState`가 호출되면서 초당 수십 번의 리렌더링이 일어났기 때문이다. ([PR - Feature#31](https://github.com/kakao-tech-campus-3rd-step3/Team7_FE/pull/38))
 
 ![변경 전](./img/kareer-fit-1/before.gif)
