@@ -6,8 +6,7 @@ const { Layout } = DefaultTheme;
 
 const { frontmatter } = useData();
 
-// comments가 false가 아닌 경우 댓글을 표시 (기본값은 true)
-const showComments = frontmatter.value.comments !== false;
+const showComments = frontmatter.value.comment === true;
 </script>
 
 <template>
