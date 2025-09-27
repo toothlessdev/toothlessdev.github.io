@@ -10,5 +10,6 @@
     "editor.snippetSuggestions": "top",
     "github.copilot.enable": {
         "markdown": true
-    }
+    },
+    "cSpell.words": ["Giscus", "toothlessdev"]
 }
