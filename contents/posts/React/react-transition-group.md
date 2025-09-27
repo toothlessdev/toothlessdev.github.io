@@ -1,8 +1,8 @@
 ---
-title: React Transition Group
-createdAt:
-category:
-description:
+title: React Transition Group 뜯어보기
+createdAt: 2024-10-15
+category: React
+description: React Transition Group 은 어떻게 동작할까요? 내부 동작 원리와 사용법에 대해 알아봅니다
 comment: true
 ---
 
