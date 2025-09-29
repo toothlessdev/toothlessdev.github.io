@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { getCategoryColor } from "@/constants/colors";
+import { formatDate } from "@/utils/date";
 import type { Post } from "@/models/PostModel";
 import "./PostCard.css";
 
@@ -37,19 +38,6 @@ interface Props {
 }
 
 defineProps<Props>();
-
-// 날짜 포맷팅 함수 (yyyy-mm-dd 형식)
-function formatDate(dateString: string) {
-    const date = new Date(dateString);
-    return date
-        .toLocaleDateString("ko-KR", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-        })
-        .replace(/\. /g, "-")
-        .replace(/\.$/, "");
-}
 
 function navigateToPost(url: string) {
     window.location.href = url;
