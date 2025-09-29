@@ -6,8 +6,6 @@ description: React 에서 Modal 컴포넌트를 구현할때 단순히 z-index �
 comment: true
 ---
 
-# 엥? Modal 그거 z-index:99999 박으면 되는거 아님? (feat. createPortal과 Stacking Context)
-
 :::warning
 아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
 :::

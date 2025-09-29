@@ -6,8 +6,6 @@ description: JavaScript 실행 컨텍스트란 무엇인가요? 실행 컨텍스
 comment: true
 ---
 
-# JavaScript Execution Context 실행 컨텍스트 - 개념편 (feat. 호이스팅, 스코프 체인, 클로저)
-
 자바스크립트를 공부하다보면 반드시 마주치는 개념이 있습니다. 바로 **실행 컨텍스트**입니다.
 
 실행 컨텍스트는 자바스크립트 동작원리의 핵심입니다. <br />

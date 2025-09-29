@@ -6,8 +6,6 @@ description: 핸들러들의 체인​(사슬)​을 따라 요청을 전달할 
 comment: true
 ---
 
-# Chain Of Responsibility 책임연쇄패턴
-
 :::warning
 아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
 :::

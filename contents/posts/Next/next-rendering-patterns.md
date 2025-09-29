@@ -1,12 +1,10 @@
 ---
-title: Next.js Rendering Patterns 완벽 정리 (feat. SSG, SSR, ISR, CSR)
+title: Next.js Rendering Patterns (feat. SSG, SSR, ISR, CSR)
 createdAt: 2024-10-09
 category: NextJS
 description: Next.js의 다양한 렌더링 패턴(SSG, SSR, ISR, CSR 등)에 대해 알아보고, 각 렌더링 패턴이 어떻게 동작하고, Core Web Vitals에 어떤 영향을 미치는지 설명합니다.
 comment: true
 ---
-
-# Next.js Rendering Patterns 완벽 정리 (feat. SSG, SSR, ISR, CSR)
 
 안녕하세요 NextJS 웹 프레임 워크에 대해 발표하게 된 김대건입니다
 

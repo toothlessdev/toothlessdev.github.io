@@ -6,8 +6,6 @@ description: React 는 항상 데이터가 단방향으로 흐를까요? React �
 comment: true
 ---
 
-# React 는 항상 단방향으로 데이터가 흐를까? (useImperativeHandle)
-
 :::warning
 아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
 :::

@@ -6,8 +6,6 @@ description: Redux의 핵심 개념과 Flux 아키텍처에 대해 알아봅니�
 comment: true
 ---
 
-# Redux 핵심 개념과 Flux 아키텍쳐
-
 Redux 와 Flux 아키텍쳐에 대해 공부하던 중
 
 > Redux 가 MVC 아키텍쳐의 한계를 없애기위해 Flux 단방향 흐름의 아키텍쳐를 사용하는데 그렇다면 Redux 도입 이전 React 는 MVC 아키텍쳐 인가? <br/>

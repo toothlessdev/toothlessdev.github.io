@@ -6,13 +6,11 @@ description: React에서 상태 관리를 위해 useState 대신 useRef를 사�
 comment: true
 ---
 
-# React 렌더링 최적화 분투기 (useState 에서 useRef, 그리고 EventBus 아키텍쳐까지)
-
 :::warning
 아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
 :::
 
-## 🤔 가장 React스러운 방법이 항상 정답일까?
+# 🤔 가장 React스러운 방법이 항상 정답일까?
 
 React 개발자라면 재렌더링을 위해 `useState`를 사용해 상태를 UI에 반영하는 '선언적인' 방식에 익숙하다
 

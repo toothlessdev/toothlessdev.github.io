@@ -6,8 +6,6 @@ description: React와 Intersection Observer API를 활용해 성능 최적화된
 comment: true
 ---
 
-# IntersectionObserver 로 무한 스크롤 구현하기 (with. Cursor Based Pagination)
-
 ![alt text](./img/inf-scroll/inf-scroll-1.gif)
 
 현대의 모바일 웹이나 앱에서 흔이 볼 수 있는 기능 중 하나가 바로 '무한 스크롤' 입니다.

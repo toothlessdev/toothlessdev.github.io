@@ -6,8 +6,6 @@ description: React Context API를 사용할 때 발생할 수 있는 'Context Pr
 comment: true
 ---
 
-# 뭐? Context 가 복사가 된다고? (feat. Context Provider Hell)
-
 ![Prop Drilling](./img/context-provider-hell/prop-drilling.png)
 
 React 를 사용하다 보면 전역적인 상태나 설정을 공유하기 위해 자연스럽게 Context를 사용하게 됩니다. 테마, 인증정보, 폼 상태 ... 처음엔 편합니다. `<Provider/>` 로 감싸주면, 어디서든 데이터를 쉽게 꺼내쓸 수 있으니까요.

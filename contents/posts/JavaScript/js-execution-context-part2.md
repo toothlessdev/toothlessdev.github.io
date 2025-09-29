@@ -6,8 +6,6 @@ description: 간단한 예제를 통해 실행컨텍스트가 어떻게 동작�
 comment: true
 ---
 
-# JavaScript Execution Context 실행 컨텍스트 - 예제편 (feat. 호이스팅, 스코프 체인, 클로저)
-
 ## 🤔 Recap
 
 이전 글에서는 [JavaScript 실행 컨텍스트의 개념과 구성요소, Creation Phase와 Execution Phase](./js-execution-context-part1.md)에 대해 알아보았습니다. <br />
