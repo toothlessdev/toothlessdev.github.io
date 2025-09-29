@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useData } from "vitepress";
 import Giscus from "@giscus/vue";
+import { isProduction } from "@/constants/env";
 
 const GISCUS = {
     repo: "toothlessdev/toothlessdev.github.io",
@@ -18,7 +19,7 @@ const uiLang = computed(() => (lang.value?.startsWith("ko") ? "ko" : "en"));
 </script>
 
 <template>
-    <div class="giscus-comments">
+    <div class="giscus-comments" v-if="isProduction">
         <Giscus
             class="giscus"
             :repo="GISCUS.repo"
