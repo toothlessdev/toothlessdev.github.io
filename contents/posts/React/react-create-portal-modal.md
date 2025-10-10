@@ -60,6 +60,10 @@ comment: true
 저도 그랬습니다 😅
 
 하지만 z-index 를 높게 주는 것만으로는 모달이 항상 화면 위에 위치한다는 보장이 없습니다. <br/>
-왜냐하면 z-index 는 `Stacking Context` 와 `Containing Block` 에 영향을 받기 때문입니다.
+왜냐하면 z-index 는 `Stacking Context` 에 영향을 받기 때문입니다.
 
 ## 🤨 Stacking Context 가 뭔데 ?
+
+> [StackingContext (쌓임맥락)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_positioned_layout/Stacking_context)은 가상의 Z축을 사용한 HTML 요소의 3차원 개념화입니다. Z축은 사용자 기준이며, 사용자는 뷰포트 혹은 웹페이지를 바라보고 있을 것으로 가정합니다. 각각의 HTML 요소는 자신의 속성에 따른 우선순위를 사용해 3차원 공간을 차지합니다.
+
+간단히 말해,
