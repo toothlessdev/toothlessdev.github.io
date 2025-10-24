@@ -97,6 +97,41 @@ console.log(user.age); // 26 (원본 객체도 변경됨)
 참조 타입은 하나의 값 (주소)를 여러 변수가 공유할 수 있고, <br/>
 기본적으로 가변성을 가지기 때문에, 불변성을 지키지 않으면 의도치 않은 SideEffect 가 발생할 수 있습니다.
 
+### `Object.freeze()` 로 객체의 불변성 유지하기
+
+이처럼 참조 타입은 내부 프로퍼티를 직접 변경할 수 있는 가변성을 가지기 때문에, <br/>
+함수 매개변수로 객체를 전달할 때, 함수 내부에서 객체를 변경하면 원본 객체도 변경되는 부작용이 발생할 수 있습니다. <br/>
+
+```ts
+const obj = { a: 1, b: 2 };
+
+function modifyObject(obj) {
+    obj.a = 10; // 원본 객체 변경
+}
+
+modifyObject(obj);
+console.log(obj); // { a: 10, b: 2 }
+```
+
+의도치 않는 객체 변경을 추적하기가 어렵기 때문에, 자바스크립트에서는 `Object.freeze()` 메서드를 제공하여 객체를 불변 상태로 만들 수 있습니다. <br/>
+
+이때, `Object.freeze()` 메서드는 객체의 최상위 프로퍼티만 동결시키기 때문에, 중첩된 객체는 여전히 변경할 수 있습니다. 따라서 깊은 불변성을 유지하려면 재귀적으로 모든 중첩 객체를 동결시켜야 합니다. <br/>
+
+```ts
+function deepFreeze(obj) {
+    Object.freeze(obj); // 최상위 객체 동결
+
+    Object.keys(obj).forEach((key) => {
+        const prop = obj[key];
+        if (typeof prop === "object" && prop !== null && !Object.isFrozen(prop)) {
+            deepFreeze(prop); // 중첩 객체 재귀적으로 동결
+        }
+    });
+
+    return obj;
+}
+```
+
 ## ⚛️ React 와 불변성
 
 React 는 상태가 변경될 때 재렌더링이 트리거됩니다.
