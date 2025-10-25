@@ -1,6 +1,9 @@
 import { defineConfig } from "vitepress";
 import { generateSidebar } from "./plugins/sidebar";
 
+// @ts-ignore
+import markdownItKatex from "markdown-it-katex";
+
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -50,6 +53,12 @@ export default defineConfig({
         "contents/posts/:slug*": "posts/:slug*",
         "contents/projects/index.md": "projects/index.md",
         "contents/projects/:slug*": "projects/:slug*",
+    },
+
+    markdown: {
+        config: (md) => {
+            md.use(markdownItKatex);
+        },
     },
 
     vite: {
