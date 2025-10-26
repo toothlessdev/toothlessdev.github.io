@@ -231,8 +231,6 @@ async function createHashOfCartItem(item: CartItem) {
 
 참고로, 멱등성은 HTTP 메서드 설계, 데이터베이스 트랜잭션 처리, TanstackQuery 의 쿼리키 설계 등 다양한 분야에서 활용되는 중요한 개념입니다. <br/>
 
-[해시 테이블이 궁금하다면 ? - 타입스크립트로 구현하는 해시테이블 (HashTable)](./hash-table.md)
-
 ## 참고자료
 
 - [멱등성이 뭔가요? - 토스페이먼츠 개발자 센터](https://docs.tosspayments.com/blog/what-is-idempotency)
