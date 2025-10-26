@@ -135,7 +135,7 @@ const cartItem2 = {
 > 같은 입력 = 샌드위치 id + 옵션 조합 <br/>
 > 같은 결과 = 장바구니 항목의 고유키
 
-![alt text](./idempotency-hash-table/cart-hash-func.png)
+![alt text](./img/idempotency-hash-table/cart-hash-func.png)
 
 ### 1️⃣ 단순 순회하면서 비교하기
 
