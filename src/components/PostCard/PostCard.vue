@@ -5,7 +5,11 @@
                 {{ post.frontmatter.title }}
             </h3>
 
-            <p class="blog-card-description">
+            <p
+                ref="descriptionRef"
+                class="blog-card-description"
+                :title="post.frontmatter.description"
+            >
                 {{ post.frontmatter.description }}
             </p>
 
