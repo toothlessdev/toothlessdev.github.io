@@ -4,7 +4,8 @@ layout: home
 hero:
     name: "Frontend Developer"
     text: "김대건"
-    tagline: "사용자 중심의 웹 서비스를 만들어가는 개발자입니다"
+    tagline: "겉은 매끄러운 경험으로 속은 견고한 구조로 다지는 개발자"
+
     actions:
         - theme: brand
           text: 블로그 보기
@@ -12,29 +13,32 @@ hero:
         - theme: alt
           text: GitHub
           link: https://github.com/toothlessdev
+        - theme: alt
+          text: 저는 이렇게 코드를 작성하는 편이에요
+          link: /docs/code/code-convention.md
 
 features:
-    - icon: 🎯
-      title: "사용자 중심 개발"
-      details: "사용자 경험을 최우선으로 생각하며, 직관적이고 접근성이 좋은 인터페이스를 구현합니다."
+    - icon: ✨
+      title: "매끄러운 경험"
+      details: "작은 지연과 전환까지 세심하게 다듬어, 사용자가 흐름을 놓치지 않고 몰입할 수 있는 경험을 만듭니다."
 
-    - icon: 🚀
-      title: "지속적인 성장"
-      details: "새로운 기술과 트렌드를 빠르게 학습하고 적용하여, 더 나은 개발자가 되기 위해 노력합니다."
-
-    - icon: 🤝
-      title: "소통과 협업"
-      details: "팀워크를 중시하며, 명확한 소통을 통해 함께 성장하는 개발 문화를 만들어갑니다."
-
-    - icon: 💡
-      title: "문제 해결 능력"
-      details: "복잡한 문제를 체계적으로 분석하고, 효율적인 솔루션을 찾아 구현하는 것을 즐깁니다."
-
-    - icon: 🛠️
-      title: "기술적 전문성"
-      details: "React, Vue.js, TypeScript 등 모던 프론트엔드 기술 스택에 대한 깊이 있는 이해를 바탕으로 개발합니다."
+    - icon: 🧱
+      title: "견고한 구조"
+      details: "보이지 않는 영역까지 설계하며, 안정적이고 신뢰할 수 있는 구조로 서비스를 구축합니다."
 
     - icon: 📚
       title: "지식 공유"
-      details: "학습한 내용과 경험을 블로그와 오픈소스 기여를 통해 커뮤니티와 함께 나누고 있습니다."
+      details: "GDG, 멋쟁이사자처럼 운영진 활동을 통해 배운 것을 나누며 함께 성장합니다. 지식은 나눌수록 단단해진다고 믿습니다."
+
+    - icon: 🚀
+      title: "지속적인 성장"
+      details: "빠르게 변화하는 기술 속에서도 학습의 방향성을 잃지 않고, 새로운 기술을 탐구하며 더 나은 개발자로 성장합니다."
+
+    - icon: 🤝
+      title: "소통과 협업"
+      details: "명확한 소통을 통해 팀의 방향성을 맞추고, 함께 문제를 해결하며 시너지를 만들어냅니다."
+
+    - icon: 💡
+      title: "문제 해결"
+      details: "복잡한 문제를 구조적으로 분석하고, 근본적인 원인을 찾아 효율적인 해결책을 제시합니다."
 ---
