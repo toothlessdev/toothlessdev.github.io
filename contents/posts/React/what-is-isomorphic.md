@@ -1,6 +1,6 @@
 ---
 title: "Isomorphic 이란 뭐고 어떨때 사용하는 네이밍일까 ? (feat. useIsomorphicEffect 는 뭘까)"
-createdAt: 2025-10-30
+createdAt: 2025-10-29
 category: React
 description: 오픈소스를 보다보면 Isomorphic 이라는 단어를 마주치게 됩니다. Isomorphic 이란 무엇인지, 그리고 어떨때 사용하는 네이밍인지에 대해 알아봅니다. 또 리액트에서 자주 사용되는 useIsomorphicEffect 훅도 함께 살펴봅니다.
 comment: true
