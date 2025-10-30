@@ -133,7 +133,12 @@ export const useIsomorphicEffect = typeof window !== "undefined" ? useLayoutEffe
 서버 렌더링(SSR)은 문자열 HTML을 만드는 과정일 뿐, 브라우저의 렌더 트리/레이아웃 단계가 존재하지 않습니다. <br/>
 그래서 "페인트 전에 동기 실행, DOM 조작" 이라는 전제 자체가 성립 안 됨으로, 실행할 타이밍이 없고 다음과 같은 경고가 발생합니다.
 
+<center>
+<img src="./img/what-is-isomorphic/warn.png" width="400px"/>
+</center>
+
 > Warning: useLayoutEffect does nothing on the server, because its effect runs after the DOM is updated... <br/>
+
 > ⚠️ 님아... useLayoutEffect는 페인트 전에 DOM 읽거나 조작하려는 훅인데, 서버는 DOM이 없잖아요..
 
 ## 🧠 정리!
