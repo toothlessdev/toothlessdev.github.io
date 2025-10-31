@@ -14,7 +14,7 @@ head:
 
 본 글은 Redux 공식문서의
 [Normalizing State Shape 섹션](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)을 비공식 번역한 내용입니다. <br/>
-원문 저작권은 Dan Abramov 및 Redux 기여자들에게 있으며, MIT License 에 따라 사용되었습니다.
+원문 저작권은 Dan Abramov 및 Redux 기여자들에게 있으며, MIT License 에 따라 인용되었습니다.
 :::
 
 얼마전, Redux 를 사용하면서 상태를 업데이트하는 reducer 로직을 작성했는데, <br/>
@@ -42,9 +42,9 @@ export function updateItem(
 }
 ```
 
-아이템의 개수가 작을때는 문제가 없겠지만, 아이템이 많아지면 매번 순회하면서 찾아야 하므로 성능에 문제가 생길 수 있겠다는 생각이 들었습니다. <br/>
+아이템 수가 적을 때는 문제가 없지만, 데이터가 커질수록 매번 순회해서 항목을 찾는 구조는 결국 성능 병목이 됩니다.
 
-> 상태를 업데이트 할 때 마다 $O(n)$ 의 시간복잡도가 발생하기 때문이죵..
+> 지금 구조는 categories 배열을 훑고(find), 각 카테고리의 items 배열을 또 훑으면서(some/find) 아이템을 찾기 때문에, 최악의 경우 전체 아이템 개수에 비례하는 선형 탐색이 필요합니다. 즉 사실상 O(n)입니다.
 
 백엔드 친구랑 이야기하다가, 데이터베이스에서 데이터를 정규화(Normalization) 하는 개념이 떠올랐고, <br/>
 Redux 상태도 정규화된 형태로 관리하면 좋겠다는 생각이 들어 공식문서를 찾아보게 되었습니다. <br/>
@@ -269,6 +269,9 @@ Reducer 가 깊은 단계까지 접근하거나 복사할 필요가 없어집니
 
 즉, 전체 트리의 일부분만 변경되므로, 실제로 변경된 데이터와 관련된 컴포넌트만 리렌더링됩니다.
 
+정규화된 구조에서는 `comments.byId["comment5"]`처럼 개별 엔티티만 바뀌므로, 그 엔티티를 구독하고 있는 UI만 리렌더됩니다. <br/>
+반대로 중첩 구조라면, 댓글 하나 수정만 해도 부모 게시글 객체와 게시글 목록 배열까지 새로운 참조로 바뀌기 때문에, 화면 상에서 실제로 바뀌지 않은 컴포넌트도 리렌더링될 수 있습니다.
+
 <br/>
 
 반면, 원래의 중첩 구조에서는 댓글 하나를 수정하더라도 <br/>
@@ -382,5 +385,7 @@ Store 에 포함시키기 전에 정규화(Normalization) 작업을 수행하는
 ~~이 작업에는 일반적으로 `Normalizr` 라이브러리가 사용됩니다~~
 
 ::: info 💬 NOTE
-하지만.. deprecated 되었으므로, ReduxToolkit 에서 제공하는 `createEntityAdapter` 를 활용하는게 좋아 보입니다.
+과거에는 `normalizr` 같은 라이브러리를 사용해서 깊게 중첩된 API 응답을 정규화된 형태로 변환하는 패턴이 많이 소개되었지만, Deprecated 되었습니다. <br/>
+요즘은 Redux Toolkit의 `createEntityAdapter`를 활용해, 정규화된 상태(`byId` / `ids`)를 표준화된 형식으로 관리하는 접근이 주로 쓰입니다. <br/>  
+즉, "정규화된 형태로 상태를 유지"하는 건 이제 adapter가 도와주고, "API 응답을 그 형태로 맞춰 넣는" 가공은 보통 우리가 reducer 또는 thunk에서 직접 해줍니다.
 :::
