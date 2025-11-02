@@ -71,9 +71,16 @@ Isomorphic은 "동일한 인터페이스를 유지한 채, 환경에 따라 자�
 import { useQuery, useSuspenseQuery } from "react-query";
 
 export const useIsomorphicQuery = (suspense: boolean) => {
-    return suspense ? useSuspenseQuery() : useQuery();
+    const suspenseQuery = useSuspenseQuery(options);
+    const query = useQuery(options);
+    return suspense ? suspenseQuery : query;
 };
 ```
+
+:::details ⚠️ suspense 로 바로 분기처리를 하면 리액트 Hook 의 규칙에 어긋납니다
+훅은 컴포넌트의 렌더링 중에 항상 같은 순서로 호출되어야 한다.
+즉, 조건문이나 분기 안에서 훅을 호출하면 안 된다.
+:::
 
 왜냐하면 `suspense` 라는 플래그를 통해 사용자가 직접 환경을 인식하고 선택해야 하기 때문입니다. <br/>
 따라서 이 경우는 Isomorphic 이라는 네이밍을 쓰지 않는 것이 좋습니다.
