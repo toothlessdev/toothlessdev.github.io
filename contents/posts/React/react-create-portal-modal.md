@@ -4,11 +4,11 @@ createdAt: 2025-06-27
 category: React
 description: React 에서 Modal 컴포넌트를 구현할때 단순히 z-index 를 높게 줬을때 발생하는 문제와 createPortal 을 이용해 해결하는 방법에 대해 알아봅니다.
 comment: true
+head:
+    - - meta
+      - name: keywords
+        content: React, Modal, createPortal, Stacking Context, z-index
 ---
-
-:::warning
-아직 작성중이거나 검토중인 글입니다. 내용이 부정확하거나 변경될 수 있습니다
-:::
 
 웹 개발을 하다보면 **Modal** 컴포넌트를 구현해야 하는 순간이 자주 찾아옵니다.
 
@@ -66,4 +66,29 @@ comment: true
 
 > [StackingContext (쌓임맥락)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_positioned_layout/Stacking_context)은 가상의 Z축을 사용한 HTML 요소의 3차원 개념화입니다. Z축은 사용자 기준이며, 사용자는 뷰포트 혹은 웹페이지를 바라보고 있을 것으로 가정합니다. 각각의 HTML 요소는 자신의 속성에 따른 우선순위를 사용해 3차원 공간을 차지합니다.
 
-간단히 말해,
+간단히 말해, 브라우저는 화면 전체를 한 단위로만 쌓는게 아니라, Stacking Context 를 여러개 만들고, 각 Stacking Context 안에서 `z-index` 를 비교 합니다
+
+Stacking Context 관련해서는 이미 잘 정리된 글이 있어서 한번 읽어보시는걸 추천드립니다 <br/>
+
+[z-index와 쌓임 맥락 정리 - 왜 z-index가 위로 안올라갈까? - velog 최원빈](https://velog.io/@zad1264/z-index%EC%99%80-%EC%8C%93%EC%9E%84-%EB%A7%A5%EB%9D%BD-%EC%A0%95%EB%A6%AC-%EC%99%9C-z-index%EA%B0%80-%EC%9C%84%EB%A1%9C-%EC%95%88%EC%98%AC%EB%9D%BC%EA%B0%88%EA%B9%8C)
+
+## 🪄 Portal 을 써야하는 이유
+
+Portal 을 사용하면, 컴포넌트 트리 상으로는 자식이지만 실제 DOM 트리 상으로는 외부로 렌더링할 수 있습니다
+
+React 입장에서는 부모 컴포넌트 안에 있는것 처럼 동작하지만, DOM 기준으로는 `<body/>` 나 `<div id="modal-root"/>` 같은 최상위 노드에 위치하기 때문에 **Stacking Context** 에 영향을 받지 않습니다.
+
+| 상황                      | Portal 미사용                 | Portal 사용                 |
+| ------------------------- | ----------------------------- | --------------------------- |
+| 부모가 `transform` 있음   | 모달이 잘림 / 위치 어긋남     | 정상 표시                   |
+| 부모가 `overflow: hidden` | 모달이 잘림                   | 정상 표시                   |
+| 부모가 `z-index` 낮음     | 모달이 뒤에 가려짐            | 항상 위에 표시              |
+| 렌더 트리 유지            | 부모 상태와 props 동기화 가능 | 그대로 유지                 |
+| 접근성 (focus trap 등)    | 별도 관리 필요                | Portal 내부에서도 관리 가능 |
+
+## 📖 결론
+
+- `z-index: 99999` 는 만능이 아니다
+- Stacking Context 에 갇히면 z-index 가 아무리 높아도 소용없다
+- `createPortal`을 사용하면 루트 외부로 렌더링되어 Stacking Context의 제약에서 벗어날 수 있다
+- 따라서 모달, 토스트, 툴팁, 드롭다운, 오버레이, 바텀CTA 등은 Portal로 렌더링하는 것이 좋다!
