@@ -35,6 +35,7 @@
 import { getCategoryColor } from "@/constants/colors";
 import { formatDate } from "@/utils/date";
 import type { Post } from "@/models/PostModel";
+import { useRouter } from "vitepress";
 import "./PostCard.css";
 
 interface Props {
@@ -43,7 +44,9 @@ interface Props {
 
 defineProps<Props>();
 
+const router = useRouter();
+
 function navigateToPost(url: string) {
-    window.location.href = url;
+    router.go(url);
 }
 </script>
