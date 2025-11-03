@@ -1,5 +1,5 @@
 ---
-title: "[Redux 공식문서 번역] Normalizing State Shape"
+title: "[Redux 공식문서 번역] 전역상태를 어떻게 설계해야 할까? - Normalizing State Shape"
 createdAt: 2025-10-31
 category: React
 description: "Redux 애플리케이션에서 상태 구조를 정규화하는 방법에 대해 알아봅니다. 이 글은 Redux 공식 번역이 아니며, 개인 학습 및 공유 목적으로 작성된 비공식 번역입니다. (원문 : https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)"
