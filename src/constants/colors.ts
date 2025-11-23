@@ -7,9 +7,11 @@ export const categoryColorMap: Record<string, string> = {
     TypeScript: "#3178c6",
     React: "#61dafb",
     NextJS: "#000000",
+    NodeJS: "#88CE34",
     VueJs: "#4fc08d",
     Web: "#e34c26",
     Backend: "#0078d4",
+    ComputerScience: "#f34b7d",
     default: "#586069",
 };
 
