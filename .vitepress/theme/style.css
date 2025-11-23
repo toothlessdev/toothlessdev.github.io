@@ -134,3 +134,23 @@
 figcaption {
     font-size: 0.75rem;
 }
+
+/**
+ * Component: Sidebar
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --vp-sidebar-width: 180px;
+}
+
+@media (min-width: 960px) {
+    :root {
+        --vp-sidebar-width: 220px;
+    }
+}
+
+@media (min-width: 1440px) {
+    :root {
+        --vp-sidebar-width: 240px;
+    }
+}

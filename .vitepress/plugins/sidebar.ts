@@ -40,58 +40,17 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
     const items: SidebarItem[] = [];
 
     try {
-        const entries = readdirSync(dir, { withFileTypes: true });
+        items.push({ text: "전체 게시글", link: `${basePath}/` });
 
-        // 파일과 폴더를 분리하여 정렬
-        const files = entries.filter(
-            (entry: Dirent) => entry.isFile() && entry.name.endsWith(".md"),
-        );
+        const entries = readdirSync(dir, { withFileTypes: true });
         const folders = entries.filter((entry: Dirent) => entry.isDirectory());
 
-        // 폴더 처리 (카테고리로 취급)
         for (const folder of folders.sort((a: Dirent, b: Dirent) => a.name.localeCompare(b.name))) {
-            const folderPath = join(dir, folder.name);
             const folderBasePath = `${basePath}/${folder.name}`;
 
-            const folderItems = generateSidebarItems(folderPath, folderBasePath);
-
-            if (folderItems.length > 0) {
-                items.push({
-                    text: formatTitle(folder.name),
-                    items: folderItems,
-                    collapsed: true, // 기본적으로 접혀있도록 설정
-                });
-            }
-        }
-
-        // 파일 처리
-        for (const file of files.sort((a: Dirent, b: Dirent) => a.name.localeCompare(b.name))) {
-            const fileName = basename(file.name, extname(file.name));
-
-            // index.md 파일은 해당 폴더의 대표 페이지로 처리
-            if (fileName === "index") {
-                continue;
-            }
-
-            const filePath = join(dir, file.name);
-            const frontmatterTitle = getFrontmatterTitle(filePath);
-
             items.push({
-                // frontmatter title 우선, 없으면 파일명 사용
-                text: frontmatterTitle || formatTitle(fileName),
-                link: `${basePath}/${fileName}`,
-            });
-        }
-
-        // index.md 파일이 있으면 첫 번째 항목으로 추가
-        const indexFile = files.find(
-            (file: Dirent) => basename(file.name, extname(file.name)) === "index",
-        );
-
-        if (indexFile) {
-            items.unshift({
-                text: "개요",
-                link: `${basePath}/`,
+                text: formatTitle(folder.name),
+                link: `${folderBasePath}/`,
             });
         }
     } catch (error) {
