@@ -43,10 +43,6 @@ async function handleHotUpdate(ctx: any) {
             console.log("📝 포스트 변경 감지, 목록 업데이트 중...");
             await executePostGeneration();
             console.log("✅ 포스트 목록 업데이트 완료!");
-            console.log("📋 사이드바 업데이트를 위해 개발 서버를 재시작해주세요!");
-            console.log("   또는 Ctrl+C 후 yarn docs:dev 를 다시 실행하세요.");
-
-            triggerFullReload(ctx.server);
         } catch (error) {
             console.warn(
                 "포스트 목록 생성 실패:",

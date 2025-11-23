@@ -2,6 +2,7 @@ import { readdirSync, statSync, readFileSync, Dirent } from "fs";
 import { join, extname, basename } from "path";
 import type { DefaultTheme } from "vitepress";
 import matter from "gray-matter";
+import { getCategoryColor } from "../../src/constants/colors";
 
 interface SidebarItem {
     text: string;
@@ -47,9 +48,10 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
 
         for (const folder of folders.sort((a: Dirent, b: Dirent) => a.name.localeCompare(b.name))) {
             const folderBasePath = `${basePath}/${folder.name}`;
+            const color = getCategoryColor(folder.name);
 
             items.push({
-                text: formatTitle(folder.name),
+                text: `<span class="category-indicator" style="background-color: ${color};"></span>${formatTitle(folder.name)}`,
                 link: `${folderBasePath}/`,
             });
         }
