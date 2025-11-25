@@ -104,27 +104,32 @@ export function createImageOptimizerPlugin(options: ImageOptimizerOptions = {}):
         formats = ["webp", "jpeg"],
     } = options;
 
+    let isOptimized = false;
+
     return {
         name: "vitepress-image-optimizer",
 
-        async buildStart() {
-            console.log("🖼️  이미지 최적화 시작...");
+        async config() {
+            if (!isOptimized) {
+                console.log("🖼️  이미지 최적화 시작...");
 
-            try {
-                const imagePaths = await glob(sourcePattern, {
-                    cwd: process.cwd(),
-                    absolute: true,
-                });
+                try {
+                    const imagePaths = await glob(sourcePattern, {
+                        cwd: process.cwd(),
+                        absolute: true,
+                    });
 
-                console.log(`📁 발견된 이미지: ${imagePaths.length}개`);
+                    console.log(`📁 발견된 이미지: ${imagePaths.length}개`);
 
-                for (const imagePath of imagePaths) {
-                    await convertImage(imagePath, formats, options);
+                    for (const imagePath of imagePaths) {
+                        await convertImage(imagePath, formats, options);
+                    }
+
+                    console.log("✅ 이미지 최적화 완료!");
+                    isOptimized = true;
+                } catch (error) {
+                    console.error("❌ 이미지 최적화 실패:", error);
                 }
-
-                console.log("✅ 이미지 최적화 완료!");
-            } catch (error) {
-                console.error("❌ 이미지 최적화 실패:", error);
             }
         },
     };
