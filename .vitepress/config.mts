@@ -22,15 +22,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             { text: "Home", link: "/" },
-            {
-                text: "Blog",
-                items: [
-                    { text: "전체", link: "/posts/" },
-                    { text: "Web", link: "/posts/Web/" },
-                    { text: "JavaScript", link: "/posts/JavaScript/" },
-                    { text: "React", link: "/posts/React/" },
-                ],
-            },
+            { text: "Blog", link: "/posts/" },
             { text: "Projects", link: "/projects/" },
         ],
 
