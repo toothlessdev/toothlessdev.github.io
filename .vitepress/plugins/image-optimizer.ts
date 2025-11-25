@@ -48,10 +48,9 @@ async function convertImage(
     const dir = dirname(sourcePath);
     const name = basename(sourcePath, ext);
 
-    // 이미 최적화된 이미지는 스킵
-    if (formats.includes("webp" as any) && ext === ".webp") return;
-    if (formats.includes("jpeg" as any) && [".jpg", ".jpeg"].includes(ext)) return;
-    if (formats.includes("avif" as any) && ext === ".avif") return;
+    // 이미 최적화된 이미지는 스킵 (webp, avif만)
+    if (formats.includes("webp") && ext === ".webp") return;
+    if (formats.includes("avif") && ext === ".avif") return;
 
     try {
         const image = sharp(sourcePath);
