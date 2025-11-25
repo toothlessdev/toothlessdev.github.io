@@ -5,6 +5,8 @@ import { generateSidebar } from "./plugins/sidebar";
 import markdownItKatex from "markdown-it-katex";
 
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
+import { createImageOptimizerPlugin } from "./plugins/image-optimizer";
+import { markdownPicturePlugin } from "./plugins/markdown-picture";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -58,6 +60,7 @@ export default defineConfig({
     markdown: {
         config: (md) => {
             md.use(markdownItKatex);
+            md.use(markdownPicturePlugin);
         },
     },
 
@@ -65,7 +68,14 @@ export default defineConfig({
         resolve: {
             alias: [{ find: "@", replacement: "/src" }],
         },
-        plugins: [createAutoGeneratePostsPlugin()],
+        plugins: [
+            createAutoGeneratePostsPlugin(),
+            createImageOptimizerPlugin({
+                formats: ["webp", "jpeg"],
+                webpQuality: 90,
+                jpegQuality: 90,
+            }),
+        ],
     },
 
     head: [
