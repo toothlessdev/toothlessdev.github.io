@@ -3,3 +3,5 @@ node_modules
 .vitepress/dist/
 
 .DS_Store
+
+/sample
