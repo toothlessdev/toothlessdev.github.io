@@ -53,37 +53,45 @@ async function convertImage(
     if (formats.includes("jpeg" as any) && [".jpg", ".jpeg"].includes(ext)) return;
     if (formats.includes("avif" as any) && ext === ".avif") return;
 
-    const image = sharp(sourcePath);
+    try {
+        const image = sharp(sourcePath);
 
-    for (const format of formats) {
-        const outputPath = join(dir, `${name}.${format}`);
+        for (const format of formats) {
+            const outputPath = join(dir, `${name}.${format}`);
 
-        // 이미 변환된 파일이 있으면 스킵
-        if (existsSync(outputPath)) continue;
+            // 이미 변환된 파일이 있으면 스킵
+            if (existsSync(outputPath)) continue;
 
-        try {
-            if (format === "webp") {
-                await image
-                    .clone()
-                    .webp({ quality: options.webpQuality || 80 })
-                    .toFile(outputPath);
-                console.log(`✅ WebP 생성: ${outputPath}`);
-            } else if (format === "jpeg") {
-                await image
-                    .clone()
-                    .jpeg({ quality: options.jpegQuality || 80 })
-                    .toFile(outputPath);
-                console.log(`✅ JPEG 생성: ${outputPath}`);
-            } else if (format === "avif") {
-                await image
-                    .clone()
-                    .avif({ quality: options.avifQuality || 70 })
-                    .toFile(outputPath);
-                console.log(`✅ AVIF 생성: ${outputPath}`);
+            try {
+                if (format === "webp") {
+                    await image
+                        .clone()
+                        .webp({ quality: options.webpQuality || 80 })
+                        .toFile(outputPath);
+                    console.log(`✅ WebP 생성: ${outputPath}`);
+                } else if (format === "jpeg") {
+                    await image
+                        .clone()
+                        .jpeg({ quality: options.jpegQuality || 80 })
+                        .toFile(outputPath);
+                    console.log(`✅ JPEG 생성: ${outputPath}`);
+                } else if (format === "avif") {
+                    await image
+                        .clone()
+                        .avif({ quality: options.avifQuality || 70 })
+                        .toFile(outputPath);
+                    console.log(`✅ AVIF 생성: ${outputPath}`);
+                }
+            } catch (error) {
+                console.warn(
+                    `⚠️  ${format.toUpperCase()} 변환 실패 (${basename(sourcePath)}): ${error instanceof Error ? error.message : String(error)}`,
+                );
             }
-        } catch (error) {
-            console.warn(`⚠️  이미지 변환 실패 (${sourcePath}):`, error);
         }
+    } catch (error) {
+        console.warn(
+            `⚠️  이미지 로드 실패 (${basename(sourcePath)}): ${error instanceof Error ? error.message : String(error)}. 원본 파일을 사용합니다.`,
+        );
     }
 }
 

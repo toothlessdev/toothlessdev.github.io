@@ -40,11 +40,11 @@ export function markdownPicturePlugin(md: MarkdownIt) {
         const srcWebp = changeExtension(src, "webp");
         const srcJpeg = changeExtension(src, "jpeg");
 
-        // picture 태그 생성
+        // picture 태그 생성 (원본을 최종 fallback으로 사용)
         return `<picture>
     <source srcset="${srcWebp}" type="image/webp" />
     <source srcset="${srcJpeg}" type="image/jpeg" />
-    <img src="${srcJpeg}" alt="${alt}" loading="lazy" />
+    <img src="${src}" alt="${alt}" loading="lazy" />
 </picture>`;
     };
 }
