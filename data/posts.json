@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/Etc/overcoming-difficult-times",
+    "frontmatter": {
+      "title": "힘든 건 면책 사유가 될 수 있어도, 반복적인 회피의 면허증은 아니다",
+      "createdAt": "2025-12-04T00:00:00.000Z",
+      "category": "Etc",
+      "description": "힘든 시기를 극복하는 것은 쉬운 일이 아니지만 성장과 회복탄력성에 중요한 역할을 한다고 생각한다. 도망친 곳에 낙원은 없다"
+    }
+  },
+  {
     "url": "/posts/Etc/2025-toss-interview",
     "frontmatter": {
       "title": "2025 토스뱅크 프론트엔드 면접 고해성사",
@@ -126,21 +135,21 @@
     }
   },
   {
-    "url": "/posts/React/build-react-1",
-    "frontmatter": {
-      "title": "DIY React 1 - JSX 마크업을 Virtual DOM 객체로 변환하기",
-      "createdAt": "2025-10-07T00:00:00.000Z",
-      "category": "React",
-      "description": "React의 핵심 개념과 동작 원리를 이해하기 위해, React를 직접 구현해보는 시리즈의 첫 번째 글입니다. 이번 글에서는 JSX 마크업을 Virtual DOM 객체로 변환하는 과정을 다룹니다."
-    }
-  },
-  {
     "url": "/posts/Web/indexed-db",
     "frontmatter": {
       "title": "IndexedDB 를 TypeOrm 처럼 사용하기",
       "createdAt": "2025-10-07T00:00:00.000Z",
       "category": "Web",
       "description": "IndexedDB 는 브라우저 내장 데이터베이스로, 대용량 데이터를 클라이언트에 저장할 수 있습니다. 이 글에서는 TypeOrm 스타일의 추상화를 통해 IndexedDB 를 더 쉽게 사용하는 방법을 소개합니다."
+    }
+  },
+  {
+    "url": "/posts/React/build-react-1",
+    "frontmatter": {
+      "title": "DIY React 1 - JSX 마크업을 Virtual DOM 객체로 변환하기",
+      "createdAt": "2025-10-07T00:00:00.000Z",
+      "category": "React",
+      "description": "React의 핵심 개념과 동작 원리를 이해하기 위해, React를 직접 구현해보는 시리즈의 첫 번째 글입니다. 이번 글에서는 JSX 마크업을 Virtual DOM 객체로 변환하는 과정을 다룹니다."
     }
   },
   {
