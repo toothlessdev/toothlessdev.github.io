@@ -3,13 +3,7 @@ import { computed } from "vue";
 import { useData } from "vitepress";
 import Giscus from "@giscus/vue";
 import { isProduction } from "@/constants/env";
-
-const GISCUS = {
-    repo: "toothlessdev/toothlessdev.github.io",
-    repoId: "R_kgDOK8A2Yg",
-    category: "General",
-    categoryId: "DIC_kwDOK8A2Ys4Cv8uz",
-} as const;
+import { GISCUS } from "@/constants/giscus";
 
 const { isDark, lang } = useData();
 

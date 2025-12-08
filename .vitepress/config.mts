@@ -23,6 +23,7 @@ export default defineConfig({
         nav: [
             { text: "Home", link: "/" },
             { text: "Blog", link: "/posts/" },
+            { text: "Archive", link: "/archive" },
         ],
 
         sidebar: {
@@ -42,6 +43,7 @@ export default defineConfig({
     },
 
     rewrites: {
+        "contents/archive/:slug*": "archive/:slug*",
         "contents/posts/index.md": "posts/index.md",
         "contents/posts/:slug*": "posts/:slug*",
         "contents/projects/index.md": "projects/index.md",
