@@ -12,6 +12,7 @@ export const categoryColorMap: Record<string, string> = {
     Web: "#e34c26",
     Backend: "#0078d4",
     ComputerScience: "#f34b7d",
+    ProblemSolving: "#a626a4",
     default: "#586069",
 };
 
