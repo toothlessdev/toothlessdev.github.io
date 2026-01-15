@@ -45,10 +45,15 @@ function fileExists(relativePath: string, markdownFilePath: string): boolean {
 /**
  * img 태그를 picture 태그로 변환하는 헬퍼 함수
  */
-function convertImgToPicture(src: string, alt: string, markdownPath: string): string {
+function convertImgToPicture(
+    src: string,
+    alt: string,
+    markdownPath: string,
+    additionalAttrs: string = "",
+): string {
     // 외부 URL이거나 svg, gif는 picture 태그로 변환하지 않음
     if (src.startsWith("http") || src.endsWith(".svg") || src.endsWith(".gif")) {
-        return `<img src="${src}" alt="${alt}" loading="lazy" />`;
+        return `<img src="${src}" alt="${alt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />`;
     }
 
     // 이미지 포맷별 경로 생성
@@ -74,13 +79,13 @@ function convertImgToPicture(src: string, alt: string, markdownPath: string): st
 
     // 변환된 이미지가 없으면 원본만 사용
     if (sources.length === 0) {
-        return `<img src="${src}" alt="${alt}" loading="lazy" />`;
+        return `<img src="${src}" alt="${alt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />`;
     }
 
     // picture 태그 생성 (원본을 최종 fallback으로 사용)
     return `<picture>
     ${sources.join("\n    ")}
-    <img src="${src}" alt="${alt}" loading="lazy" />
+    <img src="${src}" alt="${alt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />
 </picture>`;
 }
 
@@ -102,7 +107,14 @@ function processHtmlImages(html: string, markdownPath: string): string {
         const altMatch = /alt=["']([^"']*)["']/i.exec(attrs);
         const alt = altMatch ? altMatch[1] : "";
 
-        return convertImgToPicture(src, alt, markdownPath);
+        // src와 alt를 제외한 나머지 속성들 추출
+        let remainingAttrs = attrs
+            .replace(/src=["'][^"']*["']/gi, "")
+            .replace(/alt=["'][^"']*["']/gi, "")
+            .replace(/loading=["'][^"']*["']/gi, "") // loading은 우리가 추가할 것이므로 제거
+            .trim();
+
+        return convertImgToPicture(src, alt, markdownPath, remainingAttrs);
     });
 }
 
