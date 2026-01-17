@@ -52,10 +52,11 @@ function convertImgToPicture(
     additionalAttrs: string = "",
 ): string {
     const safeAlt = alt || "";
+    const safeAttrs = additionalAttrs && additionalAttrs.trim() ? " " + additionalAttrs.trim() : "";
 
     // 외부 URL이거나 svg, gif는 picture 태그로 변환하지 않음
     if (src.startsWith("http") || src.endsWith(".svg") || src.endsWith(".gif")) {
-        return `<img src="${src}" alt="${safeAlt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />`;
+        return `<img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />`;
     }
 
     // 이미지 포맷별 경로 생성
@@ -81,13 +82,13 @@ function convertImgToPicture(
 
     // 변환된 이미지가 없으면 원본만 사용
     if (sources.length === 0) {
-        return `<img src="${src}" alt="${safeAlt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />`;
+        return `<img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />`;
     }
 
     // picture 태그 생성 (원본을 최종 fallback으로 사용)
     return `<picture>
     ${sources.join("\n    ")}
-    <img src="${src}" alt="${safeAlt}"${additionalAttrs ? " " + additionalAttrs : ""} loading="lazy" />
+    <img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />
 </picture>`;
 }
 
