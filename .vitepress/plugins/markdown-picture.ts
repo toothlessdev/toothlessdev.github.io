@@ -100,8 +100,8 @@ function processHtmlImages(html: string, markdownPath: string): string {
     const imgRegex = /<img\s+([^>]*?)\/?>/gi;
 
     return html.replace(imgRegex, (match, attrs) => {
-        if (!attrs || typeof attrs !== 'string') return match;
-        
+        if (!attrs || typeof attrs !== "string") return match;
+
         // src 속성 추출
         const srcMatch = /src=["']([^"']+)["']/i.exec(attrs);
         if (!srcMatch) return match;
@@ -118,7 +118,7 @@ function processHtmlImages(html: string, markdownPath: string): string {
             .replace(/alt=["'][^"']*["']/gi, "")
             .replace(/loading=["'][^"']*["']/gi, "") // loading은 우리가 추가할 것이므로 제거
             .trim();
-        
+
         // 속성이 비어있거나 공백만 있으면 빈 문자열로
         if (!remainingAttrs || /^\s*$/.test(remainingAttrs)) {
             remainingAttrs = "";
