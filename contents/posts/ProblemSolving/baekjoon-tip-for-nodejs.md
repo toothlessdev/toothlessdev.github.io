@@ -1,6 +1,6 @@
 ---
 title: 백준 Baekjoon 알고리즘 문제풀이 팁 for NodeJS, JavaScript
-createdAt: 2026-01-22
+createdAt: 2026-01-28
 category: ProblemSolving
 description: NodeJS 환경에서 Baekjoon 온라인 저지 문제를 풀때, 자료구조나 입력/출력 처리가 익숙하지 않은 분들을 위해 유용한 팁들을 정리했습니다.
 comment: true
@@ -43,7 +43,7 @@ let input = fs
 
 ```javascript
 let input = fs
-    .readFileSync(process.platform === "linux" ? "/dev/stdin" : 0)
+    .readFileSync(process.platform === "linux" ? 0 : "./in.txt")
     .toString()
     .trim()
     .split(/\s+/); // 개행문자와 공백문자 모두를 기준으로 분리
@@ -83,7 +83,7 @@ for (let n = 0; n < N; n++) {
 
 # ✍️ 출력 처리 꿀팁
 
-## 1. 출력 빠르게 하기
+## 출력 빠르게 하기
 
 가끔 출력이 많은 문제에서 `console.log()`를 여러번 호출하면 시간초과가 발생할 수 있습니다. 이럴 때는 출력값을 배열에 모아두었다가 한 번에 출력하면 시간초과가 발생하지 않습니다.
 
@@ -220,6 +220,7 @@ class Queue {
         this.q[this.tail++] = v;
     }
     pop() {
+        if (this.isEmpty()) return null;
         const v = this.q[this.head];
         delete this.q[this.head++];
         return v;
@@ -255,11 +256,13 @@ class Deque {
         this.dq[this.tail++] = v;
     }
     popFront() {
+        if (this.isEmpty()) return null;
         const v = this.dq[this.head];
         delete this.dq[this.head++];
         return v;
     }
     popBack() {
+        if (this.isEmpty()) return null;
         const v = this.dq[--this.tail];
         delete this.dq[this.tail];
         return v;
@@ -303,7 +306,7 @@ class MaxHeap {
         }
     }
     pop() {
-        if (this.heap.length === 1) return 0;
+        if (this.heap.length === 1) return null;
         if (this.heap.length === 2) return this.heap.pop();
 
         const element = this.heap[1];
@@ -625,7 +628,7 @@ const char = String.fromCharCode(65); // 'A'
 
 'A' 는 65, 'a' 는 97, '0' 은 48 의 아스키코드 값을 가집니다.
 
-문자의 범위를 비교할때 `/\/[A-Z]/` 같은 정규표현식 대신 아스키코드 값을 비교하는 방법이 더 빠릅니다.
+문자의 범위를 비교할때 `/[A-Z]/` 같은 정규표현식 대신 아스키코드 값을 비교하는 방법이 더 빠릅니다.
 
 ```javascript
 const A = "A".charCodeAt(0);
@@ -659,10 +662,6 @@ for (...) str += x;
 let chars = [];
 for (...) chars.push(x);
 let str = chars.join('');
-```
-
-```javascript
-
 ```
 
 <br><br>
@@ -737,7 +736,7 @@ JSON.stringify({ key: NaN }); // '{"key":null}'
 JSON.stringify({ key: Infinity }); // '{"key":null}'
 ```
 
-### 비트마스킹시 주의사항
+## 비트마스킹시 주의사항
 
 비트마스킹을 사용하면 집합을 효율적으로 표현하고, 비트 연산을 통해 빠르게 집합 연산을 수행할 수 있습니다.
 
@@ -773,3 +772,9 @@ let mask = 0n;
 
 mask |= 1n << 40n;
 ```
+
+<br><br><br><br>
+
+UnionFind, SegmentTree, Trie 와 같은 고급 자료구조나 직접적인 알고리즘들은 따로 다루지 않았습니다. <br/>
+다른 팁들이 생기면 계속 추가할 예정입니다. 😊 <br/>
+추가하면 좋을 내용이 있다면 댓글로 알려주세요 🙌
