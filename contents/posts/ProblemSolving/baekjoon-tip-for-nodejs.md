@@ -1,6 +1,6 @@
 ---
 title: 백준 Baekjoon 알고리즘 문제풀이 팁 for NodeJS, JavaScript
-createdAt: 2026-01-22
+createdAt: 2026-01-28
 category: ProblemSolving
 description: NodeJS 환경에서 Baekjoon 온라인 저지 문제를 풀때, 자료구조나 입력/출력 처리가 익숙하지 않은 분들을 위해 유용한 팁들을 정리했습니다.
 comment: true
@@ -83,7 +83,7 @@ for (let n = 0; n < N; n++) {
 
 # ✍️ 출력 처리 꿀팁
 
-## 1. 출력 빠르게 하기
+## 출력 빠르게 하기
 
 가끔 출력이 많은 문제에서 `console.log()`를 여러번 호출하면 시간초과가 발생할 수 있습니다. 이럴 때는 출력값을 배열에 모아두었다가 한 번에 출력하면 시간초과가 발생하지 않습니다.
 
@@ -661,10 +661,6 @@ for (...) chars.push(x);
 let str = chars.join('');
 ```
 
-```javascript
-
-```
-
 <br><br>
 
 # ✍️ 정렬
@@ -737,7 +733,7 @@ JSON.stringify({ key: NaN }); // '{"key":null}'
 JSON.stringify({ key: Infinity }); // '{"key":null}'
 ```
 
-### 비트마스킹시 주의사항
+## 비트마스킹시 주의사항
 
 비트마스킹을 사용하면 집합을 효율적으로 표현하고, 비트 연산을 통해 빠르게 집합 연산을 수행할 수 있습니다.
 
@@ -773,3 +769,9 @@ let mask = 0n;
 
 mask |= 1n << 40n;
 ```
+
+<br><br><br><br>
+
+UnionFind, SegmentTree, Trie 와 같은 고급 자료구조들은 따로 다루지 않았습니다. <br/>
+다른 팁들이 생기면 계속 추가할 예정입니다. 😊 <br/>
+추가하면 좋을 내용이 있다면 댓글로 알려주세요 🙌
