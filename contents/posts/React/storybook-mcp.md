@@ -10,6 +10,14 @@ head:
         content: Storybook, MCP, Model Context Protocol, 컴포넌트 문서화, AI, 생성형 AI, 리액트, React, Storybook MCP
 ---
 
+사내에서 컴포넌트들이 점점 늘어나지만, 문서화가 잘 되지않아 어떤 공통 컴포넌트가 있고 어떻게 생겼는지 파악하기가 어려웠습니다.
+
+하지만, 빠른 스프린트 주기와 잦은 요구사항 변경으로 인해 문서화 작업은 자주 누락되었고, <br>
+결국 컴포넌트 사용법을 제대로 알지 못하고 무작정 코드를 복사해서 쓰는 일이 빈번해졌습니다.
+
+이번 글에서는 Storybook MCP(Model Context Protocol) 를 활용하여 <br>
+컴포넌트 문서화를 자동화하고, AI 코딩 도구가 컴포넌트를 이해하게 만드는 방법을 소개합니다.
+
 :::tip
 Storybook MCP 설정법에 대해서만 빠르게 읽고 싶다면<br>하단 ["Storybook MCP 설정하기" 섹션](#storybook-mcp-설정하기) 로 바로 이동하세요.
 :::
