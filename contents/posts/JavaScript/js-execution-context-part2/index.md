@@ -8,7 +8,7 @@ comment: true
 
 ## 🤔 Recap
 
-이전 글에서는 [JavaScript 실행 컨텍스트의 개념과 구성요소, Creation Phase와 Execution Phase](./js-execution-context-part1.md)에 대해 알아보았습니다. <br />
+이전 글에서는 [JavaScript 실행 컨텍스트의 개념과 구성요소, Creation Phase와 Execution Phase](../js-execution-context-part1/)에 대해 알아보았습니다. <br />
 
 다시 한번 정리하자면,
 
