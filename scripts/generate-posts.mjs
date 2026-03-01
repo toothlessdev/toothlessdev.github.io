@@ -60,15 +60,25 @@ function createPostObject(frontmatter, filePath, urlPrefix) {
  * @returns {Promise<Object|null>} - 포스트 객체 또는 null
  */
 async function processMarkdownFile(filePath, fileName, urlPrefix) {
-    // index.md 파일은 제외
-    if (fileName === "index.md") return null;
-
     const frontmatter = await readMarkdownFile(filePath);
     if (!frontmatter || !isValidPostData(frontmatter)) {
         return null;
     }
 
-    return createPostObject(frontmatter, filePath, urlPrefix);
+    // 파일명이 index.md인 경우 상위 디렉토리 이름을 URL로 사용
+    const url = fileName === "index.md" 
+        ? urlPrefix 
+        : `${urlPrefix}/${basename(filePath, extname(filePath))}`;
+
+    return {
+        url,
+        frontmatter: {
+            title: frontmatter.title,
+            createdAt: frontmatter.createdAt,
+            category: frontmatter.category,
+            description: frontmatter.description,
+        },
+    };
 }
 
 /**
