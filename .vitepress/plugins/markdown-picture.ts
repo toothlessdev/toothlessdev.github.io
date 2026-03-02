@@ -52,11 +52,36 @@ function convertImgToPicture(
     additionalAttrs: string = "",
 ): string {
     const safeAlt = alt || "";
-    const safeAttrs = additionalAttrs && additionalAttrs.trim() ? " " + additionalAttrs.trim() : "";
+    let safeAttrs = additionalAttrs && additionalAttrs.trim() ? " " + additionalAttrs.trim() : "";
+    let pictureStyle = "";
+
+    // width 속성 처리: 퍼센트나 단위가 있는 경우 picture의 스타일로 이동하여 중첩 계산 방지
+    const widthMatch = /width=["']([^"']+)["']/i.exec(safeAttrs);
+    if (widthMatch) {
+        const widthVal = widthMatch[1];
+        if (widthVal.includes("%") || widthVal.includes("px")) {
+            pictureStyle = `width: ${widthVal}; display: inline-block;`;
+            // img 태그에서는 원본 width 속성을 제거하고 내부적으로 100%를 가지도록 함
+            safeAttrs = safeAttrs.replace(/width=["'][^"']*["']/gi, "").trim();
+            
+            if (safeAttrs.includes("style=\"")) {
+                safeAttrs = safeAttrs.replace(/style=["']([^"']*)["']/i, (m, s) => {
+                    const baseStyle = s.trim();
+                    const separator = baseStyle && !baseStyle.endsWith(";") ? ";" : "";
+                    return `style="${baseStyle}${separator} width: 100%;"`;
+                });
+            } else {
+                safeAttrs += " style=\"width: 100%;\"";
+            }
+        } else {
+            // 숫자만 있는 경우(HTML5 표준) px 제거 로직 유지
+            safeAttrs = safeAttrs.replace(/width="(\d+)(px)?"/gi, "width=\"$1\"");
+        }
+    }
 
     // 외부 URL이거나 svg, gif는 picture 태그로 변환하지 않음
     if (src.startsWith("http") || src.endsWith(".svg") || src.endsWith(".gif")) {
-        return `<img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />`;
+        return `<img src="${src}" alt="${safeAlt}"${safeAttrs ? " " + safeAttrs : ""} loading="lazy" />`;
     }
 
     // 이미지 포맷별 경로 생성
@@ -82,13 +107,14 @@ function convertImgToPicture(
 
     // 변환된 이미지가 없으면 원본만 사용
     if (sources.length === 0) {
-        return `<img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />`;
+        return `<img src="${src}" alt="${safeAlt}"${safeAttrs ? " " + safeAttrs : ""} loading="lazy" />`;
     }
 
     // picture 태그 생성 (원본을 최종 fallback으로 사용)
-    return `<picture>
+    const pictureAttr = pictureStyle ? ` style="${pictureStyle}"` : "";
+    return `<picture${pictureAttr}>
     ${sources.join("\n    ")}
-    <img src="${src}" alt="${safeAlt}"${safeAttrs} loading="lazy" />
+    <img src="${src}" alt="${safeAlt}"${safeAttrs ? " " + safeAttrs : ""} loading="lazy" />
 </picture>`;
 }
 
@@ -117,6 +143,7 @@ function processHtmlImages(html: string, markdownPath: string): string {
             .replace(/src=["'][^"']*["']/gi, "")
             .replace(/alt=["'][^"']*["']/gi, "")
             .replace(/loading=["'][^"']*["']/gi, "") // loading은 우리가 추가할 것이므로 제거
+            .replace(/\s+/g, " ") // 중복 공백 제거
             .trim();
 
         // 속성이 비어있거나 공백만 있으면 빈 문자열로
@@ -142,16 +169,23 @@ export function markdownPicturePlugin(md: MarkdownIt) {
     md.renderer.rules.image = (tokens, idx, options, env, self) => {
         const token = tokens[idx];
         const srcIndex = token.attrIndex("src");
+        const altIndex = token.attrIndex("alt");
 
         if (srcIndex < 0) {
             return defaultRender(tokens, idx, options, env, self);
         }
 
         const src = token.attrs![srcIndex][1];
-        const alt = token.content;
+        const alt = altIndex >= 0 ? token.attrs![altIndex][1] : token.content || "";
         const markdownPath = env.path || "";
 
-        return convertImgToPicture(src, alt, markdownPath);
+        // src, alt를 제외한 나머지 속성들 추출 (width, height 등)
+        const additionalAttrs = token.attrs!
+            .filter(([name]) => name !== "src" && name !== "alt")
+            .map(([name, value]) => `${name}="${value}"`)
+            .join(" ");
+
+        return convertImgToPicture(src, alt, markdownPath, additionalAttrs);
     };
 
     // 2. HTML inline 이미지 (<img>) 처리
