@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/React/constellation-impl",
+    "frontmatter": {
+      "title": "정적 좌표 지옥에서 탈출한 동적 별자리 노드 시스템 구축기",
+      "createdAt": "2026-03-02",
+      "category": "React",
+      "description": "누비랩 냠냠플러스 \"오늘찰칵\" 서비스의 별자리 맵 시스템을 하드코딩된 좌표 대신 기하학 알고리즘과 Render Props 패턴으로 해결하며 유지보수성과 확장성을 확보한 경험을 공유합니다."
+    }
+  },
+  {
     "url": "/posts/React/storybook-mcp",
     "frontmatter": {
       "title": "Storybook MCP 로 컴포넌트 문서화를 자동화하고 AI Context로 활용하기",
