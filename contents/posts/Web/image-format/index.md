@@ -303,8 +303,6 @@ export const Picture = ({ srcAvif, srcWebp, srcFallback, alt, ...imgProps }: Pic
 
 > "가능하면 단일 포맷에 올인하지 말고, 사용자 환경에 맞는 최적의 조합을 제공하자!" 입니다.
 
-[다음 편에서는 실제 React 환경에서 이미지 지연로딩과 같은 최적화 기법을 적용하는 방법에 대해 알아보겠습니다](../image-optimization/index.md)
-
 ## 참고 자료
 
 - https://web.dev/learn/images/jpeg?hl=ko

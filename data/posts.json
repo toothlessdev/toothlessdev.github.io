@@ -117,15 +117,6 @@
     }
   },
   {
-    "url": "/posts/React/react-aop-hoc",
-    "frontmatter": {
-      "title": "리액트에서 고차컴포넌트(HOC)로 횡단 관심사를 처리해보자 (feat. AOP - 관점지향 프로그래밍)",
-      "createdAt": "2025-10-30T00:00:00.000Z",
-      "category": "React",
-      "description": "리액트에서 고차컴포넌트(HOC)를 사용하여 횡단 관심사를 효과적으로 처리하는 방법에 대해 알아봅니다. 관점지향 프로그래밍(AOP)의 개념을 도입하여 코드의 재사용성과 유지보수성을 향상시키는 방법을 알아봅니다"
-    }
-  },
-  {
     "url": "/posts/React/what-is-isomorphic",
     "frontmatter": {
       "title": "Isomorphic 이란 뭐고 어떨때 사용하는 네이밍일까 ? (feat. useIsomorphicEffect 는 뭘까)",
@@ -150,15 +141,6 @@
       "createdAt": "2025-10-24T00:00:00.000Z",
       "category": "JavaScript",
       "description": "불변성(Immutability) 는 개발 공부를 하다 보면 정말 자주 듣는 단어다. 값을 바꾸지 않는다는 말은 이해되지만, 자바스크립트에서 그게 어떻게 동작하는지, 그리고 왜 React 에서는 꼭 지켜야 하는지 알아보자."
-    }
-  },
-  {
-    "url": "/posts/React/build-react-1",
-    "frontmatter": {
-      "title": "DIY React 1 - JSX 마크업을 Virtual DOM 객체로 변환하기",
-      "createdAt": "2025-10-07T00:00:00.000Z",
-      "category": "React",
-      "description": "React의 핵심 개념과 동작 원리를 이해하기 위해, React를 직접 구현해보는 시리즈의 첫 번째 글입니다. 이번 글에서는 JSX 마크업을 Virtual DOM 객체로 변환하는 과정을 다룹니다."
     }
   },
   {
@@ -225,24 +207,6 @@
     }
   },
   {
-    "url": "/posts/JavaScript/v8-how-the-value-stored",
-    "frontmatter": {
-      "title": "동적 타이핑 언어 JavaScript 값은 실제로 어떻게 저장될까? (Feat. Tagged Pointer, NaN-Boxing)",
-      "createdAt": "2025-06-08T00:00:00.000Z",
-      "category": "JavaScript",
-      "description": "JavaScript 에서는 숫자, 문자열, 불리언, 객체 등 다양한 값을 다룰 수 있습니다. 일반적인으로는 원시값은 스택에, 나머지는 힙에 저장된다고 합니다. 하지만 동적 타입 언어인 JavaScript 는 런타임에 타입이 결정되는데, 그렇다면 실제로 값은 어디에 또 어떻게 저장될까요 ?"
-    }
-  },
-  {
-    "url": "/posts/JavaScript/js-object-comparison",
-    "frontmatter": {
-      "title": "객체리터럴 vs 정적메서드 vs 클래스 인스턴스 vs 클로저함수",
-      "createdAt": "2025-05-08T00:00:00.000Z",
-      "category": "JavaScript",
-      "description": "객체리터럴, 정적메서드, 클래스 인스턴스, 클로저함수를 사용하면 공통적으로 객체를 생성할 수 있습니다. 이들은 모두 객체를 생성하는 방법이지만, 각각의 특징과 장단점이 다릅니다. 이 글에서는 이 네 가지 방법을 비교하고, 각각의 장단점과 사용 예시를 살펴보겠습니다."
-    }
-  },
-  {
     "url": "/posts/Web/css-cascade-algorithm",
     "frontmatter": {
       "title": "CSS Cascade Algorithm 이란? (Feat. Cascade Layer)",
@@ -270,15 +234,6 @@
     }
   },
   {
-    "url": "/posts/Web/image-optimization",
-    "frontmatter": {
-      "title": "응~ 이미지 키워봐~ 최적화 하면 그만이야 (pt2. 다양한 최적화 기법)",
-      "createdAt": "2024-12-19T00:00:00.000Z",
-      "category": "Web",
-      "description": "2024 경북대학교 디자인학과 졸업전시 웹사이트 개발 경험을 바탕으로, React 환경에서 이미지 최적화 기법을 적용하는 방법에 대해 알아봅니다. 지연 로딩, 크기 조정, CDN 활용 등 다양한 전략을 통해 웹 성능을 향상시키는 방법을 다룹니다."
-    }
-  },
-  {
     "url": "/posts/Web/browser-rendering-in-depth",
     "frontmatter": {
       "title": "그림으로 한눈에 보는 브라우저 렌더링 과정",
@@ -303,15 +258,6 @@
       "createdAt": "2024-11-15T00:00:00.000Z",
       "category": "React",
       "description": "React와 Intersection Observer API를 활용해 성능 최적화된 무한 스크롤을 구현하는 방법을 알아보겠습니다. 페이지네이션의 종류부터 커스텀 훅까지 단계별로 설명합니다."
-    }
-  },
-  {
-    "url": "/posts/Web/trolley-dilemma-compatibility",
-    "frontmatter": {
-      "title": "철로 위에 묶여 있는 IE 사용자를 구할 것인가 (웹 호환성과 크로스 브라우징)",
-      "createdAt": "2024-10-29T00:00:00.000Z",
-      "category": "Web",
-      "description": "수많은 최신 브라우저 사용자와 소수의 IE 사용자가 철로 위에 묶여 있다면, 개발자는 누구를 구해야 할까요? 트롤리 딜레마로 풀어보는 웹 호환성과 크로스 브라우징 이야기"
     }
   },
   {
@@ -348,15 +294,6 @@
       "createdAt": "2024-09-10T00:00:00.000Z",
       "category": "React",
       "description": "Redux의 핵심 개념과 Flux 아키텍처에 대해 알아봅니다. MVC, MVVM, Container-Presenter 패턴과 비교하며 Redux가 어떻게 상태 관리를 단순화하는지 알아봅니다."
-    }
-  },
-  {
-    "url": "/posts/React/use-imperative-handle",
-    "frontmatter": {
-      "title": "React 는 항상 단방향으로 데이터가 흐를까? (useImperativeHandle)",
-      "createdAt": "2024-06-10T00:00:00.000Z",
-      "category": "React",
-      "description": "React 는 항상 데이터가 단방향으로 흐를까요? React 의 useImperativeHandle 훅을 사용하여 부모 컴포넌트가 자식 컴포넌트의 메서드나 속성에 접근하는 방법에 대해 알아봅니다"
     }
   },
   {
