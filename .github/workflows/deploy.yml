@@ -61,7 +61,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy
     outputs:
       page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
