@@ -33,7 +33,7 @@ head:
 
 ## 기존 업로드 구조의 한계
 
-기존 원아 등록 API 는 여러명의 데이터를 하나으 Multipart 요청으로 전송하는 구조였습니다.
+기존 원아 등록 API 는 여러명의 데이터를 하나의 Multipart 요청으로 전송하는 구조였습니다.
 
 ```bash
 POST /batch-upload
@@ -105,7 +105,7 @@ const compressedFile = await imageCompression(file, options);
 
 <br/>
 
-### 2️⃣ 요청청킹 + Batch 업로드
+### 2️⃣ 요청 청킹 + Batch 업로드
 
 이미지 압축만으로는 한계가 있었기 때문에, 근본적으로 요청 자체를 여러 개로 나누는 방식을 도입했습니다.
 
@@ -137,7 +137,7 @@ await Promise.all(chunks.map((chunk) => api.post("/batch-upload", chunk)));
 
 > 중간에 일부 요청만 실패하면 어떻게 될까?
 
-예를들어,
+예를 들어,
 
 - 1~5명: 성공
 - 6~10명: 성공
@@ -146,7 +146,7 @@ await Promise.all(chunks.map((chunk) => api.post("/batch-upload", chunk)));
 이런 상황이 발생하면, 서버에는 이미 10명의 원아 데이터만 등록된 상태가 됩니다. <br>
 이는 흔히 말하는 원자성(Atomicity)을 깨는 구조입니다.
 
-#### 1. 실패시 전체 롤백 (All or Nothing)
+#### 1. 실패 시 전체 롤백 (All or Nothing)
 
 - 성공했던 요청까지 모두 삭제
 - DB 상태를 완전히 원래대로 복구
@@ -208,16 +208,16 @@ export class PartialSuccessError extends Error {
 ```ts
 const results = await Promise.allSettled(requests);
 
-const successIndices = results
-    .map((result, index) => (result.status === "fulfilled" ? index : null))
-    .filter((index) => index !== null);
+const successIndices = results.flatMap((result, index) =>
+    result.status === "fulfilled" ? [index] : [],
+);
 
 if (successIndices.length !== chunks.length) {
     throw new PartialSuccessError(successIndices);
 }
 ```
 
-이후, ReactHookForm 에서 이 에러를 잡아서 성공한 항목은 폼에서 제거하고, 실패한 항목만 그대로 남깁니다
+이후, React Hook Form 에서 이 에러를 잡아서 성공한 항목은 폼에서 제거하고, 실패한 항목만 그대로 남깁니다
 
 ```ts
 onError: (error) => {
