@@ -1,5 +1,23 @@
 [
   {
+    "url": "/posts/React/batch-api-atomic",
+    "frontmatter": {
+      "title": "프론트엔드에서 원자성 보장하기 (feat. 대용량 데이터 배치 업로드)",
+      "createdAt": "2026-03-07",
+      "category": "React",
+      "description": "413 Payload 에러 해결을 위한 이미지 압축, API 청크 분할, 부분 성공 복구 로직을 도입하며 프론트엔드에서 All or Nothing을 구현한 경험기"
+    }
+  },
+  {
+    "url": "/posts/React/batch-api-atomic/temp",
+    "frontmatter": {
+      "title": "프론트엔드에서 원자성 보장하기 (feat. 대용량 데이터 배치 업로드)",
+      "createdAt": "2026-03-07",
+      "category": "React",
+      "description": "413 Payload 에러 해결을 위한 이미지 압축, API 청크 분할, 부분 성공 복구 로직을 도입하며 프론트엔드에서 All or Nothing을 구현한 경험기"
+    }
+  },
+  {
     "url": "/posts/React/constellation-impl",
     "frontmatter": {
       "title": "정적 좌표 지옥에서 탈출한 동적 별자리 노드 시스템 구축기",
