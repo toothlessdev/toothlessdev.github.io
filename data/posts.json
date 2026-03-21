@@ -1,20 +1,20 @@
 [
   {
+    "url": "/posts/React/batch-api-atomic",
+    "frontmatter": {
+      "title": "프론트엔드에서 원자성 보장하기 (feat. 대용량 데이터 배치 업로드)",
+      "createdAt": "2026-03-07",
+      "category": "React",
+      "description": "413 Payload 에러 해결을 위한 이미지 압축, API 청크 분할, 부분 성공 복구 로직을 도입하며 프론트엔드에서 All or Nothing을 구현한 경험기"
+    }
+  },
+  {
     "url": "/posts/React/constellation-impl",
     "frontmatter": {
       "title": "정적 좌표 지옥에서 탈출한 동적 별자리 노드 시스템 구축기",
       "createdAt": "2026-03-02",
       "category": "React",
       "description": "누비랩 냠냠플러스 \"오늘찰칵\" 서비스의 별자리 맵 시스템을 하드코딩된 좌표 대신 기하학 알고리즘과 Render Props 패턴으로 해결하며 유지보수성과 확장성을 확보한 경험을 공유합니다."
-    }
-  },
-  {
-    "url": "/posts/React/storybook-mcp",
-    "frontmatter": {
-      "title": "Storybook MCP 로 컴포넌트 문서화를 자동화하고 AI Context로 활용하기",
-      "createdAt": "2026-02-03T00:00:00.000Z",
-      "category": "React",
-      "description": "생성형 AI 가 발전함에 따라 MCP(Model Context Protocol)라는 새로운 개념이 등장했습니다. Storybook 에도 MCP 가 존재하는데, 이를 활용하면 컴포넌트 문서화를 자동화하거나, 컴포넌트 사용법을 AI 가 이해하고, context 로 활용할 수 있습니다."
     }
   },
   {
