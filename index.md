@@ -13,6 +13,9 @@ hero:
         - theme: alt
           text: GitHub
           link: https://github.com/toothlessdev
+        - theme: alt
+          text: Resume
+          link: /202604.pdf
         # - theme: alt
         #   text: 저는 이렇게 코드를 작성하는 편이에요
         #   link: /docs/code/code-convention.md
