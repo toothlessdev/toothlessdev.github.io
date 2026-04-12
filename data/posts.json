@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/Etc/reverse-engineering-myself/1",
+    "frontmatter": {
+      "title": "인간의 감정과 행동을 리버스 엔지니어링 해보자 1편 - 나는 왜 '이해'가 있어야만 움직일까 (완벽한 원시인을 읽고)",
+      "createdAt": "2026-04-12T00:00:00.000Z",
+      "category": "Etc",
+      "description": "'완벽한 원시인'을 읽고 - 인간을 시스템처럼 분석해보니, 감정과 행동은 버그가 아니라 원시시대부터 최적화된 뇌의 알고리즘이었다"
+    }
+  },
+  {
     "url": "/posts/React/batch-api-atomic",
     "frontmatter": {
       "title": "프론트엔드에서 원자성 보장하기 (feat. 대용량 데이터 배치 업로드)",
