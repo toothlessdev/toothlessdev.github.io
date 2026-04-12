@@ -30,7 +30,6 @@
     letter-spacing: 0.05em;
 
     color: var(--vp-c-text-2);
-    background-color: var(--vp-c-brand);
 }
 
 .post-category .category-indicator {
@@ -59,9 +58,6 @@
 }
 
 /* 다크 테마 대응 */
-.dark .category-tag {
-    background-color: var(--vp-c-brand-dark);
-}
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
