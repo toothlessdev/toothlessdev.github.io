@@ -5,6 +5,7 @@ import DefaultTheme from "vitepress/theme";
 import Giscus from "@giscus/vue";
 import PostCardList from "@/components/PostCardList/PostCardList.vue";
 import PostLayout from "@/components/PostLayout/PostLayout.vue";
+import { MermaidPlugin } from "vitepress-plugin-mermaid";
 import "./style.css";
 
 export default {
@@ -13,5 +14,6 @@ export default {
     enhanceApp({ app, router, siteData }) {
         app.component("PostCardList", PostCardList);
         app.component("Giscus", Giscus);
+        app.use(MermaidPlugin);
     },
 } satisfies Theme;

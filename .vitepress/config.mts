@@ -7,6 +7,7 @@ import markdownItKatex from "markdown-it-katex";
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 import { createImageOptimizerPlugin } from "./plugins/image-optimizer";
 import { markdownPicturePlugin } from "./plugins/markdown-picture";
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -14,7 +15,7 @@ const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
 const NAVER_SITE_VERIFICATION_CODE = "db7f3601aa486190aa58c3e09dcd7f35a784543e";
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
     lang: "ko-KR",
     title: "🦷 ToothlessDev",
     description: "A VitePress Site",
@@ -101,4 +102,4 @@ export default defineConfig({
             },
         ],
     ],
-});
+}));
