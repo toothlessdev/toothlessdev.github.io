@@ -20,7 +20,8 @@
         "katex": "^0.16.25",
         "markdown-it-katex": "^2.0.3",
         "mermaid": "^11.14.0",
-        "vitepress-plugin-mermaid": "^2.0.17"
+        "vitepress-plugin-mermaid": "^2.0.17",
+        "yarn": "^1.22.22"
     },
     "version": "0.0.0",
     "packageManager": "yarn@1.22.22"
