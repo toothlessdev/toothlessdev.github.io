@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/Etc/human-hallucination-and-context",
+    "frontmatter": {
+      "title": "논리는 틀릴 수 있다 - Context 없는 판단이 만든 오판",
+      "createdAt": "2026-04-14T00:00:00.000Z",
+      "category": "Etc",
+      "description": "기술적 / 논리적으로 맞는 판단이 항상 올바른 판단은 아닐 수 있다. Context 없는 판단이 만든 오판의 위험성과 인간의 메타인지에 대해"
+    }
+  },
+  {
     "url": "/posts/Etc/reverse-engineering-myself/1",
     "frontmatter": {
       "title": "인간의 감정과 행동을 리버스 엔지니어링 해보자 1편 - 나는 왜 '이해'가 있어야만 움직일까 (완벽한 원시인을 읽고)",
