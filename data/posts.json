@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/JavaScript/async-generator-cooperative-scheduling",
+    "frontmatter": {
+      "title": "Async Generator 로 협력적 스케쥴링 구현하기",
+      "createdAt": "2026-07-15T00:00:00.000Z",
+      "category": "JavaScript",
+      "description": "대규모 DFS 순회로 멈춰버린 UI 를 Async Generator, Time Slicing, Macrotask 를활용해 순회시 취소가능하고 반응성 있게 동작하도록 구현한 방법을 소개합니다"
+    }
+  },
+  {
     "url": "/posts/Etc/human-hallucination-and-context",
     "frontmatter": {
       "title": "논리는 틀릴 수 있다 - Context 없는 판단이 만든 오판",
