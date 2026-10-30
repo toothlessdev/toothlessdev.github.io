@@ -1,60 +1,52 @@
 @import "katex/dist/katex.min.css";
 
 /**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ * 기본 테마는 그대로 확장하고, 색과 글꼴과 간격만 이 파일에서 덮어씁니다.
+ * 기본 테마 변수 목록: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ *
+ * 면은 선 대신 배경 톤 차이로 나눕니다. 그래서 divider 계열 색을 배경과 가깝게 낮춰 둡니다.
  */
 
-/**
- * Colors
- *
- * Each colors have exact same color scale system with 3 levels of solid
- * colors with different brightness, and 1 soft color.
- *
- * - `XXX-1`: The most solid color used mainly for colored text. It must
- *   satisfy the contrast ratio against when used on top of `XXX-soft`.
- *
- * - `XXX-2`: The color used mainly for hover state of the button.
- *
- * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
- *
- * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
- *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create a accent, such as when having inline code block inside
- *   custom containers.
- *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attached to it such as bg color for menu hover state.
- *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
- *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
- *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
- *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
- * -------------------------------------------------------------------------- */
-
 :root {
+    --tl-bg: #ffffff;
+    --tl-fg: #171717;
+    --tl-fg-muted: #5e5e5e;
+    --tl-fg-faint: #6b6b6b;
+    --tl-subtle: #f3f3f3;
+    --tl-subtle-strong: #e8e8e8;
+    --tl-line-strong: #d6d6d6;
+    --tl-selection: rgba(0, 0, 0, 0.12);
+    --tl-accent: #23805a;
+    --tl-accent-hover: #1c6a4a;
+    --tl-accent-soft: rgba(35, 128, 90, 0.12);
+
+    --tl-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --tl-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --vp-font-family-base:
+        "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+
+    --vp-c-bg: var(--tl-bg);
+    --vp-c-bg-alt: var(--tl-bg);
+    --vp-c-bg-soft: var(--tl-subtle);
+    --vp-c-bg-elv: var(--tl-bg);
+    --vp-c-text-1: var(--tl-fg);
+    --vp-c-text-2: var(--tl-fg-muted);
+    --vp-c-text-3: var(--tl-fg-faint);
+    --vp-c-divider: var(--tl-subtle-strong);
+    --vp-c-gutter: var(--tl-subtle-strong);
+    --vp-c-border: var(--tl-subtle-strong);
+
     --vp-c-default-1: var(--vp-c-gray-1);
     --vp-c-default-2: var(--vp-c-gray-2);
     --vp-c-default-3: var(--vp-c-gray-3);
-    --vp-c-default-soft: var(--vp-c-gray-soft);
+    --vp-c-default-soft: var(--tl-subtle);
 
-    --vp-c-brand-1: var(--vp-c-indigo-1);
-    --vp-c-brand-2: var(--vp-c-indigo-2);
-    --vp-c-brand-3: var(--vp-c-indigo-3);
-    --vp-c-brand-soft: var(--vp-c-indigo-soft);
+    --vp-c-brand-1: var(--tl-accent);
+    --vp-c-brand-2: var(--tl-accent-hover);
+    --vp-c-brand-3: var(--tl-accent);
+    --vp-c-brand-soft: var(--tl-accent-soft);
 
     --vp-c-tip-1: var(--vp-c-brand-1);
     --vp-c-tip-2: var(--vp-c-brand-2);
@@ -70,83 +62,42 @@
     --vp-c-danger-2: var(--vp-c-red-2);
     --vp-c-danger-3: var(--vp-c-red-3);
     --vp-c-danger-soft: var(--vp-c-red-soft);
-}
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
+    --vp-nav-bg-color: var(--tl-bg);
+    --vp-sidebar-bg-color: var(--tl-bg);
+    --vp-code-block-bg: var(--tl-subtle);
+    --vp-code-bg: var(--tl-subtle);
+    --vp-code-copy-code-bg: var(--tl-bg);
+    --vp-input-switch-bg-color: var(--tl-subtle-strong);
 
-:root {
-    --vp-button-brand-border: transparent;
-    --vp-button-brand-text: var(--vp-c-white);
-    --vp-button-brand-bg: var(--vp-c-brand-3);
-    --vp-button-brand-hover-border: transparent;
-    --vp-button-brand-hover-text: var(--vp-c-white);
-    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-    --vp-button-brand-active-border: transparent;
-    --vp-button-brand-active-text: var(--vp-c-white);
-    --vp-button-brand-active-bg: var(--vp-c-brand-1);
-}
+    --vp-local-search-bg: var(--tl-bg);
+    --vp-local-search-result-bg: var(--tl-bg);
+    --vp-local-search-result-border: transparent;
+    --vp-local-search-result-selected-bg: var(--tl-subtle);
+    --vp-local-search-result-selected-border: transparent;
+    --vp-local-search-highlight-bg: var(--tl-subtle-strong);
+    --vp-local-search-highlight-text: var(--tl-fg);
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
-
-    --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-    --vp-home-hero-image-filter: blur(44px);
-}
-
-@media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(56px);
-    }
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(68px);
-    }
-}
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
     --vp-custom-block-tip-border: transparent;
     --vp-custom-block-tip-text: var(--vp-c-text-1);
     --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
     --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+
+    --vp-sidebar-width: 200px;
 }
 
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
-
-.DocSearch {
-    --docsearch-primary-color: var(--vp-c-brand-1) !important;
-}
-
-figcaption {
-    font-size: 0.75rem;
-}
-
-/**
- * Component: Sidebar
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-sidebar-width: 180px;
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-sidebar-width: 220px;
-    }
+.dark {
+    --tl-bg: #0c0c0c;
+    --tl-fg: #f2f2f2;
+    --tl-fg-muted: #aaaaaa;
+    --tl-fg-faint: #888888;
+    --tl-subtle: #191919;
+    --tl-subtle-strong: #242424;
+    --tl-line-strong: #363636;
+    --tl-selection: rgba(255, 255, 255, 0.2);
+    --tl-accent: #5fcf9c;
+    --tl-accent-hover: #7fdcb1;
+    --tl-accent-soft: rgba(95, 207, 156, 0.16);
 }
 
 @media (min-width: 1440px) {
@@ -155,11 +106,610 @@ figcaption {
     }
 }
 
+/**
+ * 스크롤바가 있는 페이지와 없는 페이지를 오갈 때 바 너비만큼 레이아웃이 밀리지 않도록 트랙을 항상 둡니다.
+ * scrollbar-gutter: stable 은 루트 요소에 적용되지 않는 Chromium 환경이 있어 쓰지 않았습니다.
+ */
+html {
+    overflow-y: scroll;
+}
+
+/* 선택 영역은 포인트 컬러가 아니라 중립 회색으로 둡니다. 녹색은 링크와 포커스에만 씁니다 */
+::selection {
+    background: var(--tl-selection);
+}
+
+/**
+ * Nav
+ * -------------------------------------------------------------------------- */
+
+.VPNavBar .title {
+    border-bottom: 0 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/**
+ * 기본 테마는 사이드바가 있는 페이지에서만 로고 영역에 선을 그어서 페이지마다 nav 모양이 달라집니다.
+ * 모든 페이지에서 맨 위에서는 선이 없고, 콘텐츠가 nav 밑으로 지나갈 때만 전체 폭 선이 생기게 맞춥니다.
+ */
+@media (min-width: 960px) {
+    .VPNavBar {
+        background-color: var(--vp-nav-bg-color) !important;
+        box-shadow: 0 1px 0 transparent;
+        transition: box-shadow 200ms ease !important;
+    }
+
+    .VPNavBar:not(.top) {
+        box-shadow: 0 1px 0 var(--tl-subtle-strong);
+    }
+}
+
+.VPNavBar .logo {
+    height: 18px;
+    margin-right: 7px;
+}
+
+/**
+ * Layout shell
+ *
+ * 홈, 글 목록, 글 상세가 같은 바깥 경계를 쓰도록 셸 폭 하나로 nav, 사이드바, 본문 여백을 계산합니다.
+ * 기본 테마는 1440px 이상에서만 --vp-layout-max-width 로 가운데 정렬하므로, 960px 부터 같은 계산을 직접 적용합니다.
+ * 모든 규칙이 같은 100vw 기준 값을 써야 경계가 픽셀 단위로 맞습니다.
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --tl-shell-width: 1240px;
+    --tl-shell-edge: max(32px, calc((100vw - var(--tl-shell-width)) / 2));
+
+    /* 글 본문 컬럼. 홈도 이 폭과 시작 위치(셸 경계 + 사이드바 + 64px)를 그대로 씁니다 */
+    --tl-content-width: 688px;
+    --tl-content-start: calc(var(--tl-shell-edge) + var(--vp-sidebar-width) + 64px);
+}
+
+@media (min-width: 960px) {
+    .VPNavBar .wrapper {
+        padding-left: var(--tl-shell-edge) !important;
+        padding-right: var(--tl-shell-edge) !important;
+    }
+
+    .VPNavBar .container {
+        max-width: none !important;
+    }
+
+    .VPNavBar.has-sidebar .title {
+        position: static !important;
+        width: auto !important;
+        padding: 0 !important;
+    }
+
+    .VPNavBar.has-sidebar .content {
+        padding: 0 !important;
+    }
+
+    .VPSidebar {
+        width: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+        padding-left: var(--tl-shell-edge) !important;
+        padding-right: 16px !important;
+    }
+
+    /* 기본 테마는 그룹 폭을 사이드바 폭 - 64px 로 고정해서, 항목이 선택 배경보다 좁아집니다 */
+    .VPSidebar .group {
+        width: 100% !important;
+    }
+
+    .VPContent.has-sidebar {
+        padding-left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+        padding-right: calc(var(--tl-shell-edge) - 32px) !important;
+    }
+
+    .VPLocalNav.has-sidebar {
+        padding-left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+    }
+
+    .VPDoc.has-sidebar .container {
+        justify-content: flex-start !important;
+    }
+
+    .VPDoc .content-container {
+        max-width: var(--tl-content-width) !important;
+        margin-left: 0 !important;
+    }
+}
+
+.VPNavBar .divider-line,
+.VPNavBar.has-sidebar .divider,
+.VPNavBar .content-body .divider {
+    display: none;
+}
+
+.VPNavBarMenuLink {
+    font-size: 0.875rem !important;
+    color: var(--tl-fg-muted) !important;
+}
+
+.VPNavBarMenuLink.active {
+    color: var(--tl-fg) !important;
+    font-weight: 600 !important;
+}
+
+.VPNavBarSearch .DocSearch-Button {
+    height: 32px;
+    border: 0 !important;
+    border-radius: 999px;
+    background: var(--tl-subtle) !important;
+    transition:
+        background-color 150ms ease,
+        transform 160ms var(--tl-ease-out);
+}
+
+.VPNavBarSearch .DocSearch-Button:active {
+    transform: scale(0.97);
+}
+
+.VPNavBarSearch .DocSearch-Button .DocSearch-Button-Placeholder {
+    font-size: 0.8125rem;
+    color: var(--tl-fg-muted);
+}
+
+.VPNavBarSearch .DocSearch-Button .DocSearch-Button-Keys {
+    border: 0;
+    border-radius: 6px;
+    background: var(--tl-bg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPNavBarSearch .DocSearch-Button:hover {
+        background: var(--tl-subtle-strong) !important;
+    }
+}
+
+.VPSwitchAppearance.VPSwitch {
+    border: 0;
+    border-radius: 999px;
+}
+
+.VPSwitchAppearance .check {
+    background-color: var(--tl-bg) !important;
+    box-shadow: none !important;
+    transition: transform 320ms var(--tl-ease-drawer) !important;
+}
+
+/**
+ * Sidebar
+ *
+ * 사이드바 설정이 평평한 배열이라 기본 테마가 텍스트 없는 level-0 그룹으로 감쌉니다. 실제 항목은 level-1 입니다.
+ * 선택 배경은 항목마다 그리지 않고 .sidebar-indicator 하나를 옮깁니다. (src/components/SidebarIndicator)
+ * 960px 미만에서는 기본 테마의 Menu 드로어를 그대로 씁니다.
+ * -------------------------------------------------------------------------- */
+
+.VPSidebar {
+    border-right: 0 !important;
+}
+
+.VPSidebar .nav {
+    position: relative;
+}
+
+.sidebar-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 9px;
+    background: var(--tl-subtle);
+    pointer-events: none;
+    transition:
+        transform 300ms var(--tl-ease-drawer),
+        height 300ms var(--tl-ease-drawer);
+}
+
+.VPSidebar .VPSidebarItem.level-0 {
+    padding-bottom: 0;
+}
+
+.VPSidebar .VPSidebarItem.level-1 {
+    padding-bottom: 1px;
+}
+
+.VPSidebar .VPSidebarItem.level-1:first-child {
+    padding-bottom: 10px;
+}
+
+.VPSidebar .VPSidebarItem > .item {
+    position: relative;
+    z-index: 1;
+    padding: 0 11px;
+    border-radius: 9px;
+    transition: transform 160ms var(--tl-ease-out);
+}
+
+.VPSidebar .VPSidebarItem > .item:active {
+    transform: scale(0.97);
+}
+
+.VPSidebar .VPSidebarItem > .item > .indicator {
+    display: none;
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item .text {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    line-height: 20px;
+    font-size: 0.84375rem;
+    font-weight: 500;
+    color: var(--tl-fg-muted);
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-active > .item .link > .text,
+.VPSidebar .VPSidebarItem.level-1[data-current-category] > .item .link > .text {
+    color: var(--tl-fg);
+    font-weight: 600;
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-link > .item > .link:hover .text {
+    color: var(--tl-fg);
+}
+
 .category-indicator {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    flex: none;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    margin-right: 8px;
+    margin-right: 9px;
     vertical-align: middle;
+}
+
+.dark .category-indicator {
+    box-shadow: 0 0 0 1px var(--tl-subtle-strong);
+}
+
+.category-count {
+    margin-left: auto;
+    padding-left: 8px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--tl-fg-faint);
+    font-variant-numeric: tabular-nums;
+}
+
+/**
+ * 모바일 드로어와 그 위를 여는 Menu 바
+ * 드로어는 화면 위·아래 끝에 붙어 있어서 모서리를 둥글리지 않습니다. 화면 끝과 곡선이 겹쳐 어색해집니다.
+ */
+@media (max-width: 959px) {
+    .VPSidebar {
+        width: min(300px, calc(100vw - 56px)) !important;
+        padding: 24px 16px 96px !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .VPSidebar.open {
+        transition:
+            opacity 200ms ease,
+            transform 360ms var(--tl-ease-drawer) !important;
+    }
+
+    .VPLocalNav {
+        border-bottom: 0 !important;
+        background: var(--tl-bg) !important;
+    }
+
+    .VPLocalNav .menu {
+        gap: 2px;
+    }
+
+    .VPLocalNav .menu-text,
+    .VPLocalNav .VPLocalNavOutlineDropdown button {
+        font-size: 0.8125rem !important;
+        color: var(--tl-fg-muted) !important;
+    }
+}
+
+/**
+ * Doc
+ * -------------------------------------------------------------------------- */
+
+.vp-doc {
+    font-size: 0.96875rem;
+    line-height: 1.85;
+}
+
+.vp-doc p,
+.vp-doc li {
+    line-height: 1.85;
+}
+
+.vp-doc h2 {
+    margin: 2.6em 0 0.6em;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 1.1875rem;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+}
+
+.vp-doc h3 {
+    font-size: 1.0625rem;
+    letter-spacing: -0.015em;
+}
+
+.vp-doc a {
+    color: var(--tl-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--tl-accent-soft);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+    text-decoration-color: var(--tl-accent);
+}
+
+.vp-doc :not(pre) > code {
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    color: var(--tl-fg);
+}
+
+.vp-doc blockquote {
+    margin: 1.4em 0;
+    padding: 2px 0 2px 16px;
+    border-left: 3px solid var(--tl-line-strong);
+    color: var(--tl-fg-muted);
+}
+
+.vp-doc blockquote > p {
+    font-size: inherit;
+    color: inherit;
+}
+
+.vp-doc div[class*="language-"] {
+    border-radius: 12px !important;
+}
+
+.vp-doc div[class*="language-"] code {
+    font-size: 0.8125rem;
+}
+
+.vp-doc img {
+    border-radius: 12px;
+}
+
+figcaption {
+    font-size: 0.75rem;
+    color: var(--tl-fg-muted);
+}
+
+.VPDocFooter .pager-link {
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: var(--tl-subtle);
+    transition:
+        background-color 150ms ease,
+        transform 160ms var(--tl-ease-out);
+}
+
+.VPDocFooter .pager-link:active {
+    transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPDocFooter .pager-link:hover {
+        background: var(--tl-subtle-strong);
+    }
+}
+
+.VPDocFooter .pager-link .title {
+    font-size: 0.875rem;
+    color: var(--tl-fg);
+}
+
+/* 사이드바 항목 텍스트를 그대로 가져오므로 글 수 표시는 이전/다음 링크에서 숨깁니다 */
+.VPDocFooter .category-count {
+    display: none;
+}
+
+/**
+ * Outline (목차)
+ *
+ * 사이드바와 같은 모양으로 맞춥니다. 왼쪽 세로선 대신, 기본 테마의 outline-marker 를
+ * 현재 섹션 뒤를 따라다니는 회색 pill 로 바꿉니다.
+ * 기본 테마는 marker 의 top 을 "링크 offsetTop + 39px"(18px 막대를 32px 줄 가운데에 두는 값)로 넣으므로,
+ * 32px 높이 pill 은 margin-top -7px 로 줄 위쪽에 맞춥니다.
+ * -------------------------------------------------------------------------- */
+
+.VPDocAsideOutline .content {
+    padding-left: 0 !important;
+    border-left: 0 !important;
+}
+
+.VPDocAsideOutline .outline-title {
+    padding: 0 10px;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--tl-fg-faint);
+}
+
+.VPDocAsideOutline .outline-marker {
+    left: 0 !important;
+    right: 0;
+    width: auto !important;
+    height: 32px !important;
+    margin-top: -7px;
+    border-radius: 9px !important;
+    background-color: var(--tl-subtle) !important;
+    transition:
+        top 300ms var(--tl-ease-drawer),
+        opacity 200ms ease !important;
+}
+
+.VPDocAsideOutline .outline-link {
+    padding: 0 10px;
+    font-size: 0.8125rem !important;
+    color: var(--tl-fg-muted) !important;
+}
+
+.VPDocAsideOutline .outline-link.nested {
+    padding-left: 22px;
+}
+
+.VPDocAsideOutline .outline-link.active {
+    color: var(--tl-fg) !important;
+    font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPDocAsideOutline .outline-link:hover {
+        color: var(--tl-fg) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .VPDocAsideOutline .outline-marker {
+        transition-property: opacity !important;
+    }
+}
+
+/**
+ * 1280px 미만에서 상단 "목차" 버튼으로 여는 드롭다운. 오른쪽 목차와 별개 컴포넌트입니다.
+ * 기본 테마는 bg-soft 배경 + gutter 구분선 + brand 색 "맨 위로" 링크라서, 흰 패널과 회색 pill 호버로 바꿉니다.
+ */
+.VPLocalNavOutlineDropdown .items {
+    gap: 0 !important;
+    padding: 6px;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background-color: var(--tl-bg) !important;
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.14),
+        0 0 0 1px var(--tl-subtle-strong) !important;
+}
+
+@media (min-width: 960px) {
+    .VPLocalNavOutlineDropdown .items {
+        left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width) + 32px) !important;
+    }
+}
+
+.VPLocalNavOutlineDropdown .header,
+.VPLocalNavOutlineDropdown .outline {
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+/* 드롭다운 안의 첫 단계 목록도 기본 테마가 nested 로 그려서 16px 들여쓰기가 붙습니다 */
+.VPLocalNavOutlineDropdown .outline > ul {
+    padding: 0 !important;
+}
+
+.VPLocalNavOutlineDropdown .top-link,
+.VPLocalNavOutlineDropdown .outline-link {
+    padding: 0 10px;
+    border-radius: 9px;
+    line-height: 36px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 400;
+    color: var(--tl-fg-muted) !important;
+    transition: background-color 150ms ease;
+}
+
+.VPLocalNavOutlineDropdown .outline-link.nested {
+    padding-left: 22px;
+}
+
+.VPLocalNavOutlineDropdown .top-link:active,
+.VPLocalNavOutlineDropdown .outline-link:active {
+    background-color: var(--tl-subtle);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPLocalNavOutlineDropdown .top-link:hover,
+    .VPLocalNavOutlineDropdown .outline-link:hover {
+        background-color: var(--tl-subtle);
+        color: var(--tl-fg) !important;
+    }
+}
+
+/**
+ * Local search modal
+ * 하루에도 여러 번 여닫는 UI 라 기본 테마에 없는 여닫기 애니메이션은 넣지 않습니다.
+ * -------------------------------------------------------------------------- */
+
+/* 767px 이하에서는 검색창이 화면 전체를 덮으므로, 드로어와 같은 이유로 모서리를 둥글리지 않습니다 */
+@media (min-width: 768px) {
+    .VPLocalSearchBox .shell {
+        border-radius: 18px !important;
+    }
+}
+
+.VPLocalSearchBox .search-bar {
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: var(--tl-subtle);
+}
+
+/**
+ * 기본 테마는 선택된 결과의 제목, # 아이콘, 미리보기 토글을 brand 색으로 칠합니다.
+ * 사이드바, 목차와 같은 규칙으로 맞춥니다: 선택은 회색 pill 배경, 글자는 본문색, 하이라이트는 중립 회색.
+ *
+ * 기본 테마 규칙도 !important 라서 셀렉터 강도가 같으면 로드 순서에 따라 집니다.
+ * 그래서 .shell .results 까지 붙여 강도를 한 단계 올립니다.
+ */
+.VPLocalSearchBox .shell .results .result {
+    border: 0 !important;
+    border-radius: 10px !important;
+}
+
+.VPLocalSearchBox .shell .results .result.selected {
+    background-color: var(--tl-subtle) !important;
+}
+
+.VPLocalSearchBox .shell .results .result > div {
+    margin: 10px 12px !important;
+}
+
+.VPLocalSearchBox .shell .results .titles,
+.VPLocalSearchBox .shell .results .result.selected .titles {
+    color: var(--tl-fg) !important;
+}
+
+.VPLocalSearchBox .shell .results .title-icon,
+.VPLocalSearchBox .shell .results .result.selected .title-icon {
+    opacity: 1 !important;
+    color: var(--tl-fg-faint) !important;
+}
+
+.VPLocalSearchBox .shell .results mark {
+    border-radius: 4px !important;
+    font-weight: 600;
+}
+
+.VPLocalSearchBox .shell .results .result.selected mark {
+    background-color: var(--tl-line-strong) !important;
+}
+
+/* 터치 기기에서는 탭한 버튼에 :hover 가 남아서, 기본 테마의 hover brand 색이 계속 보입니다 */
+.VPLocalSearchBox .shell .toggle-layout-button.detailed-list,
+.VPLocalSearchBox .shell .search-actions button:not([disabled]):hover {
+    color: var(--tl-fg) !important;
+}
+
+.VPLocalSearchBox .backdrop {
+    background: rgba(0, 0, 0, 0.28) !important;
+}
+
+.dark .VPLocalSearchBox .backdrop {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-indicator,
+    .VPSwitchAppearance .check {
+        transition-property: opacity !important;
+    }
 }

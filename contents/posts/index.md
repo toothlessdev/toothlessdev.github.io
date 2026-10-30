@@ -1,7 +1,5 @@
-# ✍️ 개발 블로그
+# 전체 게시글
 
 개발과 관련된 다양한 주제의 글들을 정리해두었습니다.
 
-### 최신 포스트
-
-<PostCardList :posts="posts" />
+<PostCardList />

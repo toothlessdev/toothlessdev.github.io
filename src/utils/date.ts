@@ -5,5 +5,5 @@ export function formatDate(dateString: string): string {
         day: "numeric",
     };
     const date = new Date(dateString);
-    return date.toLocaleDateString(undefined, options);
+    return date.toLocaleDateString("ko-KR", options);
 }
