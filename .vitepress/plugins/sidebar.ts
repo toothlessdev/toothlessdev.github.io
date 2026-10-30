@@ -41,7 +41,10 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
     const items: SidebarItem[] = [];
 
     try {
-        items.push({ text: "전체 게시글", link: `${basePath}/` });
+        items.push({
+            text: `전체 게시글${renderPostCount(countPosts(dir))}`,
+            link: `${basePath}/`,
+        });
 
         const entries = readdirSync(dir, { withFileTypes: true });
         const folders = entries.filter((entry: Dirent) => entry.isDirectory());
@@ -49,9 +52,10 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
         for (const folder of folders.sort((a: Dirent, b: Dirent) => a.name.localeCompare(b.name))) {
             const folderBasePath = `${basePath}/${folder.name}`;
             const color = getCategoryColor(folder.name);
+            const postCount = countPosts(join(dir, folder.name));
 
             items.push({
-                text: `<span class="category-indicator" style="background-color: ${color};"></span>${formatTitle(folder.name)}`,
+                text: `<span class="category-indicator" style="background-color: ${color};"></span>${formatTitle(folder.name)}${renderPostCount(postCount)}`,
                 link: `${folderBasePath}/`,
             });
         }
@@ -60,6 +64,35 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
     }
 
     return items;
+}
+
+/**
+ * 카테고리 index.md 처럼 목록용 페이지도 index.md 이므로, createdAt 이 있는 글만 셉니다.
+ */
+function countPosts(dir: string): number {
+    let postCount = 0;
+
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const entryPath = join(dir, entry.name);
+        if (entry.isDirectory()) {
+            postCount += countPosts(entryPath);
+            continue;
+        }
+        if (extname(entry.name) !== ".md") continue;
+
+        try {
+            const { data } = matter(readFileSync(entryPath, "utf-8"));
+            if (data.createdAt) postCount += 1;
+        } catch (error) {
+            console.warn(`Frontmatter 읽기 실패 (${entryPath}):`, error);
+        }
+    }
+
+    return postCount;
+}
+
+function renderPostCount(postCount: number): string {
+    return `<span class="category-count">${postCount}</span>`;
 }
 
 /**
