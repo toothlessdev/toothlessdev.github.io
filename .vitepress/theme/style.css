@@ -74,7 +74,7 @@
     --vp-local-search-result-border: transparent;
     --vp-local-search-result-selected-bg: var(--tl-subtle);
     --vp-local-search-result-selected-border: transparent;
-    --vp-local-search-highlight-bg: var(--tl-accent-soft);
+    --vp-local-search-highlight-bg: var(--tl-subtle-strong);
     --vp-local-search-highlight-text: var(--tl-fg);
 
     --vp-custom-block-tip-border: transparent;
@@ -637,8 +637,11 @@ figcaption {
  * 하루에도 여러 번 여닫는 UI 라 기본 테마에 없는 여닫기 애니메이션은 넣지 않습니다.
  * -------------------------------------------------------------------------- */
 
-.VPLocalSearchBox .shell {
-    border-radius: 18px !important;
+/* 767px 이하에서는 검색창이 화면 전체를 덮으므로, 드로어와 같은 이유로 모서리를 둥글리지 않습니다 */
+@media (min-width: 768px) {
+    .VPLocalSearchBox .shell {
+        border-radius: 18px !important;
+    }
 }
 
 .VPLocalSearchBox .search-bar {
@@ -647,8 +650,48 @@ figcaption {
     background: var(--tl-subtle);
 }
 
-.VPLocalSearchBox .result {
+/**
+ * 기본 테마는 선택된 결과의 제목, # 아이콘, 미리보기 토글을 brand 색으로 칠합니다.
+ * 사이드바, 목차와 같은 규칙으로 맞춥니다: 선택은 회색 pill 배경, 글자는 본문색, 하이라이트는 중립 회색.
+ *
+ * 기본 테마 규칙도 !important 라서 셀렉터 강도가 같으면 로드 순서에 따라 집니다.
+ * 그래서 .shell .results 까지 붙여 강도를 한 단계 올립니다.
+ */
+.VPLocalSearchBox .shell .results .result {
+    border: 0 !important;
     border-radius: 10px !important;
+}
+
+.VPLocalSearchBox .shell .results .result.selected {
+    background-color: var(--tl-subtle) !important;
+}
+
+.VPLocalSearchBox .shell .results .result > div {
+    margin: 10px 12px !important;
+}
+
+.VPLocalSearchBox .shell .results .titles,
+.VPLocalSearchBox .shell .results .result.selected .titles {
+    color: var(--tl-fg) !important;
+}
+
+.VPLocalSearchBox .shell .results .title-icon,
+.VPLocalSearchBox .shell .results .result.selected .title-icon {
+    opacity: 1 !important;
+    color: var(--tl-fg-faint) !important;
+}
+
+.VPLocalSearchBox .shell .results mark {
+    border-radius: 4px !important;
+    font-weight: 600;
+}
+
+.VPLocalSearchBox .shell .results .result.selected mark {
+    background-color: var(--tl-line-strong) !important;
+}
+
+.VPLocalSearchBox .shell .toggle-layout-button.detailed-list {
+    color: var(--tl-fg) !important;
 }
 
 .VPLocalSearchBox .backdrop {
