@@ -19,6 +19,63 @@
     }
 }
 
+/* 사진은 데스크톱에서 소개 전체 옆에, 모바일에서는 제목 옆에만 두어 소개 문단이 전체 폭을 쓰게 합니다 */
+.home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "statement avatar"
+        "intro avatar"
+        "links avatar";
+    column-gap: 32px;
+    align-items: start;
+}
+
+.home-hero .home-statement {
+    grid-area: statement;
+}
+
+.home-hero .home-intro {
+    grid-area: intro;
+}
+
+.home-hero .home-links {
+    grid-area: links;
+}
+
+.home-hero .home-avatar {
+    grid-area: avatar;
+}
+
+/**
+ * 원본(public/profile.jpg)은 세로 사진이라, 양옆에 흰 여백을 붙여 얼굴부터 어깨까지 정사각형으로 잘라 둔
+ * public/profile-avatar.jpg 를 씁니다. 원으로 자르면 여백을 붙인 아래 모서리는 원 밖으로 빠집니다.
+ */
+.home-avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px var(--tl-subtle-strong);
+}
+
+@media (max-width: 560px) {
+    .home-hero {
+        grid-template-areas:
+            "statement avatar"
+            "intro intro"
+            "links links";
+        column-gap: 16px;
+        align-items: center;
+    }
+
+    .home-avatar {
+        width: 76px;
+        height: 76px;
+    }
+}
+
 .home-statement {
     margin: 0;
     font-size: clamp(1.85rem, 5.2vw, 2.6rem);

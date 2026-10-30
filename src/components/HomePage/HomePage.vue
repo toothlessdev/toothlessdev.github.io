@@ -1,15 +1,26 @@
 <template>
     <div class="home-page">
-        <h1 class="home-statement">겉은 매끄럽게,<br />속은 견고하게.</h1>
-        <p class="home-intro">
-            Frontend Developer 김대건입니다. 작은 지연과 전환까지 다듬고, 보이지 않는 영역까지
-            설계하는 일을 좋아합니다. GDG, 멋쟁이사자처럼 운영진 활동과 카카오 테크캠퍼스 3기에서
-            배운 것을 이곳에 기록합니다.
-        </p>
-        <div class="home-links">
-            <a href="https://github.com/toothlessdev" target="_blank" rel="noopener">GitHub ↗</a>
-            <a :href="withBase('/202604.pdf')" target="_blank" rel="noopener">Resume ↗</a>
-            <a :href="withBase('/archive')">Archive of TIL</a>
+        <div class="home-hero">
+            <h1 class="home-statement">겉은 매끄럽게,<br />속은 견고하게.</h1>
+            <p class="home-intro">
+                Frontend Developer 김대건입니다. 작은 지연과 전환까지 다듬고, 보이지 않는 영역까지
+                설계하는 일을 좋아합니다. GDG, 멋쟁이사자처럼 운영진 활동과 카카오 테크캠퍼스
+                3기에서 배운 것을 이곳에 기록합니다.
+            </p>
+            <div class="home-links">
+                <a href="https://github.com/toothlessdev" target="_blank" rel="noopener"
+                    >GitHub ↗</a
+                >
+                <a :href="withBase('/202604.pdf')" target="_blank" rel="noopener">Resume ↗</a>
+                <a :href="withBase('/archive')">Archive of TIL</a>
+            </div>
+            <img
+                class="home-avatar"
+                :src="withBase('/profile-avatar.jpg')"
+                alt="김대건 프로필 사진"
+                width="480"
+                height="480"
+            />
         </div>
 
         <section class="home-section" aria-labelledby="home-recent-title">
