@@ -36,10 +36,7 @@ export default withMermaid(
             siteTitle: "toothlessdev",
             logo: { light: "/logo-light.svg", dark: "/logo-dark.svg", alt: "" },
 
-            nav: [
-                { text: "Blog", link: "/posts/", activeMatch: "^/posts/" },
-                { text: "Archive", link: "/archive" },
-            ],
+            nav: [{ text: "Blog", link: "/posts/", activeMatch: "^/posts/" }],
 
             sidebarMenuLabel: "카테고리",
             returnToTopLabel: "맨 위로",

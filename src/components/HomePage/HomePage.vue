@@ -11,7 +11,6 @@
                     >GitHub ↗</a
                 >
                 <a :href="withBase('/202604.pdf')" target="_blank" rel="noopener">Resume ↗</a>
-                <a :href="withBase('/archive')">Archive of TIL</a>
             </div>
             <img
                 class="home-avatar"
