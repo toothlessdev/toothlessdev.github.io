@@ -148,6 +148,73 @@ html {
     margin-right: 7px;
 }
 
+/**
+ * Layout shell
+ *
+ * 홈, 글 목록, 글 상세가 같은 바깥 경계를 쓰도록 셸 폭 하나로 nav, 사이드바, 본문 여백을 계산합니다.
+ * 기본 테마는 1440px 이상에서만 --vp-layout-max-width 로 가운데 정렬하므로, 960px 부터 같은 계산을 직접 적용합니다.
+ * 모든 규칙이 같은 100vw 기준 값을 써야 경계가 픽셀 단위로 맞습니다.
+ * -------------------------------------------------------------------------- */
+
+:root {
+    --tl-shell-width: 1240px;
+    --tl-shell-edge: max(32px, calc((100vw - var(--tl-shell-width)) / 2));
+
+    /* 글 본문 컬럼. 홈도 이 폭과 시작 위치(셸 경계 + 사이드바 + 64px)를 그대로 씁니다 */
+    --tl-content-width: 688px;
+    --tl-content-start: calc(var(--tl-shell-edge) + var(--vp-sidebar-width) + 64px);
+}
+
+@media (min-width: 960px) {
+    .VPNavBar .wrapper {
+        padding-left: var(--tl-shell-edge) !important;
+        padding-right: var(--tl-shell-edge) !important;
+    }
+
+    .VPNavBar .container {
+        max-width: none !important;
+    }
+
+    .VPNavBar.has-sidebar .title {
+        position: static !important;
+        width: auto !important;
+        padding: 0 !important;
+    }
+
+    .VPNavBar.has-sidebar .content {
+        padding: 0 !important;
+    }
+
+    .VPSidebar {
+        width: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+        padding-left: var(--tl-shell-edge) !important;
+        padding-right: 16px !important;
+    }
+
+    /* 기본 테마는 그룹 폭을 사이드바 폭 - 64px 로 고정해서, 항목이 선택 배경보다 좁아집니다 */
+    .VPSidebar .group {
+        width: 100% !important;
+    }
+
+    .VPContent.has-sidebar {
+        padding-left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+        padding-right: calc(var(--tl-shell-edge) - 32px) !important;
+    }
+
+    .VPLocalNav.has-sidebar {
+        padding-left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width)) !important;
+    }
+
+    .VPDoc.has-sidebar .container {
+        justify-content: flex-start !important;
+    }
+
+    .VPDoc .content-container {
+        max-width: var(--tl-content-width) !important;
+        margin-left: 0 !important;
+    }
+}
+
 .VPNavBar .divider-line,
 .VPNavBar.has-sidebar .divider,
 .VPNavBar .content-body .divider {
