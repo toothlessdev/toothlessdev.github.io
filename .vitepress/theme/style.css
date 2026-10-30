@@ -373,6 +373,39 @@ html {
     font-variant-numeric: tabular-nums;
 }
 
+/**
+ * 모바일 드로어와 그 위를 여는 Menu 바
+ * 드로어는 화면 위·아래 끝에 붙어 있어서 모서리를 둥글리지 않습니다. 화면 끝과 곡선이 겹쳐 어색해집니다.
+ */
+@media (max-width: 959px) {
+    .VPSidebar {
+        width: min(300px, calc(100vw - 56px)) !important;
+        padding: 24px 16px 96px !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .VPSidebar.open {
+        transition:
+            opacity 200ms ease,
+            transform 360ms var(--tl-ease-drawer) !important;
+    }
+
+    .VPLocalNav {
+        border-bottom: 0 !important;
+        background: var(--tl-bg) !important;
+    }
+
+    .VPLocalNav .menu {
+        gap: 2px;
+    }
+
+    .VPLocalNav .menu-text,
+    .VPLocalNav .VPLocalNavOutlineDropdown button {
+        font-size: 0.8125rem !important;
+        color: var(--tl-fg-muted) !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
