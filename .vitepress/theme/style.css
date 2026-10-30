@@ -127,6 +127,22 @@ html {
     letter-spacing: -0.02em;
 }
 
+/**
+ * 기본 테마는 사이드바가 있는 페이지에서만 로고 영역에 선을 그어서 페이지마다 nav 모양이 달라집니다.
+ * 모든 페이지에서 맨 위에서는 선이 없고, 콘텐츠가 nav 밑으로 지나갈 때만 전체 폭 선이 생기게 맞춥니다.
+ */
+@media (min-width: 960px) {
+    .VPNavBar {
+        background-color: var(--vp-nav-bg-color) !important;
+        box-shadow: 0 1px 0 transparent;
+        transition: box-shadow 200ms ease !important;
+    }
+
+    .VPNavBar:not(.top) {
+        box-shadow: 0 1px 0 var(--tl-subtle-strong);
+    }
+}
+
 .VPNavBar .logo {
     height: 18px;
     margin-right: 7px;
