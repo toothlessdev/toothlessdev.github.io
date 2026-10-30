@@ -15,6 +15,7 @@
     --tl-subtle: #f3f3f3;
     --tl-subtle-strong: #e8e8e8;
     --tl-line-strong: #d6d6d6;
+    --tl-selection: rgba(0, 0, 0, 0.12);
     --tl-accent: #23805a;
     --tl-accent-hover: #1c6a4a;
     --tl-accent-soft: rgba(35, 128, 90, 0.12);
@@ -93,6 +94,7 @@
     --tl-subtle: #191919;
     --tl-subtle-strong: #242424;
     --tl-line-strong: #363636;
+    --tl-selection: rgba(255, 255, 255, 0.2);
     --tl-accent: #5fcf9c;
     --tl-accent-hover: #7fdcb1;
     --tl-accent-soft: rgba(95, 207, 156, 0.16);
@@ -112,8 +114,9 @@ html {
     overflow-y: scroll;
 }
 
+/* 선택 영역은 포인트 컬러가 아니라 중립 회색으로 둡니다. 녹색은 링크와 포커스에만 씁니다 */
 ::selection {
-    background: var(--tl-accent-soft);
+    background: var(--tl-selection);
 }
 
 /**
