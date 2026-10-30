@@ -20,6 +20,17 @@ export default withMermaid(
         lang: "ko-KR",
         title: "🦷 ToothlessDev",
         description: "A VitePress Site",
+
+        /**
+         * 글 목록 페이지(카테고리 index.md)는 목차가 없는데도 오른쪽 aside 자리를 차지해서 본문 폭이 줄어듭니다.
+         * 홈과 같은 본문 폭을 쓰도록 createdAt 이 없는 posts 아래 페이지는 aside 를 끕니다.
+         */
+        transformPageData(pageData) {
+            const isPostListPage =
+                pageData.relativePath.startsWith("posts/") && !pageData.frontmatter.createdAt;
+            if (isPostListPage) pageData.frontmatter.aside ??= false;
+        },
+
         themeConfig: {
             // https://vitepress.dev/reference/default-theme-config
             siteTitle: "toothlessdev",
