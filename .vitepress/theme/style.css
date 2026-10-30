@@ -104,6 +104,14 @@
     }
 }
 
+/**
+ * 스크롤바가 있는 페이지와 없는 페이지를 오갈 때 바 너비만큼 레이아웃이 밀리지 않도록 트랙을 항상 둡니다.
+ * scrollbar-gutter: stable 은 루트 요소에 적용되지 않는 Chromium 환경이 있어 쓰지 않았습니다.
+ */
+html {
+    overflow-y: scroll;
+}
+
 ::selection {
     background: var(--tl-accent-soft);
 }
