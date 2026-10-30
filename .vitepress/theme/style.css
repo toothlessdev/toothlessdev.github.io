@@ -273,15 +273,113 @@ html {
     transition: transform 320ms var(--tl-ease-drawer) !important;
 }
 
-figcaption {
-    font-size: 0.75rem;
+/**
+ * Sidebar
+ *
+ * 사이드바 설정이 평평한 배열이라 기본 테마가 텍스트 없는 level-0 그룹으로 감쌉니다. 실제 항목은 level-1 입니다.
+ * 선택 배경은 항목마다 그리지 않고 .sidebar-indicator 하나를 옮깁니다. (src/components/SidebarIndicator)
+ * 960px 미만에서는 기본 테마의 Menu 드로어를 그대로 씁니다.
+ * -------------------------------------------------------------------------- */
+
+.VPSidebar {
+    border-right: 0 !important;
+}
+
+.VPSidebar .nav {
+    position: relative;
+}
+
+.sidebar-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 9px;
+    background: var(--tl-subtle);
+    pointer-events: none;
+    transition:
+        transform 300ms var(--tl-ease-drawer),
+        height 300ms var(--tl-ease-drawer);
+}
+
+.VPSidebar .VPSidebarItem.level-0 {
+    padding-bottom: 0;
+}
+
+.VPSidebar .VPSidebarItem.level-1 {
+    padding-bottom: 1px;
+}
+
+.VPSidebar .VPSidebarItem.level-1:first-child {
+    padding-bottom: 10px;
+}
+
+.VPSidebar .VPSidebarItem > .item {
+    position: relative;
+    z-index: 1;
+    padding: 0 11px;
+    border-radius: 9px;
+    transition: transform 160ms var(--tl-ease-out);
+}
+
+.VPSidebar .VPSidebarItem > .item:active {
+    transform: scale(0.97);
+}
+
+.VPSidebar .VPSidebarItem > .item > .indicator {
+    display: none;
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item .text {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    line-height: 20px;
+    font-size: 0.84375rem;
+    font-weight: 500;
+    color: var(--tl-fg-muted);
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-active > .item .link > .text,
+.VPSidebar .VPSidebarItem.level-1[data-current-category] > .item .link > .text {
+    color: var(--tl-fg);
+    font-weight: 600;
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-link > .item > .link:hover .text {
+    color: var(--tl-fg);
 }
 
 .category-indicator {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    flex: none;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    margin-right: 8px;
+    margin-right: 9px;
     vertical-align: middle;
+}
+
+.dark .category-indicator {
+    box-shadow: 0 0 0 1px var(--tl-subtle-strong);
+}
+
+.category-count {
+    margin-left: auto;
+    padding-left: 8px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--tl-fg-faint);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-indicator,
+    .VPSwitchAppearance .check {
+        transition-property: opacity !important;
+    }
+}
+
+figcaption {
+    font-size: 0.75rem;
 }
