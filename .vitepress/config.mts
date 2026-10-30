@@ -22,9 +22,11 @@ export default withMermaid(
         description: "A VitePress Site",
         themeConfig: {
             // https://vitepress.dev/reference/default-theme-config
+            siteTitle: "toothlessdev",
+            logo: { light: "/logo-light.svg", dark: "/logo-dark.svg", alt: "" },
+
             nav: [
-                { text: "Home", link: "/" },
-                { text: "Blog", link: "/posts/" },
+                { text: "Blog", link: "/posts/", activeMatch: "^/posts/" },
                 { text: "Archive", link: "/archive" },
             ],
 
