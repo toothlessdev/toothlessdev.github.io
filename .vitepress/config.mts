@@ -30,6 +30,14 @@ export default withMermaid(
                 { text: "Archive", link: "/archive" },
             ],
 
+            sidebarMenuLabel: "카테고리",
+            returnToTopLabel: "맨 위로",
+            darkModeSwitchLabel: "다크 모드",
+            lightModeSwitchTitle: "라이트 모드로 전환",
+            darkModeSwitchTitle: "다크 모드로 전환",
+            outline: { label: "목차" },
+            docFooter: { prev: "이전 글", next: "다음 글" },
+
             sidebar: {
                 "/posts/": generateSidebar("posts", "/posts"),
                 "/projects/": generateSidebar("projects", "/projects"),
