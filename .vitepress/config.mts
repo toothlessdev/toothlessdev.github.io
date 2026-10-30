@@ -47,6 +47,22 @@ export default withMermaid(
 
             search: {
                 provider: "local",
+                options: {
+                    translations: {
+                        button: { buttonText: "검색", buttonAriaLabel: "글 검색" },
+                        modal: {
+                            displayDetails: "본문 미리보기",
+                            resetButtonTitle: "검색어 지우기",
+                            backButtonTitle: "닫기",
+                            noResultsText: "검색 결과가 없습니다",
+                            footer: {
+                                selectText: "열기",
+                                navigateText: "이동",
+                                closeText: "닫기",
+                            },
+                        },
+                    },
+                },
             },
         },
 
