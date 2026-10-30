@@ -632,6 +632,33 @@ figcaption {
     }
 }
 
+/**
+ * Local search modal
+ * 하루에도 여러 번 여닫는 UI 라 기본 테마에 없는 여닫기 애니메이션은 넣지 않습니다.
+ * -------------------------------------------------------------------------- */
+
+.VPLocalSearchBox .shell {
+    border-radius: 18px !important;
+}
+
+.VPLocalSearchBox .search-bar {
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: var(--tl-subtle);
+}
+
+.VPLocalSearchBox .result {
+    border-radius: 10px !important;
+}
+
+.VPLocalSearchBox .backdrop {
+    background: rgba(18, 22, 20, 0.28) !important;
+}
+
+.dark .VPLocalSearchBox .backdrop {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
