@@ -13,7 +13,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 const isProduction = process.env.NODE_ENV === "production";
 
-const SITE_HOSTNAME = "https://toothlessdev.github.io/";
+const SITE_HOSTNAME = "https://www.toothlessdev.com/";
 
 const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
 const NAVER_SITE_VERIFICATION_CODE = "db7f3601aa486190aa58c3e09dcd7f35a784543e";
