@@ -195,6 +195,17 @@ html {
     }
 }
 
+.VPSwitchAppearance.VPSwitch {
+    border: 0;
+    border-radius: 999px;
+}
+
+.VPSwitchAppearance .check {
+    background-color: var(--tl-bg) !important;
+    box-shadow: none !important;
+    transition: transform 320ms var(--tl-ease-drawer) !important;
+}
+
 figcaption {
     font-size: 0.75rem;
 }
