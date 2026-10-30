@@ -148,6 +148,22 @@ html {
     margin-right: 7px;
 }
 
+.VPNavBar .divider-line,
+.VPNavBar.has-sidebar .divider,
+.VPNavBar .content-body .divider {
+    display: none;
+}
+
+.VPNavBarMenuLink {
+    font-size: 0.875rem !important;
+    color: var(--tl-fg-muted) !important;
+}
+
+.VPNavBarMenuLink.active {
+    color: var(--tl-fg) !important;
+    font-weight: 600 !important;
+}
+
 figcaption {
     font-size: 0.75rem;
 }
