@@ -74,6 +74,11 @@
         width: 76px;
         height: 76px;
     }
+
+    /* 사진 옆 남는 폭(375px 화면에서 235px)에 "Software Engineer" 가 한 줄로 들어가는 크기 */
+    .home-hero .home-statement {
+        font-size: 1.625rem;
+    }
 }
 
 .home-statement {

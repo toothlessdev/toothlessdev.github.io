@@ -1,11 +1,10 @@
 <template>
     <div class="home-page">
         <div class="home-hero">
-            <h1 class="home-statement">겉은 매끄럽게,<br />속은 견고하게.</h1>
+            <h1 class="home-statement">Software Engineer<br />김대건</h1>
             <p class="home-intro">
-                Software Engineer 김대건입니다. 코드를 쓰기 전에 경계와 구조를 먼저 그리는 일을
-                좋아합니다. 화면이든 서버든, 바뀌기 쉬운 것과 끝까지 지켜야 할 것을 나누는 설계를
-                고민하고 이곳에 기록합니다.
+                코드를 쓰기 전에 경계와 구조를 먼저 그리는 일을 좋아합니다. 화면이든 서버든, 바뀌기
+                쉬운 것과 끝까지 지켜야 할 것을 나누는 설계를 고민하고 이곳에 기록합니다.
             </p>
             <div class="home-links">
                 <a href="https://github.com/toothlessdev" target="_blank" rel="noopener"
