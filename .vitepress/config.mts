@@ -7,9 +7,13 @@ import markdownItKatex from "markdown-it-katex";
 import { createAutoGeneratePostsPlugin } from "./plugins/posts";
 import { createImageOptimizerPlugin } from "./plugins/image-optimizer";
 import { markdownPicturePlugin } from "./plugins/markdown-picture";
+import { writeRedirectPages } from "./plugins/redirects";
+import { oldPathToNewPath } from "./redirects";
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 const isProduction = process.env.NODE_ENV === "production";
+
+const SITE_HOSTNAME = "https://toothlessdev.github.io/";
 
 const GOOGLE_ANALYTICS_ID = "G-3XM039P5E6";
 const NAVER_SITE_VERIFICATION_CODE = "db7f3601aa486190aa58c3e09dcd7f35a784543e";
@@ -75,7 +79,11 @@ export default withMermaid(
         },
 
         sitemap: {
-            hostname: "https://toothlessdev.github.io/",
+            hostname: SITE_HOSTNAME,
+        },
+
+        async buildEnd(siteConfig) {
+            await writeRedirectPages(siteConfig.outDir, SITE_HOSTNAME, oldPathToNewPath);
         },
 
         rewrites: {
