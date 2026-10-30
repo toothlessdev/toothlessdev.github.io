@@ -164,6 +164,37 @@ html {
     font-weight: 600 !important;
 }
 
+.VPNavBarSearch .DocSearch-Button {
+    height: 32px;
+    border: 0 !important;
+    border-radius: 999px;
+    background: var(--tl-subtle) !important;
+    transition:
+        background-color 150ms ease,
+        transform 160ms var(--tl-ease-out);
+}
+
+.VPNavBarSearch .DocSearch-Button:active {
+    transform: scale(0.97);
+}
+
+.VPNavBarSearch .DocSearch-Button .DocSearch-Button-Placeholder {
+    font-size: 0.8125rem;
+    color: var(--tl-fg-muted);
+}
+
+.VPNavBarSearch .DocSearch-Button .DocSearch-Button-Keys {
+    border: 0;
+    border-radius: 6px;
+    background: var(--tl-bg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPNavBarSearch .DocSearch-Button:hover {
+        background: var(--tl-subtle-strong) !important;
+    }
+}
+
 figcaption {
     font-size: 0.75rem;
 }
