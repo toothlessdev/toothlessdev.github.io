@@ -100,6 +100,14 @@ export default withMermaid(
         },
 
         head: [
+            ["link", { rel: "preconnect", href: "https://cdn.jsdelivr.net", crossorigin: "" }],
+            [
+                "link",
+                {
+                    rel: "stylesheet",
+                    href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css",
+                },
+            ],
             [
                 "script",
                 {
