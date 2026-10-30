@@ -482,6 +482,35 @@ figcaption {
     color: var(--tl-fg-muted);
 }
 
+.VPDocFooter .pager-link {
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: var(--tl-subtle);
+    transition:
+        background-color 150ms ease,
+        transform 160ms var(--tl-ease-out);
+}
+
+.VPDocFooter .pager-link:active {
+    transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPDocFooter .pager-link:hover {
+        background: var(--tl-subtle-strong);
+    }
+}
+
+.VPDocFooter .pager-link .title {
+    font-size: 0.875rem;
+    color: var(--tl-fg);
+}
+
+/* 사이드바 항목 텍스트를 그대로 가져오므로 글 수 표시는 이전/다음 링크에서 숨깁니다 */
+.VPDocFooter .category-count {
+    display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
