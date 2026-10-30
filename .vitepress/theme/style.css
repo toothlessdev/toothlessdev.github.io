@@ -465,13 +465,26 @@ html {
     color: inherit;
 }
 
+.vp-doc div[class*="language-"] {
+    border-radius: 12px !important;
+}
+
+.vp-doc div[class*="language-"] code {
+    font-size: 0.8125rem;
+}
+
+.vp-doc img {
+    border-radius: 12px;
+}
+
+figcaption {
+    font-size: 0.75rem;
+    color: var(--tl-fg-muted);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
         transition-property: opacity !important;
     }
-}
-
-figcaption {
-    font-size: 0.75rem;
 }
