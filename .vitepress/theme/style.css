@@ -511,6 +511,67 @@ figcaption {
     display: none;
 }
 
+/**
+ * Outline (목차)
+ *
+ * 사이드바와 같은 모양으로 맞춥니다. 왼쪽 세로선 대신, 기본 테마의 outline-marker 를
+ * 현재 섹션 뒤를 따라다니는 회색 pill 로 바꿉니다.
+ * 기본 테마는 marker 의 top 을 "링크 offsetTop + 39px"(18px 막대를 32px 줄 가운데에 두는 값)로 넣으므로,
+ * 32px 높이 pill 은 margin-top -7px 로 줄 위쪽에 맞춥니다.
+ * -------------------------------------------------------------------------- */
+
+.VPDocAsideOutline .content {
+    padding-left: 0 !important;
+    border-left: 0 !important;
+}
+
+.VPDocAsideOutline .outline-title {
+    padding: 0 10px;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--tl-fg-faint);
+}
+
+.VPDocAsideOutline .outline-marker {
+    left: 0 !important;
+    right: 0;
+    width: auto !important;
+    height: 32px !important;
+    margin-top: -7px;
+    border-radius: 9px !important;
+    background-color: var(--tl-subtle) !important;
+    transition:
+        top 300ms var(--tl-ease-drawer),
+        opacity 200ms ease !important;
+}
+
+.VPDocAsideOutline .outline-link {
+    padding: 0 10px;
+    font-size: 0.8125rem !important;
+    color: var(--tl-fg-muted) !important;
+}
+
+.VPDocAsideOutline .outline-link.nested {
+    padding-left: 22px;
+}
+
+.VPDocAsideOutline .outline-link.active {
+    color: var(--tl-fg) !important;
+    font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPDocAsideOutline .outline-link:hover {
+        color: var(--tl-fg) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .VPDocAsideOutline .outline-marker {
+        transition-property: opacity !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
