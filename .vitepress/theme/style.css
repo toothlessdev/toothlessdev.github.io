@@ -9,12 +9,12 @@
 
 :root {
     --tl-bg: #ffffff;
-    --tl-fg: #161817;
-    --tl-fg-muted: #5b615e;
-    --tl-fg-faint: #6d7370;
-    --tl-subtle: #f2f4f3;
-    --tl-subtle-strong: #e7eae8;
-    --tl-line-strong: #d3d8d5;
+    --tl-fg: #171717;
+    --tl-fg-muted: #5e5e5e;
+    --tl-fg-faint: #6b6b6b;
+    --tl-subtle: #f3f3f3;
+    --tl-subtle-strong: #e8e8e8;
+    --tl-line-strong: #d6d6d6;
     --tl-accent: #23805a;
     --tl-accent-hover: #1c6a4a;
     --tl-accent-soft: rgba(35, 128, 90, 0.12);
@@ -86,13 +86,13 @@
 }
 
 .dark {
-    --tl-bg: #0c0d0d;
-    --tl-fg: #f1f3f2;
-    --tl-fg-muted: #a7aeaa;
-    --tl-fg-faint: #858c88;
-    --tl-subtle: #181a19;
-    --tl-subtle-strong: #222524;
-    --tl-line-strong: #343937;
+    --tl-bg: #0c0c0c;
+    --tl-fg: #f2f2f2;
+    --tl-fg-muted: #aaaaaa;
+    --tl-fg-faint: #888888;
+    --tl-subtle: #191919;
+    --tl-subtle-strong: #242424;
+    --tl-line-strong: #363636;
     --tl-accent: #5fcf9c;
     --tl-accent-hover: #7fdcb1;
     --tl-accent-soft: rgba(95, 207, 156, 0.16);
@@ -652,7 +652,7 @@ figcaption {
 }
 
 .VPLocalSearchBox .backdrop {
-    background: rgba(18, 22, 20, 0.28) !important;
+    background: rgba(0, 0, 0, 0.28) !important;
 }
 
 .dark .VPLocalSearchBox .backdrop {
