@@ -572,6 +572,66 @@ figcaption {
     }
 }
 
+/**
+ * 1280px 미만에서 상단 "목차" 버튼으로 여는 드롭다운. 오른쪽 목차와 별개 컴포넌트입니다.
+ * 기본 테마는 bg-soft 배경 + gutter 구분선 + brand 색 "맨 위로" 링크라서, 흰 패널과 회색 pill 호버로 바꿉니다.
+ */
+.VPLocalNavOutlineDropdown .items {
+    gap: 0 !important;
+    padding: 6px;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background-color: var(--tl-bg) !important;
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.14),
+        0 0 0 1px var(--tl-subtle-strong) !important;
+}
+
+@media (min-width: 960px) {
+    .VPLocalNavOutlineDropdown .items {
+        left: calc(var(--tl-shell-edge) + var(--vp-sidebar-width) + 32px) !important;
+    }
+}
+
+.VPLocalNavOutlineDropdown .header,
+.VPLocalNavOutlineDropdown .outline {
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+/* 드롭다운 안의 첫 단계 목록도 기본 테마가 nested 로 그려서 16px 들여쓰기가 붙습니다 */
+.VPLocalNavOutlineDropdown .outline > ul {
+    padding: 0 !important;
+}
+
+.VPLocalNavOutlineDropdown .top-link,
+.VPLocalNavOutlineDropdown .outline-link {
+    padding: 0 10px;
+    border-radius: 9px;
+    line-height: 36px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 400;
+    color: var(--tl-fg-muted) !important;
+    transition: background-color 150ms ease;
+}
+
+.VPLocalNavOutlineDropdown .outline-link.nested {
+    padding-left: 22px;
+}
+
+.VPLocalNavOutlineDropdown .top-link:active,
+.VPLocalNavOutlineDropdown .outline-link:active {
+    background-color: var(--tl-subtle);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .VPLocalNavOutlineDropdown .top-link:hover,
+    .VPLocalNavOutlineDropdown .outline-link:hover {
+        background-color: var(--tl-subtle);
+        color: var(--tl-fg) !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
