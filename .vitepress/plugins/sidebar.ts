@@ -1,4 +1,4 @@
-import { readdirSync, statSync, readFileSync, Dirent } from "fs";
+import { readdirSync, statSync, readFileSync, existsSync, Dirent } from "fs";
 import { join, extname, basename } from "path";
 import type { DefaultTheme } from "vitepress";
 import matter from "gray-matter";
@@ -47,7 +47,9 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
         });
 
         const entries = readdirSync(dir, { withFileTypes: true });
-        const folders = entries.filter((entry: Dirent) => entry.isDirectory());
+        const folders = entries.filter(
+            (entry: Dirent) => entry.isDirectory() && hasCategoryPage(join(dir, entry.name)),
+        );
 
         for (const folder of folders.sort((a: Dirent, b: Dirent) => a.name.localeCompare(b.name))) {
             const folderBasePath = `${basePath}/${folder.name}`;
@@ -64,6 +66,14 @@ function generateSidebarItems(dir: string, basePath: string): SidebarItem[] {
     }
 
     return items;
+}
+
+/**
+ * CI 이미지 캐시가 옛 경로의 최적화 이미지를 복원하면서 글 없는 빈 카테고리 폴더를 만들 수 있습니다.
+ * 그래서 폴더 존재가 아니라 카테고리 목록 페이지(index.md) 유무로 카테고리를 판단합니다.
+ */
+function hasCategoryPage(folderPath: string): boolean {
+    return existsSync(join(folderPath, "index.md"));
 }
 
 /**
