@@ -1,0 +1,138 @@
+.home-page {
+    padding: 44px 24px 96px;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+
+/**
+ * 홈과 글 목록을 오갈 때 본문이 움직이지 않도록, 블로그 본문 컬럼과 같은 시작 위치와 폭을 씁니다.
+ * 값은 .vitepress/theme/style.css 의 --tl-content-start, --tl-content-width 입니다.
+ */
+@media (min-width: 960px) {
+    .home-page {
+        padding-left: var(--tl-content-start);
+        padding-right: var(--tl-shell-edge);
+    }
+
+    .home-page > * {
+        max-width: var(--tl-content-width);
+    }
+}
+
+.home-statement {
+    margin: 0;
+    font-size: clamp(1.85rem, 5.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    color: var(--tl-fg);
+}
+
+.home-intro {
+    max-width: 34em;
+    margin: 22px 0 0;
+    color: var(--tl-fg);
+}
+
+.home-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 18px;
+    font-size: 0.875rem;
+}
+
+.home-links a {
+    color: var(--tl-fg-muted);
+    text-decoration: underline;
+    text-decoration-color: var(--tl-subtle-strong);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+    transition:
+        color 150ms ease,
+        text-decoration-color 150ms ease;
+}
+
+.home-section {
+    margin-top: 72px;
+}
+
+.home-section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.home-section-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--tl-fg);
+}
+
+.home-section-more {
+    font-size: 0.8125rem;
+    color: var(--tl-fg-muted);
+    transition: color 150ms ease;
+}
+
+.home-section .post-list {
+    margin-top: 8px;
+}
+
+.home-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.home-topic {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--tl-subtle);
+    font-size: 0.8125rem;
+    color: var(--tl-fg);
+    transition:
+        background-color 150ms ease,
+        transform 160ms var(--tl-ease-out);
+}
+
+.home-topic:active {
+    transform: scale(0.96);
+}
+
+.home-topic-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.home-topic-count {
+    color: var(--tl-fg-faint);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-links a:hover,
+    .home-section-more:hover {
+        color: var(--tl-fg);
+        text-decoration-color: var(--tl-fg-faint);
+    }
+
+    .home-topic:hover {
+        background: var(--tl-subtle-strong);
+    }
+}
+
+@media (max-width: 560px) {
+    .home-page {
+        padding-top: 28px;
+    }
+}
