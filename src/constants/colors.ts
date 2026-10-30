@@ -2,17 +2,11 @@
  * 카테고리별 색상 상수 정의 (GitHub 스타일)
  */
 export const categoryColorMap: Record<string, string> = {
-    Aws: "#ff9900",
-    JavaScript: "#f1e05a",
-    TypeScript: "#3178c6",
-    React: "#61dafb",
-    Next: "#000000",
-    Node: "#88CE34",
-    VueJs: "#4fc08d",
-    Web: "#e34c26",
-    Backend: "#0078d4",
-    ComputerScience: "#f34b7d",
-    ProblemSolving: "#a626a4",
+    Frontend: "#61dafb",
+    Backend: "#7f52ff",
+    Infra: "#ff9900",
+    CS: "#f34b7d",
+    Etc: "#a626a4",
     default: "#586069",
 };
 

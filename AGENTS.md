@@ -38,7 +38,10 @@
 
 ## 콘텐츠 작성 규칙
 
-- 포스트는 `contents/posts/React/my-post/index.md`처럼 카테고리별 디렉토리 아래에 작성합니다.
+- 포스트는 `contents/posts/Frontend/my-post/index.md`처럼 카테고리별 디렉토리 아래에 작성합니다.
+    - 카테고리는 `Frontend`, `Backend`, `Infra`, `CS`, `Etc` 다섯 개이고, 카테고리 안에 하위 폴더를 만들지 않습니다.
+    - frontmatter의 `category`는 폴더 이름과 같게 맞춥니다. 목록 페이지가 이 값으로 글을 거릅니다.
+    - 글을 다른 카테고리로 옮기면 URL이 바뀌므로 `.vitepress/redirects.ts`에 옛 경로를 추가합니다.
 - 글 전용 이미지는 해당 포스트의 `img/` 폴더에 두고 `![diagram](./img/diagram.png)`처럼 상대 경로로 참조하세요.
 - 포스트 생성기가 사용하는 frontmatter에는 `title`, `createdAt`, `category`, `description`을 포함하고, 댓글이 필요한 글에는 `comment`를 추가합니다.
 - `contents/posts/index.md` 같은 index 페이지는 섹션 랜딩 페이지 용도로 유지합니다.
