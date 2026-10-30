@@ -453,6 +453,18 @@ html {
     color: var(--tl-fg);
 }
 
+.vp-doc blockquote {
+    margin: 1.4em 0;
+    padding: 2px 0 2px 16px;
+    border-left: 3px solid var(--tl-line-strong);
+    color: var(--tl-fg-muted);
+}
+
+.vp-doc blockquote > p {
+    font-size: inherit;
+    color: inherit;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
