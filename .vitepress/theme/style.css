@@ -406,6 +406,53 @@ html {
     }
 }
 
+/**
+ * Doc
+ * -------------------------------------------------------------------------- */
+
+.vp-doc {
+    font-size: 0.96875rem;
+    line-height: 1.85;
+}
+
+.vp-doc p,
+.vp-doc li {
+    line-height: 1.85;
+}
+
+.vp-doc h2 {
+    margin: 2.6em 0 0.6em;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 1.1875rem;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+}
+
+.vp-doc h3 {
+    font-size: 1.0625rem;
+    letter-spacing: -0.015em;
+}
+
+.vp-doc a {
+    color: var(--tl-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--tl-accent-soft);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+    text-decoration-color: var(--tl-accent);
+}
+
+.vp-doc :not(pre) > code {
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    color: var(--tl-fg);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .sidebar-indicator,
     .VPSwitchAppearance .check {
