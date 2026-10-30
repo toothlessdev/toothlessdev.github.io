@@ -17,7 +17,7 @@
                 <h2 id="home-recent-title" class="home-section-title">최근 글</h2>
                 <a class="home-section-more" :href="withBase('/posts/')">전체 보기</a>
             </div>
-            <PostCardList :limit="5" />
+            <PostCardList :limit="3" />
         </section>
 
         <section class="home-section" aria-labelledby="home-topics-title">
