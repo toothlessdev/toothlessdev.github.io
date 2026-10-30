@@ -1,60 +1,51 @@
 @import "katex/dist/katex.min.css";
 
 /**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ * 기본 테마는 그대로 확장하고, 색과 글꼴과 간격만 이 파일에서 덮어씁니다.
+ * 기본 테마 변수 목록: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ *
+ * 면은 선 대신 배경 톤 차이로 나눕니다. 그래서 divider 계열 색을 배경과 가깝게 낮춰 둡니다.
  */
 
-/**
- * Colors
- *
- * Each colors have exact same color scale system with 3 levels of solid
- * colors with different brightness, and 1 soft color.
- *
- * - `XXX-1`: The most solid color used mainly for colored text. It must
- *   satisfy the contrast ratio against when used on top of `XXX-soft`.
- *
- * - `XXX-2`: The color used mainly for hover state of the button.
- *
- * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
- *
- * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
- *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create a accent, such as when having inline code block inside
- *   custom containers.
- *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attached to it such as bg color for menu hover state.
- *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
- *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
- *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
- *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
- * -------------------------------------------------------------------------- */
-
 :root {
+    --tl-bg: #ffffff;
+    --tl-fg: #161817;
+    --tl-fg-muted: #5b615e;
+    --tl-fg-faint: #6d7370;
+    --tl-subtle: #f2f4f3;
+    --tl-subtle-strong: #e7eae8;
+    --tl-line-strong: #d3d8d5;
+    --tl-accent: #23805a;
+    --tl-accent-hover: #1c6a4a;
+    --tl-accent-soft: rgba(35, 128, 90, 0.12);
+
+    --tl-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --tl-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --vp-font-family-base:
+        "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+
+    --vp-c-bg: var(--tl-bg);
+    --vp-c-bg-alt: var(--tl-bg);
+    --vp-c-bg-soft: var(--tl-subtle);
+    --vp-c-bg-elv: var(--tl-bg);
+    --vp-c-text-1: var(--tl-fg);
+    --vp-c-text-2: var(--tl-fg-muted);
+    --vp-c-text-3: var(--tl-fg-faint);
+    --vp-c-divider: var(--tl-subtle-strong);
+    --vp-c-gutter: var(--tl-subtle-strong);
+    --vp-c-border: var(--tl-subtle-strong);
+
     --vp-c-default-1: var(--vp-c-gray-1);
     --vp-c-default-2: var(--vp-c-gray-2);
     --vp-c-default-3: var(--vp-c-gray-3);
-    --vp-c-default-soft: var(--vp-c-gray-soft);
+    --vp-c-default-soft: var(--tl-subtle);
 
-    --vp-c-brand-1: var(--vp-c-indigo-1);
-    --vp-c-brand-2: var(--vp-c-indigo-2);
-    --vp-c-brand-3: var(--vp-c-indigo-3);
-    --vp-c-brand-soft: var(--vp-c-indigo-soft);
+    --vp-c-brand-1: var(--tl-accent);
+    --vp-c-brand-2: var(--tl-accent-hover);
+    --vp-c-brand-3: var(--tl-accent);
+    --vp-c-brand-soft: var(--tl-accent-soft);
 
     --vp-c-tip-1: var(--vp-c-brand-1);
     --vp-c-tip-2: var(--vp-c-brand-2);
@@ -70,89 +61,55 @@
     --vp-c-danger-2: var(--vp-c-red-2);
     --vp-c-danger-3: var(--vp-c-red-3);
     --vp-c-danger-soft: var(--vp-c-red-soft);
-}
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
+    --vp-nav-bg-color: var(--tl-bg);
+    --vp-sidebar-bg-color: var(--tl-bg);
+    --vp-code-block-bg: var(--tl-subtle);
+    --vp-code-bg: var(--tl-subtle);
+    --vp-code-copy-code-bg: var(--tl-bg);
+    --vp-input-switch-bg-color: var(--tl-subtle-strong);
 
-:root {
-    --vp-button-brand-border: transparent;
-    --vp-button-brand-text: var(--vp-c-white);
-    --vp-button-brand-bg: var(--vp-c-brand-3);
-    --vp-button-brand-hover-border: transparent;
-    --vp-button-brand-hover-text: var(--vp-c-white);
-    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-    --vp-button-brand-active-border: transparent;
-    --vp-button-brand-active-text: var(--vp-c-white);
-    --vp-button-brand-active-bg: var(--vp-c-brand-1);
-}
+    --vp-local-search-bg: var(--tl-bg);
+    --vp-local-search-result-bg: var(--tl-bg);
+    --vp-local-search-result-border: transparent;
+    --vp-local-search-result-selected-bg: var(--tl-subtle);
+    --vp-local-search-result-selected-border: transparent;
+    --vp-local-search-highlight-bg: var(--tl-accent-soft);
+    --vp-local-search-highlight-text: var(--tl-fg);
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
-
-    --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-    --vp-home-hero-image-filter: blur(44px);
-}
-
-@media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(56px);
-    }
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(68px);
-    }
-}
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
     --vp-custom-block-tip-border: transparent;
     --vp-custom-block-tip-text: var(--vp-c-text-1);
     --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
     --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+
+    --vp-sidebar-width: 200px;
 }
 
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
-
-.DocSearch {
-    --docsearch-primary-color: var(--vp-c-brand-1) !important;
-}
-
-figcaption {
-    font-size: 0.75rem;
-}
-
-/**
- * Component: Sidebar
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-sidebar-width: 180px;
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-sidebar-width: 220px;
-    }
+.dark {
+    --tl-bg: #0c0d0d;
+    --tl-fg: #f1f3f2;
+    --tl-fg-muted: #a7aeaa;
+    --tl-fg-faint: #858c88;
+    --tl-subtle: #181a19;
+    --tl-subtle-strong: #222524;
+    --tl-line-strong: #343937;
+    --tl-accent: #5fcf9c;
+    --tl-accent-hover: #7fdcb1;
+    --tl-accent-soft: rgba(95, 207, 156, 0.16);
 }
 
 @media (min-width: 1440px) {
     :root {
         --vp-sidebar-width: 240px;
     }
+}
+
+::selection {
+    background: var(--tl-accent-soft);
+}
+
+figcaption {
+    font-size: 0.75rem;
 }
 
 .category-indicator {
