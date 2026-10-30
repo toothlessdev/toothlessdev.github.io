@@ -693,7 +693,9 @@ figcaption {
     background-color: var(--tl-line-strong) !important;
 }
 
-.VPLocalSearchBox .shell .toggle-layout-button.detailed-list {
+/* 터치 기기에서는 탭한 버튼에 :hover 가 남아서, 기본 테마의 hover brand 색이 계속 보입니다 */
+.VPLocalSearchBox .shell .toggle-layout-button.detailed-list,
+.VPLocalSearchBox .shell .search-actions button:not([disabled]):hover {
     color: var(--tl-fg) !important;
 }
 
