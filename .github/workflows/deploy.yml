@@ -36,9 +36,9 @@ jobs:
           path: |
             contents/posts/**/img/**/*.webp
             contents/posts/**/img/**/*.jpeg
-          key: optimized-images-${{ hashFiles('contents/posts/**/img/**/*.{jpg,jpeg,png}') }}
+          key: optimized-images-v2-${{ hashFiles('contents/posts/**/img/**/*.{jpg,jpeg,png}') }}
           restore-keys: |
-            optimized-images-
+            optimized-images-v2-
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
