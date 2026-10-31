@@ -1,5 +1,14 @@
 [
   {
+    "url": "/posts/Infra/how-scheduler-works",
+    "frontmatter": {
+      "title": "지금이니?! 스케줄러는 어떻게 '그때' 를 아는가?",
+      "createdAt": "2026-10-29T00:00:00.000Z",
+      "category": "Infra",
+      "description": "스케줄러는 지금이 트리거할 시점이라는 것을 어떻게 알까 ? 시간을 쓸고 지나가는 SweepLine 방식과 Trigger 시각을 정해두는 Durable Timer 방식을 비교해봅니다"
+    }
+  },
+  {
     "url": "/posts/Frontend/async-generator-cooperative-scheduling",
     "frontmatter": {
       "title": "Async Generator 로 협력적 스케쥴링 구현하기",
